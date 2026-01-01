@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Door Sensors | CFG Components</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+
+<style>
+:root{
+  --red:#c70000;
+  --dark:#1f1f1f;
+  --light:#f6f1ea;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Poppins',sans-serif;
+  color:#222;
+  background:#ffffff;
+}
+
+/* ---------------- HERO ---------------- */
+.hero{
+  height:60vh;
+  min-height:420px;
+  background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url('https://images.unsplash.com/photo-1581092919535-7146e9cde0c6?q=80&w=1600&auto=format&fit=crop')
+    center/cover no-repeat;
+  display:flex;
+  align-items:center;
+}
+
+.hero-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:0 24px;
+  color:#fff;
+}
+
+.hero h1{
+  font-size:44px;
+  font-weight:800;
+  line-height:1.1;
+  margin-bottom:16px;
+}
+
+.hero p{
+  max-width:560px;
+  font-size:17px;
+  line-height:1.6;
+  opacity:.92;
+}
+
+/* ---------------- SECTION ---------------- */
+section{
+  padding:100px 24px;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+}
+
+/* ---------------- PRODUCT INFO ---------------- */
+.product-grid{
+  display:grid;
+  grid-template-columns:1.1fr 0.9fr;
+  gap:60px;
+  align-items:center;
+}
+
+@media(max-width:900px){
+  .product-grid{grid-template-columns:1fr}
+}
+
+/* TEXT */
+.product-text h2{
+  font-size:36px;
+  font-weight:800;
+  margin-bottom:18px;
+}
+
+.product-text p{
+  font-size:16px;
+  line-height:1.7;
+  color:#444;
+  margin-bottom:20px;
+}
+
+.product-text ul{
+  list-style:none;
+}
+
+.product-text li{
+  font-size:15px;
+  padding:7px 0;
+  padding-left:24px;
+  position:relative;
+}
+
+.product-text li::before{
+  content:"✔";
+  position:absolute;
+  left:0;
+  color:var(--red);
+  font-weight:700;
+}
+
+/* VISUAL BOX */
+.product-visual{
+  background:var(--light);
+  border-radius:18px;
+  padding:50px;
+  text-align:center;
+  box-shadow:0 20px 45px rgba(0,0,0,.08);
+}
+
+.product-visual h3{
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.product-visual p{
+  font-size:14px;
+  color:#555;
+}
+
+/* ---------------- FEATURES ---------------- */
+.features{
+  background:#fafafa;
+}
+
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:30px;
+  margin-top:40px;
+}
+
+.feature{
+  background:#ffffff;
+  padding:34px 26px;
+  border-radius:16px;
+  text-align:center;
+  box-shadow:0 12px 30px rgba(0,0,0,.06);
+}
+
+.feature span{
+  display:inline-block;
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  background:var(--red);
+  color:#fff;
+  font-size:22px;
+  font-weight:700;
+  line-height:62px;
+  margin-bottom:16px;
+}
+
+.feature h4{
+  font-size:18px;
+  font-weight:600;
+}
+
+/* ---------------- CTA ---------------- */
+.cta{
+  background:var(--dark);
+  color:#fff;
+  text-align:center;
+}
+
+.cta h2{
+  font-size:36px;
+  font-weight:800;
+  margin-bottom:20px;
+}
+
+.cta a{
+  display:inline-block;
+  padding:16px 38px;
+  background:var(--red);
+  color:#fff;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:700;
+  transition:.3s ease;
+}
+
+.cta a:hover{
+  transform:translateY(-3px);
+}
+
+/* ---------------- MOBILE ---------------- */
+@media(max-width:768px){
+  .hero h1{font-size:34px}
+  section{padding:70px 20px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Elevator Door Sensors</h1>
+    <p>
+      Advanced safety sensors designed to prevent door accidents by detecting
+      obstacles and ensuring smooth, safe passenger movement.
+    </p>
+  </div>
+</section>
+
+<!-- ================= PRODUCT OVERVIEW ================= -->
+<section>
+  <div class="container">
+    <div class="product-grid">
+
+      <div class="product-text gsap-text">
+        <h2>Reliable Door Protection Systems</h2>
+        <p>
+          CFG Components supplies high-quality elevator door sensors that enhance
+          passenger safety by detecting objects, people, and obstructions during
+          door operation.
+        </p>
+        <p>
+          Our sensors are designed for consistent performance, easy installation,
+          and long operational life across residential, commercial, and industrial
+          elevator systems.
+        </p>
+        <ul>
+          <li>Infrared & multi-beam detection</li>
+          <li>Fast response and high accuracy</li>
+          <li>Compatible with most elevator doors</li>
+          <li>Durable and low maintenance</li>
+        </ul>
+      </div>
+
+      <div class="product-visual gsap-visual">
+        <h3>Safety First Technology</h3>
+        <p>
+          Engineered to comply with modern elevator safety standards and ensure
+          uninterrupted door operation.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="features">
+  <div class="container">
+    <h2 style="font-size:38px;font-weight:800;text-align:center;">
+      Why Choose CFG Door Sensors
+    </h2>
+
+    <div class="features-grid">
+      <div class="feature gsap-feature">
+        <span>01</span>
+        <h4>High Sensitivity</h4>
+      </div>
+      <div class="feature gsap-feature">
+        <span>02</span>
+        <h4>Fast Detection</h4>
+      </div>
+      <div class="feature gsap-feature">
+        <span>03</span>
+        <h4>Universal Compatibility</h4>
+      </div>
+      <div class="feature gsap-feature">
+        <span>04</span>
+        <h4>Trusted Since 2017</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta">
+  <div class="container">
+    <h2>Need Door Sensors for Your Elevator?</h2>
+    <a href="contact.html">Request a Quote</a>
+  </div>
+</section>
+
+<!-- ================= GSAP ================= -->
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.from(".hero h1, .hero p",{
+  y:40,
+  opacity:0,
+  duration:1,
+  stagger:.2,
+  ease:"power3.out"
+});
+
+gsap.from(".gsap-text",{
+  scrollTrigger:{
+    trigger:".product-grid",
+    start:"top 80%"
+  },
+  x:-60,
+  opacity:0,
+  duration:1,
+  ease:"power3.out"
+});
+
+gsap.from(".gsap-visual",{
+  scrollTrigger:{
+    trigger:".product-grid",
+    start:"top 80%"
+  },
+  x:60,
+  opacity:0,
+  duration:1,
+  ease:"power3.out"
+});
+
+gsap.from(".gsap-feature",{
+  scrollTrigger:{
+    trigger:".features-grid",
+    start:"top 80%"
+  },
+  scale:.85,
+  opacity:0,
+  duration:.8,
+  stagger:.15,
+  ease:"back.out(1.7)"
+});
+</script>
+
+</body>
+</html>

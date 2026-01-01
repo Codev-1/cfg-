@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+</head>
+<body>
+
+<section id="product-category" style="
+  width:100%;
+  padding:120px 40px;
+  background:#000;
+  font-family:'Poppins',sans-serif;
+">
+
+  <h2 style="
+    text-align:center;
+    font-size:42px;
+    font-weight:800;
+    color:#fff;
+    margin-bottom:15px;
+  ">Our Product Categories</h2>
+
+  <p style="
+    text-align:center;
+    font-size:16px;
+    color:#ccc;
+    max-width:900px;
+    margin:0 auto 60px;
+  ">
+    Explore our premium range of elevator products trusted across India.
+  </p>
+
+  <!-- GRID -->
+  <div class="acc-grid">
+    
+    <!-- CARD 1 -->
+    <div class="acc-card" data-index="0">
+      <span class="acc-bar"></span>
+      <img src="img/Door.jpg" alt="">
+      <div class="acc-tag">PRODUCT</div>
+      <h3 class="acc-title-text">Elevator Doors</h3>
+
+      <p class="acc-desc">
+        10ft Glass, 9ft MS, 8ft SS automatic doors — engineered for long life & smooth operation.
+      </p>
+
+      <div class="acc-expand">Expand →</div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="acc-card" data-index="1">
+      <span class="acc-bar"></span>
+      <img src="img/ma.jpg" alt="">
+      <div class="acc-tag">PRODUCT</div>
+      <h3 class="acc-title-text">Elevator Machines</h3>
+
+      <p class="acc-desc">
+        Gearless & geared traction machines designed for performance, stability & high efficiency.
+      </p>
+
+      <div class="acc-expand">Expand →</div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="acc-card" data-index="2">
+      <span class="acc-bar"></span>
+      <img src="img/third.png" alt="">
+      <div class="acc-tag">PRODUCT</div>
+      <h3 class="acc-title-text">Control Panels</h3>
+
+      <p class="acc-desc">
+        Single & three-phase control systems with intelligent diagnostics and modern safety tech.
+      </p>
+
+      <div class="acc-expand">Expand →</div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="acc-card" data-index="3">
+      <span class="acc-bar"></span>
+      <img src="img/sss cabin.jpg" alt="">
+      <div class="acc-tag">PRODUCT</div>
+      <h3 class="acc-title-text">Elevator Cabins</h3>
+
+      <p class="acc-desc">
+        Stainless steel cabins, car frames & counter-frame structures crafted for durability.
+      </p>
+
+      <div class="acc-expand">Expand →</div>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="acc-card" data-index="4">
+      <span class="acc-bar"></span>
+      <img src="img/enco.jpg" alt="">
+      <div class="acc-tag">PRODUCT</div>
+      <h3 class="acc-title-text">Machine Encoders</h3>
+
+      <p class="acc-desc">
+        High-precision encoders ensuring smooth leveling and accurate floor stopping.
+      </p>
+
+      <div class="acc-expand">Expand →</div>
+    </div>
+
+    <!-- CARD 6 -->
+    <div class="acc-card" data-index="5">
+      <span class="acc-bar"></span>
+      <img src="img/machi.jpg" alt="">
+      <div class="acc-tag">PRODUCT</div>
+      <h3 class="acc-title-text">Over Speed Governor</h3>
+
+      <p class="acc-desc">
+        Critical safety device that activates emergency braking during overspeed.
+      </p>
+
+      <div class="acc-expand">Expand →</div>
+    </div>
+
+    <!-- CARD 7 -->
+    <div class="acc-card" data-index="6">
+      <span class="acc-bar"></span>
+      <img src="img/bracke.jpg" alt="">
+      <div class="acc-tag">PRODUCT</div>
+      <h3 class="acc-title-text">Elevator Bracket</h3>
+
+      <p class="acc-desc">
+        High-strength brackets for guide rail support, machine frames & cabin structure stability.
+      </p>
+
+      <div class="acc-expand">Expand →</div>
+    </div>
+
+    <!-- CARD 8 -->
+    <div class="acc-card" data-index="7">
+      <span class="acc-bar"></span>
+      <img src="img/ds.jpg" alt="">
+      <div class="acc-tag">PRODUCT</div>
+      <h3 class="acc-title-text">Door Sensor</h3>
+
+      <p class="acc-desc">
+        Infrared door sensors for obstruction detection & enhanced passenger safety.
+      </p>
+
+      <div class="acc-expand">Expand →</div>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+<style>
+
+/* GRID */
+.acc-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:50px;
+  max-width:1300px;
+  margin:auto;
+}
+
+/* CARD */
+.acc-card{
+  position:relative;
+  padding:40px;
+  height:540px;
+  border-radius:8px;
+  background:#111;
+  overflow:hidden;
+  color:white;
+  transition:1s cubic-bezier(.2,.8,.2,1);
+  transform:translateY(80px);
+  opacity:0;
+  isolation:isolate;
+}
+
+/* SCROLL REVEAL */
+.acc-card.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* CARD IMAGE */
+.acc-card img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:1;
+  transition:1.1s cubic-bezier(.1,.7,.23,1);
+}
+
+/* PURPLE BAR */
+.acc-bar{
+  position:absolute;
+  left:0; top:0; bottom:0;
+  width:6px;
+  background:#9b5cff;
+  transform:scaleY(0);
+  transform-origin:top;
+  transition:.6s cubic-bezier(.23,1,.32,1);
+  z-index:3;
+}
+
+/* TEXT */
+.acc-tag{
+  z-index:4;
+  font-size:14px;
+  opacity:.8;
+  margin-bottom:10px;
+}
+
+.acc-title-text{
+  z-index:4;
+  margin:0;
+  font-size:30px;
+  font-weight:700;
+  transition:.5s ease;
+}
+
+/* HOVER DESCRIPTION */
+.acc-desc{
+  z-index:4;
+  position:absolute;
+  right:-150px;
+  top:40px;
+  opacity:0;
+  max-width:350px;
+  font-size:16px;
+  line-height:1.5;
+  transform:translateX(40px);
+  transition:.9s cubic-bezier(.23,1,.32,1);
+}
+
+/* EXPAND */
+.acc-expand{
+  z-index:4;
+  position:absolute;
+  bottom:40px;
+  font-size:16px;
+  opacity:.8;
+  transition:.6s ease;
+}
+
+/* HOVER EFFECTS */
+.acc-card:hover{
+  background:white;
+  color:black;
+  transform:translateY(-12px);
+  box-shadow:0 30px 80px rgba(0,0,0,0.35);
+}
+
+.acc-card:hover img{
+  opacity:0;
+  transform:scale(1.06);
+}
+
+.acc-card:hover .acc-bar{
+  transform:scaleY(1);
+}
+
+.acc-card:hover .acc-desc{
+  opacity:1;
+  right:40px;
+  transform:translateX(0);
+}
+
+.acc-card:hover .acc-title-text{
+  color:black;
+  transform:translateY(-8px);
+}
+
+.acc-card:hover .acc-tag{
+  color:#444;
+}
+
+.acc-card:hover .acc-expand{
+  color:black;
+  opacity:1;
+}
+
+
+
+</style>
+
+
+
+
+
+
+	
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const cards = document.querySelectorAll(".acc-card");
+
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("show");
+      }
+    });
+  }, {threshold:0.18});
+
+  cards.forEach(c => obs.observe(c));
+
+});
+</script>
+
+<section id="product-scroll" style="
+  width:100%;
+  height:100vh;
+  background:#fff;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+">
+
+  <!-- TITLE -->
+  <div style="padding:80px 24px 40px; text-align:center;">
+    <h2 style="font-size:42px; font-weight:800; margin-bottom:10px;">Our Product Categories</h2>
+    <p style="color:#555; font-size:16px; max-width:820px; margin:auto;">
+      Explore our premium elevator solutions trusted across India.
+    </p>
+  </div>
+
+  <!-- HORIZONTAL WRAPPER -->
+  <div class="pc-pin">
+    <div class="pc-track">
+
+      <!-- CARD -->
+      <div class="pc-card">
+        <div class="pc-media">
+          <img src="img/Door.jpg">
+        </div>
+        <div class="pc-content">
+          <h3>Elevator Doors</h3>
+        </div>
+        <div class="pc-hover">
+          <h4>Elevator Doors</h4>
+          <p>10ft Glass, MS & SS automatic doors with premium durability.</p>
+          <span>Explore →</span>
+        </div>
+      </div>
+
+      <div class="pc-card">
+        <div class="pc-media">
+          <img src="img/ma.jpg">
+        </div>
+        <div class="pc-content">
+          <h3>Elevator Machines</h3>
+        </div>
+        <div class="pc-hover">
+          <h4>Elevator Machines</h4>
+          <p>Gearless & geared traction machines for high performance.</p>
+          <span>Explore →</span>
+        </div>
+      </div>
+
+      <div class="pc-card">
+        <div class="pc-media">
+          <img src="img/third.png">
+        </div>
+        <div class="pc-content">
+          <h3>Control Panels</h3>
+        </div>
+        <div class="pc-hover">
+          <h4>Control Panels</h4>
+          <p>Advanced single & three-phase safety control systems.</p>
+          <span>Explore →</span>
+        </div>
+      </div>
+
+      <div class="pc-card">
+        <div class="pc-media">
+          <img src="img/sss cabin.jpg">
+        </div>
+        <div class="pc-content">
+          <h3>Elevator Cabins</h3>
+        </div>
+        <div class="pc-hover">
+          <h4>Elevator Cabins</h4>
+          <p>SS cabins, frames & counters engineered for reliability.</p>
+          <span>Explore →</span>
+        </div>
+      </div>
+
+      <div class="pc-card">
+        <div class="pc-media">
+          <img src="img/enco.jpg">
+        </div>
+        <div class="pc-content">
+          <h3>Machine Encoders</h3>
+        </div>
+        <div class="pc-hover">
+          <h4>Machine Encoders</h4>
+          <p>Precision encoders for accurate leveling & smooth rides.</p>
+          <span>Explore →</span>
+        </div>
+      </div>
+
+      <div class="pc-card">
+        <div class="pc-media">
+          <img src="img/machi.jpg">
+        </div>
+        <div class="pc-content">
+          <h3>Over Speed Governor</h3>
+        </div>
+        <div class="pc-hover">
+          <h4>Over Speed Governor</h4>
+          <p>Critical safety system to prevent overspeed accidents.</p>
+          <span>Explore →</span>
+        </div>
+      </div>
+
+      <div class="pc-card">
+        <div class="pc-media">
+          <img src="img/bracke.jpg">
+        </div>
+        <div class="pc-content">
+          <h3>Elevator Brackets</h3>
+        </div>
+        <div class="pc-hover">
+          <h4>Elevator Brackets</h4>
+          <p>High-strength support brackets for structural stability.</p>
+          <span>Explore →</span>
+        </div>
+      </div>
+
+      <div class="pc-card">
+        <div class="pc-media">
+          <img src="img/ds.jpg">
+        </div>
+        <div class="pc-content">
+          <h3>Door Sensors</h3>
+        </div>
+        <div class="pc-hover">
+          <h4>Door Sensors</h4>
+          <p>Infrared sensors ensuring passenger safety.</p>
+          <span>Explore →</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.pc-pin{
+  height:calc(100vh - 200px);
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+}
+.pc-track{
+  display:flex;
+  gap:60px;
+  padding:0 10vw;
+}
+
+.pc-card{
+  width:320px;
+  height:420px;
+  background:#000;
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  flex-shrink:0;
+  transform-style:preserve-3d;
+}
+
+.pc-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform:scale(1.1);
+}
+
+.pc-content{
+  position:absolute;
+  bottom:26px;
+  left:26px;
+  color:#fff;
+  z-index:2;
+}
+.pc-content h3{
+  font-size:20px;
+  font-weight:700;
+}
+
+.pc-hover{
+  position:absolute;
+  inset:0;
+  background:#fff;
+  padding:36px;
+  transform:translateX(100%);
+  transition:transform .6s cubic-bezier(.22,.9,.3,1);
+  z-index:3;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+.pc-hover h4{font-size:20px;margin-bottom:10px;}
+.pc-hover p{font-size:14px;color:#444;}
+.pc-hover span{margin-top:16px;font-weight:700;color:#c70000;}
+
+.pc-card:hover .pc-hover{transform:translateX(0);}
+</style>
+
+
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+const track = document.querySelector(".pc-track");
+const cards = gsap.utils.toArray(".pc-card");
+
+/* HORIZONTAL SCROLL */
+gsap.to(track,{
+  x:()=>-(track.scrollWidth - window.innerWidth),
+  ease:"none",
+  scrollTrigger:{
+    trigger:"#product-scroll",
+    start:"top top",
+    end:()=>"+=" + track.scrollWidth,
+    scrub:1,
+    pin:true,
+    anticipatePin:1
+  }
+});
+
+/* PARALLAX IMAGE DEPTH */
+cards.forEach(card=>{
+  const img = card.querySelector("img");
+  gsap.to(img,{
+    x:40,
+    ease:"none",
+    scrollTrigger:{
+      trigger:card,
+      containerAnimation:ScrollTrigger.getAll()[0],
+      scrub:true
+    }
+  });
+});
+
+/* MAGNETIC HOVER */
+cards.forEach(card=>{
+  card.addEventListener("mousemove",e=>{
+    const r = card.getBoundingClientRect();
+    const x = e.clientX - r.left - r.width/2;
+    const y = e.clientY - r.top - r.height/2;
+    gsap.to(card,{x:x*0.12,y:y*0.12,duration:0.4});
+  });
+  card.addEventListener("mouseleave",()=>{
+    gsap.to(card,{x:0,y:0,duration:0.6});
+  });
+});
+</script>
+
+
+<section id="product-scroll">
+
+  <div class="ps-header">
+    <h2>Our Product Categories</h2>
+    <p>Explore our premium range of elevator products trusted across India.</p>
+  </div>
+
+  <!-- PINNED WRAPPER -->
+  <div class="ps-pin">
+    <div class="ps-track">
+
+      <!-- CARD 1 -->
+      <div class="pc-card">
+        <div class="pc-media">
+          <img src="img/Door.jpg" alt="">
+        </div>
+        <div class="pc-content">
+          <h3>Elevator Doors</h3>
+        </div>
+        <div class="pc-hover">
+          <h4>Elevator Doors</h4>
+          <p>10ft Glass, 9ft MS, 8ft SS automatic doors with premium durability.</p>
+          <span>Explore →</span>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="pc-card">
+        <div class="pc-media">
+          <img src="img/ma.jpg" alt="">
+        </div>
+        <div class="pc-content">
+          <h3>Elevator Machines</h3>
+        </div>
+        <div class="pc-hover">
+          <h4>Elevator Machines</h4>
+          <p>Gearless & geared traction machines engineered for power & efficiency.</p>
+          <span>Explore →</span>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="pc-card">
+        <div class="pc-media">
+          <img src="img/third.png" alt="">
+        </div>
+        <div class="pc-content">
+          <h3>Control Panels</h3>
+        </div>
+        <div class="pc-hover">
+          <h4>Control Panels</h4>
+          <p>Single & three-phase panels with modern safety diagnostics.</p>
+          <span>Explore →</span>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="pc-card">
+        <div class="pc-media">
+          <img src="img/sss cabin.jpg" alt="">
+        </div>
+        <div class="pc-content">
+          <h3>Elevator Cabins</h3>
+        </div>
+        <div class="pc-hover">
+          <h4>Elevator Cabins</h4>
+          <p>Stainless steel cabins & frames crafted for long life.</p>
+          <span>Explore →</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<style>
+#product-scroll{
+  padding:100px 0;
+  background:#fff;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+}
+
+.ps-header{
+  text-align:center;
+  margin-bottom:60px;
+}
+.ps-header h2{
+  font-size:42px;
+  font-weight:800;
+}
+.ps-header p{
+  color:#555;
+  max-width:760px;
+  margin:12px auto 0;
+}
+
+.ps-pin{
+  height:100vh;
+  display:flex;
+  align-items:center;
+}
+
+.ps-track{
+  display:flex;
+  gap:80px;
+  padding:0 10vw;
+}
+
+/* CARD */
+.pc-card{
+  position:relative;
+  width:340px;
+  height:440px;
+  background:#000;
+  overflow:hidden;
+  cursor:pointer;
+  transform-style:preserve-3d;
+}
+
+/* IMAGE */
+.pc-media{
+  position:absolute;
+  inset:0;
+}
+.pc-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform:scale(1.05);
+}
+
+/* TITLE */
+.pc-content{
+  position:absolute;
+  bottom:26px;
+  left:26px;
+  z-index:2;
+  color:#fff;
+}
+.pc-content h3{
+  font-size:20px;
+  font-weight:700;
+}
+
+/* WHITE REVEAL PANEL */
+.pc-hover{
+  position:absolute;
+  inset:0;
+  background:#fff;
+  padding:40px 34px;
+  transform:translateX(100%);
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  transition:transform .55s cubic-bezier(.22,.9,.3,1);
+  z-index:3;
+}
+.pc-hover h4{
+  font-size:20px;
+  margin-bottom:10px;
+}
+.pc-hover p{
+  font-size:14px;
+  color:#444;
+  line-height:1.5;
+}
+.pc-hover span{
+  margin-top:18px;
+  font-weight:700;
+  color:#c70000;
+}
+
+/* HOVER */
+.pc-card:hover .pc-hover{
+  transform:translateX(0);
+}
+</style>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+const track = document.querySelector(".ps-track");
+const cards = gsap.utils.toArray(".pc-card");
+
+/* HORIZONTAL SCROLL */
+gsap.to(track,{
+  x: () => -(track.scrollWidth - window.innerWidth),
+  ease:"none",
+  scrollTrigger:{
+    trigger:".ps-pin",
+    start:"top top",
+    end: () => "+=" + track.scrollWidth,
+    scrub:1,
+    pin:true
+  }
+});
+
+/* PARALLAX IMAGE */
+cards.forEach(card=>{
+  gsap.to(card.querySelector("img"),{
+    xPercent:15,
+    ease:"none",
+    scrollTrigger:{
+      trigger:card,
+      containerAnimation: ScrollTrigger.getAll()[0],
+      scrub:true
+    }
+  });
+});
+
+/* FADE IN */
+cards.forEach(card=>{
+  gsap.from(card,{
+    opacity:0,
+    y:60,
+    duration:.6,
+    scrollTrigger:{
+      trigger:card,
+      containerAnimation: ScrollTrigger.getAll()[0],
+      start:"left 80%"
+    }
+  });
+});
+
+/* MAGNETIC HOVER */
+cards.forEach(card=>{
+  card.addEventListener("mousemove",e=>{
+    const r = card.getBoundingClientRect();
+    const x = e.clientX - r.left - r.width/2;
+    const y = e.clientY - r.top - r.height/2;
+    gsap.to(card,{ x:x*0.12, y:y*0.12, duration:.4 });
+  });
+  card.addEventListener("mouseleave",()=>{
+    gsap.to(card,{ x:0, y:0, duration:.6 });
+  });
+});
+</script>
+
+
+<section id="cfg-testimonials" style="
+  width:100%;
+  padding:120px 0;
+  background:#efe8dd;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+">
+
+  <!-- Heading -->
+  <div style="max-width:1200px; margin:auto; padding:0 24px;">
+    <h2 style="
+      font-size:48px;
+      font-weight:700;
+      color:#222;
+      line-height:1.1;
+      max-width:520px;
+      margin-bottom:60px;
+	  
+    ">
+      What Our Happy<br>Customers Say
+    </h2>
+  </div>
+
+  <!-- Slider -->
+   <div class="cfg-container">
+  <div class="cfg-ticker">
+    <div class="cfg-track">
+
+      <!-- CARD -->
+      <div class="cfg-card light">
+        <img src="https://i.pravatar.cc/100?img=12">
+        <p>
+          From consultation to installation, everything was handled professionally.
+          CFG Components delivers true quality.
+        </p>
+        <h4>Vikas Deshmukh</h4>
+        <span>Elevator Contractor</span>
+      </div>
+
+      <div class="cfg-card dark">
+        <img src="https://i.pravatar.cc/100?img=47">
+        <p>
+          The elevator machines work perfectly and the after-sales support
+          has been outstanding.
+        </p>
+        <h4>Kiran Jagtap</h4>
+        <span>Project Manager</span>
+      </div>
+
+      <div class="cfg-card light">
+        <img src="https://i.pravatar.cc/100?img=26">
+        <p>
+          Installation was quick and results were immediate.
+          Premium components and reliable delivery.
+        </p>
+        <h4>Pari Patil</h4>
+        <span>Builder</span>
+      </div>
+
+      <div class="cfg-card dark">
+        <img src="https://i.pravatar.cc/100?img=33">
+        <p>
+          Professional team with excellent communication.
+          CFG products improved our elevator performance.
+        </p>
+        <h4>Rahul Verma</h4>
+        <span>Facility Manager</span>
+      </div>
+
+      <div class="cfg-card light">
+        <img src="https://i.pravatar.cc/100?img=32">
+        <p>
+          High-quality doors and control panels.
+          Strongly recommend CFG Components.
+        </p>
+        <h4>Shrusti Pawar</h4>
+        <span>Architect</span>
+      </div>
+
+      <!-- DUPLICATE SET FOR INFINITE LOOP -->
+      <div class="cfg-card light">
+        <img src="https://i.pravatar.cc/100?img=12">
+        <p>
+          From consultation to installation, everything was handled professionally.
+          CFG Components delivers true quality.
+        </p>
+        <h4>Vikas Deshmukh</h4>
+        <span>Elevator Contractor</span>
+      </div>
+
+      <div class="cfg-card dark">
+        <img src="https://i.pravatar.cc/100?img=47">
+        <p>
+          The elevator machines work perfectly and the after-sales support
+          has been outstanding.
+        </p>
+        <h4>Kiran Jagtap</h4>
+        <span>Project Manager</span>
+      </div>
+	  <div class="cfg-spacer"></div>
+	  	
+    </div>
+  </div>
+  </div>
+</section>
+
+<style>
+
+.cfg-container{
+  max-width:1200px;
+  margin:0 auto;                 /* FIXED */
+  padding-left:110px;
+  padding-right: 110px;
+}
+
+/* THIS creates visible right-side space */
+.cfg-spacer{
+  width: 110px;
+  flex-shrink: 0;
+}
+
+
+.cfg-ticker{
+  overflow:hidden;
+}
+
+
+.cfg-track{
+  display:flex;
+  gap:18px;
+ 
+  
+}
+
+
+
+.cfg-card{
+  width:200px;
+  height: 280px;
+  padding:55px;
+  border-radius:1px;
+  flex-shrink:0;
+  opacity:0;
+  transform:translateY(120px);
+}
+
+.cfg-card.light{
+  background:#e7dfd2;
+  color:#222;
+}
+
+.cfg-card.dark{
+  background:#2d2c28;
+  color:#fff;
+}
+
+.cfg-card img{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:10px;
+  margin-left: -30px;
+  margin-top: -30px;
+}
+
+.cfg-card p{
+  font-size:15px;
+  line-height:1.6;
+  margin-bottom:70px;
+  margin-left: -30px;
+}
+
+.cfg-card h4{
+  font-size:15px;
+  font-weight:600;
+  margin-left:-30px;
+  margin-bottom: 3px;
+
+}
+
+.cfg-card span{
+  font-size:13px;
+  margin-left:-30px;
+  margin-bottom: 3px;
+  opacity:0.7;
+}
+</style>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+/* APPEAR ANIMATION */
+gsap.to(".cfg-card",{
+  opacity:1,
+  y:0,
+  duration:3,
+  ease:"power3.out",
+  stagger:0.15,
+  scrollTrigger:{
+    trigger:"#cfg-testimonials",
+    start:"top 70%"
+  }
+});
+
+/* INFINITE HORIZONTAL LOOP */
+gsap.to(".cfg-track",{
+  x:"-50%",
+  duration:15,
+  ease:"none",
+  repeat:-1
+});
+</script>
+
+
+
+
+
+	
+</body>
+</html>

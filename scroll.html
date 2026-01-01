@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://assets.codepen.io/16327/ScrollSmoother.min.js"></script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+
+
+
+
+</head>
+<body>
+	
+<section id="pc-horizontal-section" style="
+  width:100%;
+  background:#ffffff;
+  padding:100px 0;
+  overflow:hidden;
+  font-family:'Poppins',sans-serif;
+">
+
+  <h2 style="text-align:center;font-size:42px;font-weight:800;margin-bottom:12px;">
+    Our Product Categories
+  </h2>
+
+  <p style="text-align:center;max-width:800px;margin:0 auto 50px;color:#555;">
+    Explore our premium range of elevator products trusted across India.
+  </p>
+
+  <div class="pc-viewport">
+    <div class="pc-track">
+
+      <div class="pc-card"><img src="img/Door.jpg"><h3>Elevator Doors</h3><p>Premium automatic doors with smooth operation.</p></div>
+      <div class="pc-card"><img src="img/ma.jpg"><h3>Elevator Machines</h3><p>Gearless & geared traction machines.</p></div>
+      <div class="pc-card"><img src="img/third.png"><h3>Control Panels</h3><p>Single & three phase intelligent panels.</p></div>
+      <div class="pc-card"><img src="img/sss cabin.jpg"><h3>Elevator Cabins</h3><p>Durable stainless steel cabins.</p></div>
+      <div class="pc-card"><img src="img/enco.jpg"><h3>Machine Encoders</h3><p>Precision leveling & stopping accuracy.</p></div>
+      <div class="pc-card"><img src="img/machi.jpg"><h3>Over Speed Governor</h3><p>Emergency braking safety system.</p></div>
+      <div class="pc-card"><img src="img/bracke.jpg"><h3>Elevator Bracket</h3><p>High-strength structural support.</p></div>
+      <div class="pc-card"><img src="img/ds.jpg"><h3>Door Sensor</h3><p>Infrared obstruction detection.</p></div>
+
+    </div>
+  </div>
+</section>
+
+  
+
+<style>
+	.pc-viewport{
+  width:100%;
+  overflow:hidden;
+}
+
+.pc-track{
+  display:flex;
+  gap:40px;
+  padding:0 60px;
+}
+
+.pc-card{
+  min-width:320px;
+  height:420px;
+  background:#fff;
+  border-radius:18px;
+  box-shadow:0 12px 28px rgba(0,0,0,0.12);
+  overflow:hidden;
+  opacity:0;
+  transform:translateY(40px);
+}
+
+.pc-card img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+}
+
+.pc-card h3{
+  margin:14px 16px 6px;
+  font-size:20px;
+  font-weight:700;
+}
+
+.pc-card p{
+  margin:0 16px;
+  font-size:14px;
+  color:#444;
+}
+
+</style>
+
+
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+const section = document.querySelector("#pc-horizontal-section");
+const track   = document.querySelector(".pc-track");
+const cards   = gsap.utils.toArray(".pc-card");
+
+/* 1️⃣ Calculate horizontal distance */
+function getScrollDistance() {
+  return track.scrollWidth - window.innerWidth;
+}
+
+/* 2️⃣ Main horizontal scroll animation (PINNED) */
+const horizontalTween = gsap.to(track, {
+  x: () => -getScrollDistance(),
+  ease: "none",
+  scrollTrigger: {
+    trigger: section,
+    start: "top top",
+    end: () => "+=" + getScrollDistance(),
+    scrub: 1,
+    pin: true,
+    anticipatePin: 1,
+    invalidateOnRefresh: true
+  }
+});
+
+/* 3️⃣ Animate EACH card correctly */
+cards.forEach((card, i) => {
+  gsap.to(card, {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: card,
+      containerAnimation: horizontalTween, // ✅ correct reference
+      start: "left 75%",
+      toggleActions: "play none none reverse"
+    }
+  });
+});
+
+/* 4️⃣ Refresh on resize */
+window.addEventListener("resize", () => {
+  ScrollTrigger.refresh();
+});
+</script>
+
+
+
+<section id="cfg-testimonials">
+  <div class="cfg-wrap">
+
+    <div class="cfg-header">
+      <h2>What Our Happy<br>Customers Say</h2>
+
+      <div class="cfg-arrows">
+        <div class="cfg-prev">‹</div>
+        <div class="cfg-next">›</div>
+      </div>
+    </div>
+
+    <div class="swiper cfgSwiper">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide cfg-card light">
+          <img src="https://i.pravatar.cc/80?img=12">
+          <div class="stars">★★★★★</div>
+          <p>Reliable delivery and solid build quality.</p>
+          <h4>Vikas Deshmukh</h4>
+          <span>Facility Manager</span>
+        </div>
+
+        <div class="swiper-slide cfg-card dark">
+          <img src="https://i.pravatar.cc/80?img=33">
+          <div class="stars">★★★★★</div>
+          <p>High-performance elevator machinery.</p>
+          <h4>Rahul Verma</h4>
+          <span>Operations Head</span>
+        </div>
+
+        <div class="swiper-slide cfg-card light">
+          <img src="https://i.pravatar.cc/80?img=26">
+          <div class="stars">★★★★★</div>
+          <p>Quick installation and premium components.</p>
+          <h4>Pari Patil</h4>
+          <span>Builder</span>
+        </div>
+
+        <div class="swiper-slide cfg-card dark">
+          <img src="https://i.pravatar.cc/80?img=47">
+          <div class="stars">★★★★★</div>
+          <p>Excellent after-sales support.</p>
+          <h4>Kiran Jagtap</h4>
+          <span>Project Manager</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<style>
+#cfg-testimonials{
+  background:#efe8dd;
+  padding:100px 0;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+}
+
+.cfg-wrap{
+  max-width:1500px;
+  margin:auto;
+  padding-left:120px;
+}
+
+.cfg-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  margin-bottom:60px;
+}
+
+.cfg-header h2{
+  font-size:48px;
+  line-height:1.1;
+  color:#222;
+}
+
+.cfg-arrows{
+  display:flex;
+  gap:14px;
+}
+
+.cfg-prev,.cfg-next{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  background:#222;
+  color:#fff;
+  font-size:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  user-select:none;
+}
+
+/* SWIPER FIX */
+.cfgSwiper{
+  width:100%;
+  overflow:hidden;
+}
+
+.swiper-wrapper{
+  align-items:stretch;
+}
+
+/* 🔑 FORCE SLIDE WIDTH */
+.swiper-slide{
+  width:320px !important;
+}
+
+/* CARD STYLES */
+.cfg-card{
+  height:340px;
+  padding:32px;
+  box-sizing:border-box;
+}
+
+.cfg-card.light{ background:#e7dfd2; color:#222; }
+.cfg-card.dark{ background:#2d2c28; color:#fff; }
+
+.cfg-card img{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  margin-bottom:16px;
+}
+
+.stars{
+  color:#ffb400;
+  margin-bottom:14px;
+}
+
+.cfg-card p{
+  font-size:15px;
+  line-height:1.6;
+  margin-bottom:40px;
+}
+
+.cfg-card h4{
+  margin:0;
+  font-size:15px;
+}
+
+.cfg-card span{
+  font-size:13px;
+  opacity:.7;
+}
+
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+  new Swiper(".cfgSwiper",{
+    slidesPerView: "auto",
+    slidesPerGroup: 2,
+    spaceBetween: 40,
+    speed: 900,
+    loop: true,
+    autoplay: {
+      delay: 2800,
+      pauseOnMouseEnter: true,
+      disableOnInteraction: false
+    },
+    navigation: {
+      nextEl: ".cfg-next",
+      prevEl: ".cfg-prev"
+    }
+  });
+
+});
+</script>
+
+
+
+<!-- ================= PRODUCT CATEGORY SECTION ================= -->
+<!-- ===== Product Categories (copy/paste as a single block) ===== --><!-- ===== Product Categories (self-contained) ===== -->
+<section id="product-category" style="
+  width:100%;
+  padding:100px 24px;
+  background:#ffffff;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+">
+
+  <h2 style="
+    text-align:center;
+    font-size:42px;
+    font-weight:800;
+    color:#000000;
+    margin-bottom:12px;
+  ">Our Product Categories</h2>
+
+  <p style="
+    text-align:center;
+    font-size:16px;
+    color:#555;
+    max-width:900px;
+    margin:0 auto 36px;
+  ">
+    Explore our premium range of elevator products trusted across India.
+  </p>
+
+  <!-- Cards Wrapper -->
+  <div class="pc-wrapper" style="
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    column-gap:28px;
+    row-gap:60px;
+    max-width:1200px;
+    margin:0 auto;
+    align-items:stretch;
+  ">
+
+    <!-- CARD 1 -->
+    <div class="pc-card" data-index="0" tabindex="0">
+      <img src="img/Door.jpg" alt="Elevator Doors">
+      <div class="pc-overlay">
+        <h3>Elevator Doors</h3>
+        <p>10ft Glass, 9ft MS, 8ft SS automatic doors — premium durability & smooth operation.</p>
+        <a class="pc-link" href="products.html#doors"></a>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="pc-card" data-index="1" tabindex="0">
+      <img src="img/ma.jpg" alt="Elevator Machines">
+      <div class="pc-overlay">
+        <h3>Elevator Machines</h3>
+        <p>Gearless & geared traction machines engineered for power, efficiency & long life.</p>
+        <a class="pc-link" href="products.html#machines"></a>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="pc-card" data-index="2" tabindex="0">
+      <img src="img/third.png" alt="Control Panels">
+      <div class="pc-overlay">
+        <h3>Control Panels</h3>
+        <p>Single & three-phase control panels with safety and modern diagnostics.</p>
+        <a class="pc-link" href="products.html#panels"></a>
+      </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="pc-card" data-index="3" tabindex="0">
+      <img src="img/sss cabin.jpg" alt="Elevator Cabins">
+      <div class="pc-overlay">
+        <h3>Elevator Cabins</h3>
+        <p>Stainless steel cabins, car frames & counter-frames crafted for durability.</p>
+        <a class="pc-link" href="products.html#cabins"></a>
+      </div>
+    </div>
+
+    <!-- CARD 5 – Machine Encoders -->
+<div class="pc-card" data-index="4" tabindex="0">
+  <img src="img/enco.jpg" alt="Machine Encoders">
+  <div class="pc-overlay">
+    <h3>Machine Encoders</h3>
+    <p>High-precision encoders ensuring smooth leveling and accurate floor stopping.</p>
+    <a class="pc-link" href="products.html#encoders"></a>
+  </div>
+</div>
+
+<!-- CARD 6 – Over Speed Governor -->
+<div class="pc-card" data-index="5" tabindex="0">
+  <img src="img/machi.jpg" alt="Over Speed Governor">
+  <div class="pc-overlay">
+    <h3>Over Speed Governor</h3>
+    <p>Critical safety device that activates braking during overspeed conditions.</p>
+    <a class="pc-link" href="products.html#osg"></a>
+  </div>
+</div>
+
+<!-- CARD 7 – Elevator Bracket -->
+<div class="pc-card" data-index="6" tabindex="0">
+  <img src="img/bracke.jpg" alt="Elevator Bracket">
+  <div class="pc-overlay">
+    <h3>SS Elevator Bracket</h3>
+    <p>High-strength brackets for machine support, cabin frames & guide rail stability.</p>
+    <a class="pc-link" href="products.html#brackets"></a>
+  </div>
+</div>
+
+<!-- CARD 8 – Door Sensor -->
+<div class="pc-card" data-index="7" tabindex="0">
+  <img src="img/ds.jpg" alt="Door Sensor">
+  <div class="pc-overlay">
+    <h3>Door Sensor</h3>
+    <p>Infrared door sensors for obstruction detection and enhanced passenger safety.</p>
+    <a class="pc-link" href="products.html#sensor"></a>
+  </div>
+</div>
+
+
+  </div>
+
+  <!-- VIEW MORE BUTTON -->
+  <div style="text-align:center; margin-top:44px;">
+    <a id="pc-viewmore" href="products.html" style="
+      background:#c70000;
+      color:white;
+      padding:14px 34px;
+      font-size:16px;
+      font-weight:600;
+      border-radius:40px;
+      box-shadow:0 8px 28px rgba(199,0,0,0.22);
+      text-decoration:none;
+      display:inline-block;
+      transition: transform .18s ease, box-shadow .18s ease;
+    ">View More</a>
+  </div>
+
+</section>
+
+<!-- ===== Styles (paste into page head or inline) ===== -->
+<style>
+/* Base card styles */
+.pc-card{
+  position:relative;
+  border-radius:1px;
+  overflow:hidden;
+  cursor:pointer;
+  height:340px;
+  box-shadow:0 10px 28px rgba(12,12,12,0.08);
+  background:#111;
+  transform: translateX(-40px) translateY(0);
+  opacity: 0;
+  transition: transform .7s cubic-bezier(.22,.9,.3,1), opacity .7s ease, box-shadow .25s ease;
+  will-change: transform, opacity;
+  display:flex;
+  align-items:stretch;
+}
+
+/* final visible state applied by JS */
+.pc-card.in {
+  transform: translateX(0) translateY(0);
+  opacity: 1;
+}
+
+/* image sits below overlay */
+.pc-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition: transform .6s cubic-bezier(.22,.9,.3,1), filter .4s ease;
+  will-change: transform, filter;
+  z-index:1;
+  pointer-events:none; /* image must not intercept overlay clicks */
+}
+
+/* overlay sits above image */
+.pc-overlay{
+  position:absolute;
+  left:0; right:0; bottom:0; top:0;
+  z-index:3;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:28px;
+  color:#fff;
+  background: linear-gradient(180deg, rgba(0,0,0,0.18) 20%, rgba(0,0,0,0.62) 100%);
+  opacity:0;
+  transition: opacity .4s ease, transform .4s cubic-bezier(.2,.9,.3,1);
+  pointer-events:none; /* initially not interactive (so hover triggers on card) */
+}
+
+/* overlay content */
+.pc-overlay h3{
+  margin:0 0 8px 0;
+  font-size:20px;
+  font-weight:700;
+  letter-spacing:0.2px;
+}
+.pc-overlay p{
+  margin:0 0 12px 0;
+  font-size:14px;
+  line-height:1.45;
+  opacity:.95;
+}
+
+/* small CTA inside overlay 
+.pc-link{
+  display:inline-block;
+  background: #ffcf96;
+  color:#c70000;
+  padding:8px 14px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:13px;
+  text-decoration:none;
+  box-shadow: 0 6px 18px rgba(199,0,0,0.08);
+} */
+
+/* Hover - ensure overlay appears and becomes interactive */
+.pc-card:hover,
+.pc-card:focus-within{
+  transform: translateX(0) translateY(-10px) scale(1.02);
+  box-shadow:0 26px 60px rgba(12,12,12,0.16);
+}
+.pc-card:hover img,
+.pc-card:focus-within img{
+  transform: scale(1.12);
+  filter: saturate(1.05) contrast(1.03);
+}
+.pc-card:hover .pc-overlay,
+.pc-card:focus-within .pc-overlay{
+  opacity:1;
+  pointer-events:auto; /* now overlay content clickable */
+}
+
+/* Accessibility: keyboard focus should show overlay same as hover */
+.pc-card:focus{
+  outline: 3px solid rgba(199,0,0,0.12);
+  outline-offset:6px;
+}
+
+/* Responsive tweaks */
+@media (max-width:1000px){
+  .pc-card{ height:320px; }
+}
+@media (max-width:700px){
+  .pc-card{ height:280px; }
+  .pc-wrapper{ gap:18px; }
+  .pc-overlay{ padding:18px; }
+  .pc-overlay h3{ font-size:18px; }
+}
+</style>
+
+<!-- ===== IntersectionObserver (entrance animation) ===== -->
+<script>
+(function(){
+  const cards = Array.from(document.querySelectorAll('.pc-card'));
+
+  if(!('IntersectionObserver' in window)){
+    // fallback: reveal all
+    cards.forEach(c => c.classList.add('in'));
+    return;
+  }
+
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const el = entry.target;
+        const idx = Number(el.dataset.index || 0);
+        // staggered reveal using timeout (keeps CSS hover untouched)
+        setTimeout(()=> el.classList.add('in'), idx * 110);
+        obs.unobserve(el);
+      }
+    });
+  }, { threshold: 0.18 });
+
+  cards.forEach(card => io.observe(card));
+
+  // keyboard accessibility: show overlay on focus
+  cards.forEach(card => {
+    card.addEventListener('focusin', () => card.classList.add('in'));
+  });
+})();
+</script>
+
+
+
+<!-- ===================== PRODUCT SECTION ===================== -->
+<!-- ===================== PRODUCT SECTION ===================== -->
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<section id="products-section" style="
+  width:100%;
+  padding:90px 20px;
+  background:linear-gradient(135deg, #fff4e3, #ffe08a);
+  font-family:'Poppins', sans-serif;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+">
+
+  <h2 style="font-size:42px; font-weight:800; color:#000000;">Our Premium Range</h2>
+
+  <p style="font-size:17px; color:#444; max-width:650px; margin:0 auto 45px;">
+    High-precision elevator components engineered for durability & performance.
+  </p>
+
+  <!-- LEFT ARROW -->
+  <div id="arrowLeft" class="navArrow">❮</div>
+
+  <!-- RIGHT ARROW -->
+  <div id="arrowRight" class="navArrow">❯</div>
+
+  <!-- PRODUCT TRACK -->
+  <div id="slider-wrapper" style="overflow:hidden; width:100%;">
+    <div id="slider" style="
+      display:flex;
+      gap:25px;
+      padding:10px;
+      width:max-content;
+    ">
+
+      <!-- CARD TEMPLATE (Uniform Design) -->
+      <!-- CARD 1 -->
+      <a href="#" class="product-card">
+        <div class="imgWrap">
+          <img src="img/first.png">
+        </div>
+        <div class="textWrap">
+          <span class="tag">Automatic Door</span>
+          <h3>9 Feet MS Elevator Automatic Door</h3>
+          <p>Smooth & durable automatic door system.</p>
+        </div>
+      </a>
+
+      <!-- CARD 2 -->
+      <a href="#" class="product-card">
+        <div class="imgWrap">
+          <img src="img/gearless-traction-machine-removebg-preview.png">
+        </div>
+        <div class="textWrap">
+          <span class="tag">Traction Machine</span>
+          <h3>Geared Traction Machine</h3>
+          <p>High torque geared traction system.</p>
+        </div>
+      </a>
+
+      <!-- CARD 3 -->
+      <a href="#" class="product-card">
+        <div class="imgWrap">
+          <img src="img/third.png">
+        </div>
+        <div class="textWrap">
+          <span class="tag">Control Panel</span>
+          <h3>Three Phase Elevator Panel</h3>
+          <p>Advanced intelligent elevator controller.</p>
+        </div>
+      </a>
+
+      <!-- CARD 4 -->
+      <a href="#" class="product-card">
+        <div class="imgWrap">
+          <img src="img/fourth.png">
+        </div>
+        <div class="textWrap">
+          <span class="tag">Gearless</span>
+          <h3>Gearless Traction Machine</h3>
+          <p>Silent & efficient gearless machine.</p>
+        </div>
+      </a>
+
+      <!-- CARD 5 -->
+      <a href="#" class="product-card">
+        <div class="imgWrap">
+          <img src="img/fifth.png">
+        </div>
+        <div class="textWrap">
+          <span class="tag">Glass Door</span>
+          <h3>10 Feet Glass Auto Door</h3>
+          <p>Premium glass sliding door system.</p>
+        </div>
+      </a>
+
+      <!-- CARD 6 -->
+      <a href="#" class="product-card">
+        <div class="imgWrap">
+          <img src="img/home_about_03.webp">
+        </div>
+        <div class="textWrap">
+          <span class="tag">Cabin</span>
+          <h3>Stainless Steel Elevator Cabin</h3>
+          <p>Modern & elegant elevator cabin.</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- MORE PRODUCTS BUTTON -->
+<div style="margin-top:45px; text-align:center;">
+  <a id="moreProductsBtn" href="products.html" style="
+    display:inline-block;
+    padding:14px 40px;
+    background:#c70000;
+    color:#fff;
+    font-size:1.1rem;
+    font-weight:600;
+    border-radius:40px;
+    text-decoration:none;
+    box-shadow:0 8px 25px rgba(199,0,0,0.35);
+    transition:0.25s ease;
+  ">
+    More Products →
+  </a>
+</div>
+  
+
+
+
+
+</section>
+
+<style>
+/* Navigation Arrows */
+.navArrow {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:55px;
+  height:55px;
+  background:#ffffff;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:26px;
+  cursor:pointer;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+  transition:.25s;
+  z-index:50;
+  user-select:none;
+}
+#arrowLeft { left:20px; }
+#arrowRight { right:20px; }
+.navArrow:hover { transform:translateY(-50%) scale(1.1); }
+
+/* Uniform Cards */
+.product-card {
+  width:300px;
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,0.12);
+  text-decoration:none;
+  color:#000;
+  transition:.35s;
+}
+.product-card:hover {
+  transform:translateY(-10px);
+  box-shadow:0 20px 45px rgba(0,0,0,0.20);
+}
+.imgWrap {
+  width:100%;
+  height:200px;
+  background:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+.imgWrap img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.textWrap {
+  padding:15px;
+  text-align:left;
+}
+.tag {
+  background:#c70000;
+  color:#fff;
+  padding:4px 12px;
+  font-size:12px;
+  border-radius:20px;
+}
+.textWrap h3 {
+  margin:10px 0;
+  color:#c70000;
+  font-weight:700;
+  line-height:1.3;
+}
+.textWrap p { color:#555; font-size:14px; }
+</style>
+
+<script>
+let slider = document.getElementById("slider");
+let wrapper = document.getElementById("slider-wrapper");
+
+// Auto-scroll using GSAP
+let autoScroll = gsap.to(slider, {
+  x: "-=300",
+  duration: 2,
+  ease: "linear",
+  repeat: -1
+});
+
+// Pause on Hover
+wrapper.addEventListener("mouseenter", () => autoScroll.pause());
+wrapper.addEventListener("mouseleave", () => autoScroll.resume());
+
+// Arrow Navigation
+document.getElementById("arrowLeft").onclick = () => {
+  gsap.to(slider, { x: "+=320", duration: 0.5, ease: "power2.out" });
+};
+document.getElementById("arrowRight").onclick = () => {
+  gsap.to(slider, { x: "-=320", duration: 0.5, ease: "power2.out" });
+};
+
+
+// GSAP Hover Animation for More Products Button
+let mpBtn = document.getElementById("moreProductsBtn");
+
+let mpHover = gsap.timeline({ paused: true });
+mpHover.to(mpBtn, {
+  scale: 1.08,
+  boxShadow: "0 12px 30px rgba(199,0,0,0.45)",
+  duration: 0.25,
+  ease: "power2.out"
+});
+
+mpBtn.addEventListener("mouseenter", () => mpHover.play());
+mpBtn.addEventListener("mouseleave", () => mpHover.reverse());
+
+
+
+</script>
+
+
+
+
+
+<section id="why-cfg" style="
+  position:relative;
+  width:100%;
+  padding:120px 0;
+  background:#ffffff;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+">
+
+  <!-- WATERMARK IMAGE (VISIBLE) -->
+  <div style="
+    position:absolute;
+    inset:0;
+    z-index:0;
+    background:url('img/main.png') center center / 520px no-repeat;
+    opacity:0.08;
+    pointer-events:none;
+  "></div>
+
+  <!-- CONTENT -->
+  <div style="
+    position:relative;
+    z-index:2;
+    max-width:1200px;
+    margin:auto;
+    padding:0 24px;
+  ">
+
+    <!-- HEADER -->
+    <div style="max-width:720px; margin-bottom:70px;">
+      <h2 style="
+        font-size:46px;
+        font-weight:800;
+        color:#1f1f1f;
+        line-height:1.1;
+        margin-bottom:20px;
+      ">
+        Why Choose <span style="color:#c70000;">CFG Components</span>
+      </h2>
+
+      <p style="
+        font-size:18px;
+        color:#444;
+        line-height:1.7;
+      ">
+        Established in 2017, CFG Components has grown into a trusted elevator
+        components supplier delivering quality, durability and performance.
+      </p>
+    </div>
+
+    <!-- GRID -->
+    <div style="
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:36px;
+    ">
+
+      <!-- CARD -->
+      <div class="cfg-why-card" style="
+        background:#f6f1ea;
+        padding:36px 30px;
+        border-radius:14px;
+        box-shadow:0 18px 40px rgba(0,0,0,0.08);
+      ">
+        <div style="
+          width:48px;
+          height:48px;
+          background:#c70000;
+          color:#fff;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          border-radius:50%;
+          font-weight:700;
+          margin-bottom:18px;
+        ">01</div>
+
+        <h3 style="font-size:20px; font-weight:700; margin-bottom:10px;">
+          Established Since 2017
+        </h3>
+
+        <p style="font-size:15px; line-height:1.6; color:#444;">
+          Over 7+ years of trusted experience in elevator components trading and wholesale.
+        </p>
+      </div>
+
+      <div class="cfg-why-card" style="
+        background:#f6f1ea;
+        padding:36px 30px;
+        border-radius:14px;
+        box-shadow:0 18px 40px rgba(0,0,0,0.08);
+      ">
+        <div style="
+          width:48px;
+          height:48px;
+          background:#c70000;
+          color:#fff;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          border-radius:50%;
+          font-weight:700;
+          margin-bottom:18px;
+        ">02</div>
+
+        <h3 style="font-size:20px; font-weight:700; margin-bottom:10px;">
+          Wide Product Portfolio
+        </h3>
+
+        <p style="font-size:15px; line-height:1.6; color:#444;">
+          Elevator Machines, Doors, Brackets and essential accessories under one roof.
+        </p>
+      </div>
+
+      <div class="cfg-why-card" style="
+        background:#f6f1ea;
+        padding:36px 30px;
+        border-radius:14px;
+        box-shadow:0 18px 40px rgba(0,0,0,0.08);
+      ">
+        <div style="
+          width:48px;
+          height:48px;
+          background:#c70000;
+          color:#fff;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          border-radius:50%;
+          font-weight:700;
+          margin-bottom:18px;
+        ">03</div>
+
+        <h3 style="font-size:20px; font-weight:700; margin-bottom:10px;">
+          Quality & Reliability
+        </h3>
+
+        <p style="font-size:15px; line-height:1.6; color:#444;">
+          Products selected for long life, performance and strict safety standards.
+        </p>
+      </div>
+
+      <div class="cfg-why-card" style="
+        background:#f6f1ea;
+        padding:36px 30px;
+        border-radius:14px;
+        box-shadow:0 18px 40px rgba(0,0,0,0.08);
+      ">
+        <div style="
+          width:48px;
+          height:48px;
+          background:#c70000;
+          color:#fff;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          border-radius:50%;
+          font-weight:700;
+          margin-bottom:18px;
+        ">04</div>
+
+        <h3 style="font-size:20px; font-weight:700; margin-bottom:10px;">
+          Competitive Pricing
+        </h3>
+
+        <p style="font-size:15px; line-height:1.6; color:#444;">
+          Best market pricing with timely delivery and dependable logistics support.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.from(".cfg-why-card", {
+  opacity: 0,
+  y: 60,
+  duration: 1,
+  ease: "power3.out",
+  stagger: 0.18,
+  scrollTrigger: {
+    trigger: "#why-cfg",
+    start: "top 75%"
+  }
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<!-- ================= TESTIMONIAL SECTION Animated================= -->
+ <section style="
+  width:100%;
+  padding:120px 0;
+  background:linear-gradient(180deg,#fff5ef,#ffe7d1);
+  font-family:'Poppins',sans-serif;
+">
+
+  <h2 style="
+    text-align:center;
+    font-size:42px;
+    font-weight:800;
+    color:#000000;
+    margin-bottom:12px;
+  ">What Our Clients Say</h2>
+
+  <p style="
+    text-align:center;
+    color:#555;
+    font-size:18px;
+    max-width:700px;
+    margin:0 auto 60px;
+  ">
+Trusted by customers across India for quality, reliability and long-lasting performance.  </p>
+
+  <!-- Swiper Container -->
+  <div class="swiper testimonial-swiper" style="
+    width:100%;
+    max-width:1000px;
+    padding:50px 120px 90px;
+  ">
+    <div class="swiper-wrapper">
+
+      <!-- CARD 1 -->
+      <div class="swiper-slide" style="
+        width:300px;
+        background:#fff;
+        padding:30px 25px 45px;
+        border-radius:25px;
+        text-align:center;
+        box-shadow:0 20px 40px rgba(0,0,0,0.12);
+      ">
+        <img src="https://i.pravatar.cc/150?img=12" style="
+          width:90px; height:90px; border-radius:50%;
+          border:4px solid #ffcf96; object-fit:cover;
+          margin:auto; display:block;
+        ">
+        <h3 style="margin-top:15px; font-size:20px; font-weight:700;">Vikas Deshmukh</h3>
+
+        <div class="star-box" style="margin:10px 0;">
+          <span class="spark-stars" style="font-size:22px; color:#ffae00;">★★★★★</span>
+        </div>
+
+        <p style="color:#555; line-height:1.6; font-size:15px;">
+          Components are durable and top-notch quality.
+        </p>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="swiper-slide" style="
+        width:300px;
+        background:#fff;
+        padding:30px 25px 45px;
+        border-radius:25px;
+        text-align:center;
+        box-shadow:0 20px 40px rgba(0,0,0,0.12);
+      ">
+        <img src="https://i.pravatar.cc/150?img=47" style="
+          width:90px; height:90px; border-radius:50%;
+          border:4px solid #ffcf96; object-fit:cover;
+          margin:auto; display:block;
+        ">
+        <h3 style="margin-top:15px; font-size:20px; font-weight:700;">Kiran Jagtap</h3>
+
+        <div class="star-box">
+          <span class="spark-stars" style="font-size:22px; color:#ffae00;">★★★★★</span>
+        </div>
+
+        <p style="color:#555; line-height:1.6; font-size:15px;">
+          Very responsive and professional support team.
+        </p>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="swiper-slide" style="
+        width:300px;
+        background:#fff;
+        padding:30px 25px 45px;
+        border-radius:25px;
+        text-align:center;
+        box-shadow:0 20px 40px rgba(0,0,0,0.12);
+      ">
+        <img src="https://i.pravatar.cc/150?img=26" style="
+          width:90px; height:90px; border-radius:50%;
+          border:4px solid #ffcf96; object-fit:cover;
+          margin:auto; display:block;
+        ">
+        <h3 style="margin-top:15px; font-size:20px; font-weight:700;">Pari Patil</h3>
+
+        <div class="star-box">
+          <span class="spark-stars" style="font-size:22px; color:#ffae00;">★★★★★</span>
+        </div>
+
+        <p style="color:#555; line-height:1.6; font-size:15px;">
+          Best elevator accessories in Pune!
+        </p>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="swiper-slide" style="
+        width:300px;
+        background:#fff;
+        padding:30px 25px 45px;
+        border-radius:25px;
+        text-align:center;
+        box-shadow:0 20px 40px rgba(0,0,0,0.12);
+      ">
+        <img src="https://i.pravatar.cc/150?img=33" style="
+          width:90px; height:90px; border-radius:50%;
+          border:4px solid #ffcf96; object-fit:cover;
+          margin:auto; display:block;
+        ">
+        <h3 style="margin-top:15px; font-size:20px; font-weight:700;">Rahul Verma</h3>
+
+        <div class="star-box">
+          <span class="spark-stars" style="font-size:22px; color:#ffae00;">★★★★★</span>
+        </div>
+
+        <p style="color:#555; line-height:1.6; font-size:15px;">
+          Premium service — highly recommended.
+        </p>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="swiper-slide" style="
+        width:300px;
+        background:#fff;
+        padding:30px 25px 45px;
+        border-radius:25px;
+        text-align:center;
+        box-shadow:0 20px 40px rgba(0,0,0,0.12);
+      ">
+        <img src="https://i.pravatar.cc/150?img=32" style="
+          width:90px; height:90px; border-radius:50%;
+          border:4px solid #ffcf96; object-fit:cover;
+          margin:auto; display:block;
+        ">
+        <h3 style="margin-top:15px; font-size:20px; font-weight:700;">Shrusti Pawar</h3>
+
+        <div class="star-box">
+          <span class="spark-stars" style="font-size:22px; color:#ffae00;">★★★★★</span>
+        </div>
+
+        <p style="color:#555; line-height:1.6; font-size:15px;">
+          Best elevator accessories in Pune!
+        </p>
+      </div>
+
+
+      <!-- CARD 6 -->
+      <div class="swiper-slide" style="
+        width:300px;
+        background:#fff;
+        padding:30px 25px 45px;
+        border-radius:25px;
+        text-align:center;
+        box-shadow:0 20px 40px rgba(0,0,0,0.12);
+      ">
+        <img src="https://i.pravatar.cc/150?img=43" style="
+          width:90px; height:90px; border-radius:50%;
+          border:4px solid #ffcf96; object-fit:cover;
+          margin:auto; display:block;
+        ">
+        <h3 style="margin-top:15px; font-size:20px; font-weight:700;">Sneha Patil</h3>
+
+        <div class="star-box">
+          <span class="spark-stars" style="font-size:22px; color:#ffae00;">★★★★★</span>
+        </div>
+
+        <p style="color:#555; line-height:1.6; font-size:15px;">
+          Reliable delivery and excellent performance.
+        </p>
+      </div>
+
+
+      <!-- CARD 7 -->
+      <div class="swiper-slide" style="
+        width:300px;
+        background:#fff;
+        padding:30px 25px 45px;
+        border-radius:25px;
+        text-align:center;
+        box-shadow:0 20px 40px rgba(0,0,0,0.12);
+      ">
+        <img src="https://i.pravatar.cc/150?img=47" style="
+          width:90px; height:90px; border-radius:50%;
+          border:4px solid #ffcf96; object-fit:cover;
+          margin:auto; display:block;
+        ">
+        <h3 style="margin-top:15px; font-size:20px; font-weight:700;">Neha Kulkarni</h3>
+
+        <div class="star-box">
+          <span class="spark-stars" style="font-size:22px; color:#ffae00;">★★★★★</span>
+        </div>
+
+        <p style="color:#555; line-height:1.6; font-size:15px;">
+          Best elevator accessories in Pune!
+        </p>
+      </div>
+
+
+
+      <!-- CARD 8 -->
+      <div class="swiper-slide" style="
+        width:300px;
+        background:#fff;
+        padding:30px 25px 45px;
+        border-radius:25px;
+        text-align:center;
+        box-shadow:0 20px 40px rgba(0,0,0,0.12);
+      ">
+        <img src="https://i.pravatar.cc/150?img=14" style="
+          width:90px; height:90px; border-radius:50%;
+          border:4px solid #ffcf96; object-fit:cover;
+          margin:auto; display:block;
+        ">
+        <h3 style="margin-top:15px; font-size:20px; font-weight:700;">Amit Shinde</h3>
+
+        <div class="star-box">
+          <span class="spark-stars" style="font-size:22px; color:#ffae00;">★★★★★</span>
+        </div>
+
+        <p style="color:#555; line-height:1.6; font-size:15px;">
+          Very smooth and powerful elevator machinery.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Pagination 
+    <div class="swiper-pagination"></div>   -->
+
+    <!-- Navigation Arrows -->
+    <div class="swiper-button-prev" style="
+      background:#c70000; color:#fff; border-radius:50%; width:50px; height:50px;
+    "></div>
+
+    <div class="swiper-button-next" style="
+      background:#c70000; color:#fff; border-radius:50%; width:50px; height:50px;
+    "></div>
+  </div>
+
+</section> 
+
+<!-- Swiper CDN -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+<!-- GSAP CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+
+<script>
+/* ========== SWIPER INITIALIZATION ========== */
+var swiper = new Swiper('.testimonial-swiper', {
+  loop: Infinity,
+  centeredSlides: true,
+  slidesPerView: "auto",
+  spaceBetween: 40,
+  grabCursor: true,
+  speed: 200,
+
+  effect: "coverflow",
+  coverflowEffect: {
+    rotate: 0,
+    depth: 250,
+    stretch: 0,
+    modifier: 1,
+    slideShadows: false,
+  },
+
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+
+  autoplay: {
+    delay: 2000,
+    disableOnInteraction: false,
+  },
+});
+
+/* ===== STAR SPARKLE ANIMATION ===== */
+document.querySelectorAll(".spark-stars").forEach(star => {
+  gsap.fromTo(star,
+    { opacity: 0.3, scale: 0.9 },
+    { opacity: 8, scale: 1.1, duration: 0.8, repeat: -1, yoyo: true, ease: "power1.inOut" }
+  );
+});
+</script>
+
+<section id="cfg-mission-vision" style="
+  padding:140px 0;
+  background:#ffffff;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+  position:relative;
+">
+
+  <div style="
+    max-width:1200px;
+    margin:auto;
+    padding:0 24px;
+    position:relative;
+  ">
+
+    <!-- SECTION TITLE -->
+    <h2 style="
+      font-size:44px;
+      font-weight:800;
+      margin-bottom:60px;
+      color:#1f1f1f;
+    ">
+      Our <span style="color:#c70000;">Mission & Vision</span>
+    </h2>
+
+    <!-- SLIDER WRAPPER -->
+    <div style="
+      position:relative;
+      overflow:hidden;
+    ">
+
+      <!-- SLIDES TRACK -->
+      <div id="mv-track" style="
+        display:flex;
+        width:200%;
+      ">
+
+        <!-- ========== VISION SLIDE ========== -->
+        <div class="mv-slide" style="
+          width:50%;
+          display:grid;
+          grid-template-columns:0.7fr 1.3fr;
+          gap:60px;
+          align-items:center;
+          padding-right:40px;
+        ">
+
+          <!-- IMAGE -->
+          <div style="
+            border-radius:18px;
+            overflow:hidden;
+            box-shadow:0 30px 60px rgba(0,0,0,0.12);
+          ">
+            <img src="https://images.unsplash.com/photo-1581092919535-7146d1c6f9c0"
+              style="width:100%; height:320px; object-fit:cover;">
+          </div>
+
+          <!-- CONTENT -->
+          <div>
+            <span style="
+              font-size:14px;
+              letter-spacing:1px;
+              font-weight:600;
+              color:#c70000;
+            ">
+              OUR VISION
+            </span>
+
+            <h3 class="mv-title" style="
+              font-size:34px;
+              font-weight:800;
+              margin:16px 0 18px;
+            ">
+              Empowering the Indian Elevator Industry
+            </h3>
+
+            <p class="mv-text" style="
+              font-size:17px;
+              line-height:1.8;
+              color:#444;
+            ">
+              To become the house for international brand elevator components by
+              making them readily available for Indian manufacturers. We collaborate
+              with global partners, maintain ready stock, and ensure timely delivery
+              to enhance manufacturing capability.
+              <br>
+              Our vision is to deliver the best with competitive pricing, customized
+              solutions, and long-term sustainability — being a valuable partner to
+              every customer we serve.
+            </p>
+          </div>
+        </div>
+
+        <!-- ========== MISSION SLIDE ========== -->
+        <div class="mv-slide" style="
+          width:50%;
+          display:grid;
+          grid-template-columns:0.7fr 1.3fr;
+          gap:60px;
+          align-items:center;
+          padding-left:40px;
+        ">
+
+          <!-- IMAGE -->
+          <div style="
+            border-radius:18px;
+            overflow:hidden;
+            box-shadow:0 30px 60px rgba(0,0,0,0.12);
+          ">
+            <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e"
+              style="width:100%; height:320px; object-fit:cover;">
+          </div>
+
+          <!-- CONTENT -->
+          <div>
+            <span style="
+              font-size:14px;
+              letter-spacing:1px;
+              font-weight:600;
+              color:#c70000;
+            ">
+              OUR MISSION
+            </span>
+
+            <h3 class="mv-title" style="
+              font-size:34px;
+              font-weight:800;
+              margin:16px 0 18px;
+            ">
+              One Roof Solution for Elevator Needs
+            </h3>
+
+            <p class="mv-text" style="
+              font-size:17px;
+              line-height:1.8;
+              color:#444;
+            ">
+              To become a complete “ONE ROOF SOLUTION” offering everything from
+              spare parts to full lift solutions, sourcing the best global brands
+              for mobility needs.
+              <br><br>
+              We are committed to satisfactory after-sales service, maintaining
+              personal customer relationships and delivering prompt solutions
+              through expert technical support.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ARROWS -->
+      <div style="
+        display:flex;
+        gap:14px;
+        margin-top:40px;
+      ">
+        <button id="mv-prev" style="
+          width:48px;
+          height:48px;
+          border-radius:50%;
+          border:0;
+          background:#f0e6da;
+          cursor:pointer;
+          font-size:18px;
+        ">←</button>
+
+        <button id="mv-next" style="
+          width:48px;
+          height:48px;
+          border-radius:50%;
+          border:0;
+          background:#c70000;
+          color:#fff;
+          cursor:pointer;
+          font-size:18px;
+        ">→</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+let index = 0;
+const track = document.getElementById("mv-track");
+
+/* SLIDE FUNCTION */
+function slideTo(i){
+  gsap.to(track,{
+    x: `-${i * 50}%`,
+    duration:1.2,
+    ease:"power3.inOut"
+  });
+
+  animateText();
+}
+
+/* BUTTONS */
+document.getElementById("mv-next").onclick = () => {
+  index = index === 0 ? 1 : 0;
+  slideTo(index);
+};
+
+document.getElementById("mv-prev").onclick = () => {
+  index = index === 0 ? 1 : 0;
+  slideTo(index);
+};
+
+/* WORD ANIMATION */
+function animateText(){
+  gsap.from(".mv-title",{
+    y:40,
+    opacity:0,
+    duration:0.8,
+    ease:"power3.out"
+  });
+
+  gsap.from(".mv-text",{
+    y:30,
+    opacity:0,
+    duration:1,
+    delay:0.2,
+    ease:"power3.out"
+  });
+}
+
+/* INITIAL */
+animateText();
+</script>
+
+
+
+
+</body>
+</html>

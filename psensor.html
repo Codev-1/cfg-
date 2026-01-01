@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<!-- ⭐ NAVBAR + SIDEBAR CSS ⭐ -->
+  <style>
+    :root{
+      --red:#c70000;
+      --red-deep:#a10000;
+      --yellow:#ffcc00;
+      --bg: #ffffff;
+      --glass: rgba(255,255,255,0.85);
+      --maxw: 1400px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      color:#111;
+      background:#fafafa;
+    }
+
+   </style>
+
+<body>
+
+
+  <section id="navbarSection">
+
+<style>
+:root{
+  --red:#D70000;
+  --yellow:#F4C400;
+  --dark:#1a1a1a;
+}
+
+/* ----------------------------------------------
+   PREMIUM NAVBAR WITH BRUSHED METAL TEXTURE
+----------------------------------------------- */
+.cfg-navbar{
+  width:100%;
+
+    background:#ffffff url('https://www.transparenttextures.com/patterns/white-wall.png');
+     
+
+  background-size:cover;
+
+  position:sticky;
+  top:0;
+  z-index:999999;
+
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+
+  box-shadow:
+      0 4px 12px rgba(0,0,0,0.18),
+      inset 0 -2px 4px rgba(255,255,255,0.5);
+
+  transition:0.3s ease;
+}
+
+/* container */
+.cfg-navbar .site-container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:85px;
+  padding:0 18px;
+}
+
+/* ----------------------------------------------
+   LOGO
+----------------------------------------------- */
+.logo-box{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.logo-box img{
+  height:55px;
+}
+.logo-box span{
+  font-size:24px;
+  font-weight:700;
+  color:var(--red);
+  letter-spacing:0.4px;
+}
+
+/* ----------------------------------------------
+   MENU (Desktop)
+----------------------------------------------- */
+.cfg-menu{
+  display:flex;
+  align-items: center;
+  gap:42px;
+}
+
+.cfg-menu a{
+  font-size:17px;
+  font-weight:500;
+  text-decoration:none;
+  color:#111;
+  padding:8px 4px;
+  position:relative;
+  transition:0.3s ease;
+}
+
+/* Hover glow */
+.cfg-menu a:hover{
+  color:var(--red);
+  text-shadow:0 0 10px rgba(215,0,0,0.45);
+}
+
+/* underline animation */
+.cfg-menu a::after{
+  content:"";
+  position:absolute;
+  width:0;
+  height:3px;
+  bottom:0;
+  left:0;
+  background:var(--red);
+  border-radius:20px;
+  transition:0.3s ease;
+}
+.cfg-menu a:hover::after{
+  width:100%;
+}
+
+/* ACTIVE button style */
+.cfg-menu a.active{
+  background:var(--red);
+  color:#fff !important;
+  padding:8px 18px;
+  border-radius:20px;
+  font-weight:600;
+  box-shadow:0 4px 12px rgba(215,0,0,0.4);
+}
+.cfg-menu a.active::after{ width:0 !important; }
+
+/* ----------------------------------------------
+   MOBILE MENU ICON
+----------------------------------------------- */
+.cfg-menu-icon{
+  display:none;
+  font-size:36px;
+  cursor:pointer;
+  color:var(--red);
+  transition:0.3s ease;
+}
+.cfg-menu-icon:hover{
+  transform:scale(1.15);
+}
+
+/* ----------------------------------------------
+   SIDEBAR / MOBILE DRAWER
+----------------------------------------------- */
+.cfg-sidebar{
+  position:fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width:300px;
+
+    background:#ffffff url('https://www.transparenttextures.com/patterns/white-wall.png');
+
+
+  background-size:600px;
+
+  transform:translateX(-100%);
+  transition:0.4s ease;
+
+  padding:50px 30px 30px;
+  border-top-right-radius:22px;
+  border-bottom-right-radius:22px;
+
+  box-shadow:6px 0 25px rgba(0,0,0,0.25);
+  z-index:999999;
+}
+
+/* active drawer */
+.cfg-sidebar.active{
+  transform:translateX(0);
+}
+
+/* close button */
+.cfg-close-btn{
+  font-size:38px;
+  color:var(--red);
+  cursor:pointer;
+  margin-bottom:28px;
+  transition:0.3s;
+}
+.cfg-close-btn:hover{
+  transform:scale(1.2);
+}
+
+/* mobile links */
+.cfg-sidebar a{
+  font-size:20px;
+  padding:16px 0;
+  border-bottom:1px solid #ddd;
+  display:block;
+  text-decoration:none;
+  color:#222;
+  transition:0.3s;
+}
+.cfg-sidebar a:hover{
+  color:var(--red);
+  padding-left:10px;
+}
+
+/* ACTIVE in mobile */
+.cfg-sidebar a.active{
+  color:var(--red);
+  font-weight:700;
+  padding-left:12px;
+}
+
+
+/* ----------------------------------------------
+   DROPDOWN (DESKTOP)
+----------------------------------------------- */
+.cfg-dropdown{
+  position:relative;
+}
+
+.cfg-drop-btn{
+  cursor:pointer;
+  
+}
+
+.cfg-dropdown-menu{
+  position:absolute;
+  top:150%;
+  left:8px;
+  min-width:210px;
+  background:#fff;
+  border-radius:1px;
+  padding:12px 0;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  transition:0.35s ease;
+  box-shadow:0 25px 45px rgba(0,0,0,0.18);
+  z-index:9999;
+}
+
+.cfg-dropdown:hover .cfg-dropdown-menu{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+.cfg-dropdown-menu a{
+  display:block;
+  padding:12px 22px;
+  font-size:15px;
+  color:#222;
+  text-decoration:none;
+  transition:0.3s ease;
+}
+
+.cfg-dropdown-menu a:hover{
+  background:rgba(215,0,0,0.01);
+  color:var(--red);
+  padding-left:28px;
+}
+
+.cfg-dropdown-menu .view-all{
+  font-weight:600;
+  color:var(--red);
+}
+
+/* ----------------------------------------------
+   MOBILE PRODUCTS DROPDOWN
+----------------------------------------------- */
+.cfg-mobile-products{
+  border-bottom:1px solid #ddd;
+}
+
+.cfg-mobile-title{
+  font-size:20px;
+  padding:16px 0;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.cfg-mobile-title span{
+  font-size:22px;
+  transition:0.3s ease;
+}
+
+.cfg-mobile-submenu{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.35s ease;
+}
+
+.cfg-mobile-submenu a{
+  padding:12px 0 12px 14px;
+  font-size:17px;
+  display:block;
+  text-decoration:none;
+  color:#444;
+}
+
+.cfg-mobile-submenu a:hover{
+  color:var(--red);
+}
+
+.cfg-mobile-products.active .cfg-mobile-submenu{
+  max-height:300px;
+}
+
+.cfg-mobile-products.active .cfg-mobile-title span{
+  transform:rotate(45deg);
+}
+
+
+
+
+
+
+
+
+/* ----------------------------------------------
+   RESPONSIVE
+----------------------------------------------- */
+@media(max-width:900px){
+  .cfg-menu{display:none;}
+  .cfg-menu-icon{display:block;}
+}
+</style>
+
+
+
+<!-- NAVBAR HTML -->
+<nav class="cfg-navbar">
+  <div class="site-container">
+
+    <!-- LOGO -->
+    <div class="logo-box">
+      <img src="img/logo.png" alt="CFG Logo">
+      <span>CFG Components</span>
+    </div>
+
+    <!-- DESKTOP MENU -->
+    <div class="cfg-menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+       <!-- PRODUCTS DROPDOWN -->
+  <div class="cfg-dropdown">
+    <a href="products.html" class="cfg-drop-btn">Products ▾</a>
+
+    <div class="cfg-dropdown-menu">
+      <a href="elevator-door.html">Elevator Door</a>
+      <a href="traction-machine.html">Traction Machine</a>
+      <a href="hydraulic-kits.html">Hydraulic Kits</a>
+      <a href="door-sensor.html">Door Sensor</a>
+      <a href="elevator-guide">Elevator Guide Rails</a>
+      <a href="cabin.html">Cabins & Car Frames</a>
+      <a href="elevator-com.html">Elevator Components</a>
+      
+    </div>
+  </div>
+      <a href="gallary.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- MOBILE ICON -->
+    <div class="cfg-menu-icon" id="openMenu">&#9776;</div>
+
+  </div>
+</nav>
+
+
+<!-- SIDEBAR DRAWER -->
+<div class="cfg-sidebar" id="sidebar">
+  <div class="cfg-close-btn" id="closeMenu">&times;</div>
+
+  <a href="index.html" class="active">Home</a>
+  <a href="about.html">About</a>
+    <!-- MOBILE PRODUCTS -->
+<div class="cfg-mobile-products">
+  <div class="cfg-mobile-title" id="mobileProducts">
+    Products <span>+</span>
+  </div>
+
+  <div class="cfg-mobile-submenu">
+   <a href="pdoor.html">Elevator Door</a>
+      <a href="ptack.html">Traction Machine</a>
+      <a href="phydra.html">Hydraulic Kits</a>
+      <a href="psensor.html">Door Sensor</a>
+      <a href="pguide.html">Elevator Guide Rails</a>
+      <a href="pcarcab.html">Cabins & Car Frames</a>
+      <a href="pelecomponents.html">Elevator Components</a>
+    <a href="products.html" class="view-all">View All</a>
+  </div>
+</div>
+  <a href="gallary.html">Gallery</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+
+<script>
+const sidebar = document.getElementById("sidebar");
+const openMenu = document.getElementById("openMenu");
+const closeMenu = document.getElementById("closeMenu");
+
+openMenu.addEventListener("click", ()=> sidebar.classList.add("active"));
+closeMenu.addEventListener("click", ()=> sidebar.classList.remove("active"));
+
+document.addEventListener("click",(e)=>{
+  if(!sidebar.contains(e.target) && !openMenu.contains(e.target)){
+    sidebar.classList.remove("active");
+  }
+});
+</script>
+
+<script>
+const mobileProducts = document.getElementById("mobileProducts");
+
+if(mobileProducts){
+  mobileProducts.addEventListener("click",()=>{
+    mobileProducts.parentElement.classList.toggle("active");
+  });
+}
+</script>
+
+</section>
+
+
+	<!-- ================= DOOR SENSOR HERO ================= -->
+<section id="sensor-hero" style="
+  padding:110px 24px 80px;
+  background:#f6f1ea;
+  font-family:'Poppins',sans-serif;
+">
+  <div style="max-width:1200px;margin:auto;text-align:center;">
+    <h1 style="
+      font-size:54px;
+      font-weight:800;
+      color:#1f1f1f;
+      margin-bottom:18px;
+    ">
+      Elevator <span style="color:#c70000;">Door Sensor</span>
+    </h1>
+
+    <p style="
+      max-width:820px;
+      margin:auto;
+      font-size:20px;
+      line-height:1.7;
+      color:#555;
+    ">
+      Advanced safety sensors engineered to detect obstacles and ensure smooth,
+      secure, and reliable elevator door operation.
+    </p>
+  </div>
+</section>
+
+<!-- ================= PRODUCT SECTION ================= -->
+<section style="
+  padding:90px 24px;
+  background:#ffffff;
+  font-family:'Poppins',sans-serif;
+">
+  <div style="
+    max-width:1300px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:70px;
+    align-items:center;
+  ">
+
+    <!-- IMAGE -->
+    <div>
+      <img src="img/ds-removebg-preview.png" alt="Elevator Door Sensor"
+        style="
+          width:100%;
+          max-width:520px;
+          display:block;
+          filter:drop-shadow(0 35px 60px rgba(0,0,0,0.25));
+        ">
+    </div>
+
+    <!-- CONTENT -->
+    <div>
+      <h2 style="
+        font-size:38px;
+        font-weight:800;
+        color:#1f1f1f;
+        margin-bottom:10px;
+      ">
+        Elevator Door Sensor
+      </h2>
+
+      <p style="
+        font-size:18px;
+        color:#666;
+        margin-bottom:26px;
+        line-height:1.7;
+      ">
+        CFG Components supplies high-precision elevator door sensors designed to
+        enhance passenger safety by accurately detecting objects and preventing
+        accidental door closure.
+      </p>
+
+      <!-- SPEC TABLE -->
+      <div style="
+        border:1px solid #e6e6e6;
+        border-radius:12px;
+        overflow:hidden;
+        margin-bottom:30px;
+      ">
+        <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #eee;">
+          <div style="padding:14px;font-weight:600;background:#fafafa;">Max Sensing Distance</div>
+          <div style="padding:14px;">20 cm</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #eee;">
+          <div style="padding:14px;font-weight:600;background:#fafafa;">Operating Voltage</div>
+          <div style="padding:14px;">24 V DC</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #eee;">
+          <div style="padding:14px;font-weight:600;background:#fafafa;">Output Type</div>
+          <div style="padding:14px;">Digital Signal Interface</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #eee;">
+          <div style="padding:14px;font-weight:600;background:#fafafa;">Certification</div>
+          <div style="padding:14px;">IP54</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;">
+          <div style="padding:14px;font-weight:600;background:#fafafa;">Application</div>
+          <div style="padding:14px;">Elevator</div>
+        </div>
+      </div>
+
+      <!-- FEATURES -->
+      <ul style="
+        padding-left:18px;
+        color:#444;
+        line-height:1.8;
+        font-size:17px;
+        margin-bottom:34px;
+      ">
+        <li><strong>Safety & Protection</strong> – Detects obstacles to prevent door closure on passengers or objects</li>
+        <li><strong>High Detection Accuracy</strong> – Ensures smooth and reliable elevator operation</li>
+        <li><strong>Durable & Low Maintenance</strong> – Built for long-term use in residential, commercial, and industrial elevators</li>
+      </ul>
+
+      <!-- CTA -->
+      <a href="contact.html" style="
+        display:inline-block;
+        padding:16px 40px;
+        background:#c70000;
+        color:#ffffff;
+        font-weight:700;
+        border-radius:999px;
+        text-decoration:none;
+        box-shadow:0 18px 40px rgba(199,0,0,0.35);
+      ">
+        Get Best Quote
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+</body>
+</html>

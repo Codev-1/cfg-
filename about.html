@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+
+ <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+
+
+
+   <!-- ⭐ NAVBAR + SIDEBAR CSS ⭐ -->
+  <style>
+    :root{
+      --red:#c70000;
+      --red-deep:#a10000;
+      --yellow:#ffcc00;
+      --bg: #ffffff;
+      --glass: rgba(255,255,255,0.85);
+      --maxw: 1400px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      color:#111;
+      background:#fafafa;
+    }
+
+   </style>
+
+
+</head>
+<body>
+
+<section id="navbarSection">
+
+<style>
+:root{
+  --red:#D70000;
+  --yellow:#F4C400;
+  --dark:#1a1a1a;
+}
+
+/* ----------------------------------------------
+   PREMIUM NAVBAR WITH BRUSHED METAL TEXTURE
+----------------------------------------------- */
+.cfg-navbar{
+  width:100%;
+
+    background:#ffffff url('https://www.transparenttextures.com/patterns/white-wall.png');
+     
+
+  background-size:cover;
+
+  position:sticky;
+  top:0;
+  z-index:999999;
+
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+
+  box-shadow:
+      0 4px 12px rgba(0,0,0,0.18),
+      inset 0 -2px 4px rgba(255,255,255,0.5);
+
+  transition:0.3s ease;
+}
+
+/* container */
+.cfg-navbar .site-container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:85px;
+  padding:0 18px;
+}
+
+/* ----------------------------------------------
+   LOGO
+----------------------------------------------- */
+.logo-box{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.logo-box img{
+  height:55px;
+}
+.logo-box span{
+  font-size:24px;
+  font-weight:700;
+  color:var(--red);
+  letter-spacing:0.4px;
+}
+
+/* ----------------------------------------------
+   MENU (Desktop)
+----------------------------------------------- */
+.cfg-menu{
+  display:flex;
+  align-items: center;
+  gap:42px;
+}
+
+.cfg-menu a{
+  font-size:17px;
+  font-weight:500;
+  text-decoration:none;
+  color:#111;
+  padding:8px 4px;
+  position:relative;
+  transition:0.3s ease;
+}
+
+/* Hover glow */
+.cfg-menu a:hover{
+  color:var(--red);
+  text-shadow:0 0 10px rgba(215,0,0,0.45);
+}
+
+/* underline animation */
+.cfg-menu a::after{
+  content:"";
+  position:absolute;
+  width:0;
+  height:3px;
+  bottom:0;
+  left:0;
+  background:var(--red);
+  border-radius:20px;
+  transition:0.3s ease;
+}
+.cfg-menu a:hover::after{
+  width:100%;
+}
+
+/* ACTIVE button style */
+.cfg-menu a.active{
+  background:var(--red);
+  color:#fff !important;
+  padding:8px 18px;
+  border-radius:20px;
+  font-weight:600;
+  box-shadow:0 4px 12px rgba(215,0,0,0.4);
+}
+.cfg-menu a.active::after{ width:0 !important; }
+
+/* ----------------------------------------------
+   MOBILE MENU ICON
+----------------------------------------------- */
+.cfg-menu-icon{
+  display:none;
+  font-size:36px;
+  cursor:pointer;
+  color:var(--red);
+  transition:0.3s ease;
+}
+.cfg-menu-icon:hover{
+  transform:scale(1.15);
+}
+
+/* ----------------------------------------------
+   SIDEBAR / MOBILE DRAWER
+----------------------------------------------- */
+.cfg-sidebar{
+  position:fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width:300px;
+
+    background:#ffffff url('https://www.transparenttextures.com/patterns/white-wall.png');
+
+
+  background-size:600px;
+
+  transform:translateX(-100%);
+  transition:0.4s ease;
+
+  padding:50px 30px 30px;
+  border-top-right-radius:22px;
+  border-bottom-right-radius:22px;
+
+  box-shadow:6px 0 25px rgba(0,0,0,0.25);
+  z-index:999999;
+}
+
+/* active drawer */
+.cfg-sidebar.active{
+  transform:translateX(0);
+}
+
+/* close button */
+.cfg-close-btn{
+  font-size:38px;
+  color:var(--red);
+  cursor:pointer;
+  margin-bottom:28px;
+  transition:0.3s;
+}
+.cfg-close-btn:hover{
+  transform:scale(1.2);
+}
+
+/* mobile links */
+.cfg-sidebar a{
+  font-size:20px;
+  padding:16px 0;
+  border-bottom:1px solid #ddd;
+  display:block;
+  text-decoration:none;
+  color:#222;
+  transition:0.3s;
+}
+.cfg-sidebar a:hover{
+  color:var(--red);
+  padding-left:10px;
+}
+
+/* ACTIVE in mobile */
+.cfg-sidebar a.active{
+  color:var(--red);
+  font-weight:700;
+  padding-left:12px;
+}
+
+
+/* ----------------------------------------------
+   DROPDOWN (DESKTOP)
+----------------------------------------------- */
+.cfg-dropdown{
+  position:relative;
+}
+
+.cfg-drop-btn{
+  cursor:pointer;
+  
+}
+
+.cfg-dropdown-menu{
+  position:absolute;
+  top:150%;
+  left:8px;
+  min-width:210px;
+  background:#fff;
+  border-radius:1px;
+  padding:12px 0;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  transition:0.35s ease;
+  box-shadow:0 25px 45px rgba(0,0,0,0.18);
+  z-index:9999;
+}
+
+.cfg-dropdown:hover .cfg-dropdown-menu{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+.cfg-dropdown-menu a{
+  display:block;
+  padding:12px 22px;
+  font-size:15px;
+  color:#222;
+  text-decoration:none;
+  transition:0.3s ease;
+}
+
+.cfg-dropdown-menu a:hover{
+  background:rgba(215,0,0,0.01);
+  color:var(--red);
+  padding-left:28px;
+}
+
+.cfg-dropdown-menu .view-all{
+  font-weight:600;
+  color:var(--red);
+}
+
+/* ----------------------------------------------
+   MOBILE PRODUCTS DROPDOWN
+----------------------------------------------- */
+.cfg-mobile-products{
+  border-bottom:1px solid #ddd;
+}
+
+.cfg-mobile-title{
+  font-size:20px;
+  padding:16px 0;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.cfg-mobile-title span{
+  font-size:22px;
+  transition:0.3s ease;
+}
+
+.cfg-mobile-submenu{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.35s ease;
+}
+
+.cfg-mobile-submenu a{
+  padding:12px 0 12px 14px;
+  font-size:17px;
+  display:block;
+  text-decoration:none;
+  color:#444;
+}
+
+.cfg-mobile-submenu a:hover{
+  color:var(--red);
+}
+
+.cfg-mobile-products.active .cfg-mobile-submenu{
+  max-height:300px;
+}
+
+.cfg-mobile-products.active .cfg-mobile-title span{
+  transform:rotate(45deg);
+}
+
+
+
+
+
+
+
+
+/* ----------------------------------------------
+   RESPONSIVE
+----------------------------------------------- */
+@media(max-width:900px){
+  .cfg-menu{display:none;}
+  .cfg-menu-icon{display:block;}
+}
+</style>
+
+
+
+<!-- NAVBAR HTML -->
+<nav class="cfg-navbar">
+  <div class="site-container">
+
+    <!-- LOGO -->
+    <div class="logo-box">
+      <img src="img/logo.png" alt="CFG Logo">
+      <span>CFG Components</span>
+    </div>
+
+    <!-- DESKTOP MENU -->
+    <div class="cfg-menu">
+      <a href="index.html" >Home</a>
+      <a href="about.html" class="active">About</a>
+      <!-- PRODUCTS DROPDOWN -->
+  <div class="cfg-dropdown">
+    <a href="products.html" class="cfg-drop-btn">Products ▾</a>
+
+    <div class="cfg-dropdown-menu">
+      <a href="pdoor.html">Elevator Door</a>
+      <a href="ptack.html">Traction Machine</a>
+      <a href="phydra.html">Hydraulic Kits</a>
+      <a href="psensor.html">Door Sensor</a>
+      <a href="pguide.html">Elevator Guide Rails</a>
+      <a href="pcarcab.html">Cabins & Car Frames</a>
+      <a href="pelecomponents.html">Elevator Components</a>
+      
+    </div>
+  </div>
+      <a href="gallary.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- MOBILE ICON -->
+    <div class="cfg-menu-icon" id="openMenu">&#9776;</div>
+
+  </div>
+</nav>
+
+
+<!-- SIDEBAR DRAWER -->
+<div class="cfg-sidebar" id="sidebar">
+  <div class="cfg-close-btn" id="closeMenu">&times;</div>
+
+  <a href="index.html">Home</a>
+  <a href="about.html" class="active">About</a>
+  <a href="#">Products</a>
+  <a href="gallary.html">Gallery</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+
+<script>
+const sidebar = document.getElementById("sidebar");
+const openMenu = document.getElementById("openMenu");
+const closeMenu = document.getElementById("closeMenu");
+
+openMenu.addEventListener("click", ()=> sidebar.classList.add("active"));
+closeMenu.addEventListener("click", ()=> sidebar.classList.remove("active"));
+
+document.addEventListener("click",(e)=>{
+  if(!sidebar.contains(e.target) && !openMenu.contains(e.target)){
+    sidebar.classList.remove("active");
+  }
+});
+</script>
+
+</section>
+<!-- END NAV -->
+
+
+
+
+
+
+
+<section id="about-hero" style="
+  width:100%;
+  height:60vh;
+  min-height:420px;
+  font-family:'Poppins',sans-serif;
+  position:relative;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.45),
+      rgba(0,0,0,0.55)
+    ),
+    url('img/ele.jpg')
+    center center / cover no-repeat;
+">
+
+  <!-- VERY SUBTLE GRID (does NOT hide image) -->
+  <div style="
+    position:absolute;
+    inset:0;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        rgba(255,255,255,0.025) 0,
+        rgba(255,255,255,0.025) 1px,
+        transparent 1px,
+        transparent 140px
+      );
+    pointer-events:none;
+  "></div>
+
+  <!-- CONTENT -->
+  <div style="
+    max-width:1200px;
+    margin:auto;
+    padding:0 24px;
+    position:relative;
+    z-index:2;
+  ">
+
+    <!-- TAG -->
+    <div style="
+      display:inline-block;
+      padding:6px 16px;
+      background:#c70000;
+      color:#ffffff;
+      font-size:12px;
+      letter-spacing:1px;
+      border-radius:999px;
+      margin-bottom:16px;
+    ">
+      ABOUT CFG COMPONENTS
+    </div>
+
+    <!-- HEADING (shifted left naturally) -->
+    <h1 style="
+      font-size:40px;
+      font-weight:800;
+      line-height:1.12;
+      margin:0;
+      color:#ffffff;
+      max-width:620px;
+    ">
+      Trusted Elevator<br>
+      <span style="color:#ffb3b3;">Components Partner</span>
+    </h1>
+
+    <!-- DESCRIPTION -->
+    <p style="
+      margin-top:14px;
+      max-width:520px;
+      font-size:16px;
+      line-height:1.6;
+      color:#eaeaea;
+    ">
+      Established in 2017, CFG Components has grown into a reliable and trusted
+      name in the elevator industry, supplying durable, high-performance
+      components backed by expertise and customer-centric values.
+    </p>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="about-overview" style="
+  padding:140px 0 120px;
+  background:#f6f1ea;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+  position:relative;
+">
+
+  <!-- CONTAINER -->
+  <div style="
+    max-width:1200px;
+    margin:auto;
+    padding:0 24px;
+  ">
+
+    <!-- GRID -->
+    <div style="
+      display:grid;
+      grid-template-columns:1.05fr 0.95fr;
+      gap:70px;
+      align-items:center;
+      margin-bottom:90px;
+    ">
+
+      <!-- IMAGE -->
+      <div class="about-img" style="
+        border-radius:1px;
+        overflow:hidden;
+        box-shadow:0 40px 80px rgba(0,0,0,0.15);
+      ">
+        <img src="img/com.jpg"
+          alt="CFG Components Team"
+          style="
+            width:100%;
+            height:420px;
+            object-fit:cover;
+            display:block;
+          ">
+      </div>
+
+      <!-- TEXT -->
+      <div class="about-text">
+
+        <span style="
+          font-size:14px;
+          font-weight:600;
+          letter-spacing:1px;
+          color:#c70000;
+          display:block;
+          margin-bottom:12px;
+        ">
+          About Us
+        </span>
+
+        <h2 style="
+          font-size:44px;
+          font-weight:800;
+          line-height:1.15;
+          margin-bottom:22px;
+          color:#1f1f1f;
+        ">
+          Building Trust in<br>
+          <span style="color:#c70000;">Elevator Components</span>
+        </h2>
+
+        <p style="
+          font-size:17px;
+          line-height:1.8;
+          color:#444;
+          max-width:520px;
+        ">
+          Established in 2017, <span style="color:#c70000";font-weight:600;
+          >CFG Components </span> has grown into a reliable and trusted
+          name in the elevator industry. We specialize in trading and wholesale of
+          Elevator Machines, Doors, Brackets, and essential components.
+          <br><br>
+          With a strong focus on quality, durability, and performance, we serve
+          residential, commercial, and industrial sectors with confidence and care.
+        </p>
+
+      </div>
+    </div>
+
+    <!-- STATS / ICON CARDS -->
+    
+
+  </div>
+</section>
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+/* IMAGE ANIMATION */
+gsap.from(".about-img", {
+  scale:0.95,
+  opacity:0,
+  duration:1.2,
+  ease:"power3.out",
+  scrollTrigger:{
+    trigger:"#about-overview",
+    start:"top 70%"
+  }
+});
+
+/* TEXT FADE */
+gsap.from(".about-text", {
+  y:50,
+  opacity:0,
+  duration:1,
+  ease:"power3.out",
+  scrollTrigger:{
+    trigger:".about-text",
+    start:"top 75%"
+  }
+});
+
+/* STATS POP */
+gsap.from(".cfg-stat", {
+  y:40,
+  opacity:0,
+  stagger:0.15,
+  duration:0.9,
+  ease:"power3.out",
+  scrollTrigger:{
+    trigger:".cfg-stat",
+    start:"top 85%"
+  }
+});
+
+/* COUNT UP */
+document.querySelectorAll("[data-count]").forEach(counter => {
+  const target = +counter.getAttribute("data-count");
+  ScrollTrigger.create({
+    trigger: counter,
+    start: "top 90%",
+    once: true,
+    onEnter: () => {
+      gsap.fromTo(counter,
+        { innerText: 0 },
+        {
+          innerText: target,
+          duration: 2,
+          snap: { innerText: 1 },
+          ease: "power1.out"
+        }
+      );
+    }
+  });
+});
+</script>
+
+
+
+
+
+
+
+<div class="slider-container">
+
+  <!-- LEFT TEXT -->
+  <div class="left-slide">
+
+    <div>
+      <h1 style="color:#000000;">Our Values</h1>
+      <p>
+        Integrity, quality, and customer commitment form the foundation of
+        CFG Components. We believe in ethical business practices, long-term
+        partnerships, transparency, and continuous improvement to deliver
+        dependable elevator solutions.
+      </p>
+    </div>
+    <!-- VISION -->
+    <div >
+      <h1 style="color:#000000;">Our Vision</h1>
+      <p>
+        To become a leading and trusted name in the elevator industry by
+        delivering innovative, reliable, and high-performance components
+        that shape the future of vertical mobility.To become the house for international brand elevator components by making them readily available for Indian manufacturers. We collaborate with global partners, maintain ready stock, and ensure timely delivery to enhance manufacturing capability.
+
+Our vision is to deliver the best with competitive pricing, customized solutions, and long-term sustainability — being a valuable partner to every customer we serve.
+      </p>
+    </div>
+
+    <!-- MISSION -->
+    <div style="color:#222;">
+      <h1>Our Mission</h1>
+      <p>
+        To consistently supply quality elevator machines, doors, brackets,
+        and components while ensuring durability, competitive pricing,
+        and timely delivery for every client. We are committed to satisfactory after-sales service, maintaining personal customer relationships and delivering prompt solutions through expert technical support.
+      </p>
+    </div>
+  </div>
+
+  <!-- RIGHT VISUAL -->
+  <div class="right-slide">
+    <!-- MISSION IMAGE -->
+    <div style="
+      background:
+        linear-gradient(180deg,rgba(0,0,0,0.1),rgba(0,0,0,0.1)),
+        url('img/mission.jpg') center/contain no-repeat;
+    "></div>
+
+    <!-- VISION IMAGE -->
+    <div style="
+      background:
+        linear-gradient(180deg,rgba(0,0,0,0.1),rgba(0,0,0,0.1)),
+        url('img/vision.jpg') center/contain no-repeat;
+    "></div>
+
+    <!-- VALUES IMAGE -->
+    <div style="
+      background:
+        linear-gradient(180deg,rgba(0,0,0,0.1),rgba(0,0,0,0.1)),
+        url('img/value.jpg') center/cover no-repeat;
+    "></div>
+
+
+  </div>
+
+  <!-- ARROWS -->
+  <div class="action-buttons">
+    <button class="down-button">
+      <i class="fa-solid fa-caret-down"></i>
+    </button>
+    <button class="up-button">
+      <i class="fa-solid fa-caret-up"></i>
+    </button>
+  </div>
+
+</div>
+
+<style>
+	* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+}
+
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  width: 98.8vw;
+  height: 100vh;
+}
+
+/* LEFT PANEL */
+.left-slide {
+  height: 100%;
+  width: 40%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.6s ease-in-out;
+}
+
+.left-slide > div {
+  height: 100%;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #f6f1ea;
+}
+
+.left-slide h1 {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 25px;
+}
+
+.left-slide p {
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 420px;
+}
+
+/* RIGHT PANEL */
+.right-slide {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 40%;
+  width: 60%;
+  transition: transform 0.6s ease-in-out;
+  background-color: #ffffff;
+}
+
+.right-slide > div {
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+}
+
+/* BUTTONS */
+button {
+  background-color: #c70000;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 14px 18px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #a50000;
+}
+
+.slider-container .action-buttons button {
+  position: absolute;
+  left: 40%;
+  top: 50%;
+  z-index: 10;
+}
+
+.slider-container .action-buttons .down-button {
+  transform: translateX(-100%);
+  border-radius: 50% 0 0 50%;
+}
+
+.slider-container .action-buttons .up-button {
+  transform: translateY(-100%);
+  border-radius: 0 50% 50% 0;
+}
+
+</style>
+
+
+<script>
+const sliderContainer = document.querySelector(".slider-container");
+const slideRight = document.querySelector(".right-slide");
+const slideLeft = document.querySelector(".left-slide");
+const upButton = document.querySelector(".up-button");
+const downButton = document.querySelector(".down-button");
+
+const slidesLength = slideRight.querySelectorAll("div").length;
+let activeSlideIndex = 0;
+
+/* Position left slides correctly */
+slideLeft.style.top = `-${(slidesLength - 1) * 100}vh`;
+
+upButton.addEventListener("click", () => changeSlide("up"));
+downButton.addEventListener("click", () => changeSlide("down"));
+
+function changeSlide(direction) {
+  const sliderHeight = sliderContainer.clientHeight;
+
+  if (direction === "up") {
+    activeSlideIndex++;
+    if (activeSlideIndex > slidesLength - 1) {
+      activeSlideIndex = 0;
+    }
+  } else {
+    activeSlideIndex--;
+    if (activeSlideIndex < 0) {
+      activeSlideIndex = slidesLength - 1;
+    }
+  }
+
+  slideRight.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`;
+  slideLeft.style.transform = `translateY(${activeSlideIndex * sliderHeight}px)`;
+}
+</script>
+
+
+
+
+<section style="
+  padding:100px 0;
+  background:#ffffff;
+  font-family:Poppins, sans-serif;
+  color:#000000;
+">
+
+  <!-- HEADER -->
+  <div style="
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+  ">
+    <h2 style="font-size:38px;font-weight:800;">
+      Why Choose <span style="color:#c70000;">CFG Components ?</span>
+    </h2>
+
+    <div>
+      <button id="cfgPrev" style="
+        width:42px;height:42px;
+        border-radius:50%;
+        border:none;
+        background:#c70000;
+        color:#fff;
+        font-size:22px;
+        cursor:pointer;
+        margin-right:6px;
+      ">‹</button>
+
+      <button id="cfgNext" style="
+        width:42px;height:42px;
+        border-radius:50%;
+        border:none;
+        background:#c70000;
+        color:#fff;
+        font-size:22px;
+        cursor:pointer;
+      ">›</button>
+    </div>
+  </div>
+
+  <!-- SLIDER -->
+  <div style="
+    max-width:1200px;
+    margin:auto;
+    overflow:hidden;
+    padding:0 100px;
+  ">
+    <div id="cfgTrack" style="
+      display:flex;
+      gap:16px;
+      align-items:stretch;
+    ">
+
+      <!-- CARD -->
+      <div class="cfg-card active">
+        <img src="img/abo.jpg">
+        <div class="cfg-content">
+          <h3>Since 2017</h3>
+          <p>9+ years of trusted experience in elevator components trading.</p>
+        </div>
+      </div>
+
+      <div class="cfg-card">
+        <img src="img/comm.jpg">
+        <div class="cfg-content">
+          <h3>Wide Product Range</h3>
+          <p>Machines, doors, brackets & accessories under one roof.</p>
+        </div>
+      </div>
+
+      <div class="cfg-card">
+        <img src="img/quality.jpg">
+        <div class="cfg-content">
+          <h3>Quality & Reliability</h3>
+          <p>Products selected for durability, safety & performance.</p>
+        </div>
+      </div>
+
+      <div class="cfg-card">
+        <img src="img/price.jpg">
+        <div class="cfg-content">
+          <h3>Competitive Pricing</h3>
+          <p>Best market pricing with dependable logistics.</p>
+        </div>
+      </div>
+
+      <div class="cfg-card">
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200">
+        <div class="cfg-content">
+          <h3>Timely Delivery</h3>
+          <p>On-time supply ensuring smooth project execution.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- STYLES -->
+  <style>
+    .cfg-card{
+      width:120px;
+      height:500px;
+      border-radius:5px;
+      overflow:hidden;
+      position:relative;
+      cursor:pointer;
+      background:#111;
+      transition:
+        width .6s cubic-bezier(.25,.46,.45,.94),
+        box-shadow .6s ease;
+      flex-shrink:0;
+    }
+
+    .cfg-card.active{
+      width:500px;
+      box-shadow:0 25px 60px rgba(0,0,0,.1);
+    }
+
+    .cfg-card img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter:brightness(1);
+    }
+
+    .cfg-content{
+      position:absolute;
+      inset:0;
+      padding:30px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      background:linear-gradient(to top,rgba(253, 253, 253, 0.85),transparent 1%);
+      opacity:0;
+      transition:.4s ease;
+    }
+
+    .cfg-card.active .cfg-content{
+      opacity:1;
+    }
+
+    .cfg-content h3{
+      font-size:34px;
+      font-weight:800;
+      margin-bottom:2px;
+      color: white;
+    }
+
+    .cfg-content p{
+      font-size:16px;
+      line-height:1.6;
+      color:#fcfcfc;
+      max-width:320px;
+    }
+  </style>
+
+  <!-- SCRIPT -->
+  <script>
+    const cards = document.querySelectorAll('.cfg-card');
+    const prev = document.getElementById('cfgPrev');
+    const next = document.getElementById('cfgNext');
+    let current = 0;
+
+    function activate(index){
+      cards.forEach((c,i)=>c.classList.toggle('active', i === index));
+      current = index;
+    }
+
+    cards.forEach((card,i)=>{
+      card.addEventListener('mouseenter', ()=>activate(i));
+      card.addEventListener('click', ()=>activate(i));
+    });
+
+    prev.onclick = ()=>activate((current - 1 + cards.length) % cards.length);
+    next.onclick = ()=>activate((current + 1) % cards.length);
+  </script>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="cfg-slider" style="
+  position:relative;
+  width:100%;
+  height:80vh;
+  overflow:hidden;
+  background:#f6f1ea;
+  font-family:Poppins,sans-serif;
+">
+
+  <div id="cfg-track" style="
+    display:flex;
+    height:70%;
+    will-change:transform;
+  ">
+
+    <div class="cfg-slide" style="flex:0 0 100%; display:flex;">
+      <img src="img/glassele.jpg"
+        style="width:55%; height:100%; object-fit:cover;">
+      <div style="width:45%; padding:80px; color:#000000;">
+        <h2>Precision Elevator Components</h2>
+        <p>High-performance machines engineered for reliability. Elevator suitable for all types of constructions for catering to the need of vertical transport of Passenger and Goods, customised from concept to delivery in different types lifting options like Traction, MRL and Hydraulic Elevator System.</p>
+      </div>
+    </div>
+
+    <div class="cfg-slide" style="flex:0 0 100%; display:flex;">
+      <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758"
+        style="width:55%; height:100%; object-fit:cover;">
+      <div style="width:45%; padding:80px; color:#000000ca;">
+        <h2>Gearless Traction Machine</h2>
+        <p>A gearless traction machine is an elevator drive system where the motor shaft is directly connected to the traction sheave (no gearbox). This allows smooth, quiet, and energy-efficient elevator operation. A proven partner to elevator manufacturers across India.</p>
+      </div>
+    </div>
+
+    <div class="cfg-slide" style="flex:0 0 100%; display:flex;">
+      <img src="https://images.unsplash.com/photo-1590650153855-d9e808231d41"
+        style="width:55%; height:100%; object-fit:cover;">
+      <div style="width:45%; padding:80px; color:#000000;">
+        <h2>Machine Encoders</h2>
+        <p>A machine encoder is a precision feedback device mounted on the elevator motor (or traction sheave) that continuously reports. This data is sent to the elevator controller / VVVF drive, allowing smooth, safe, and accurate elevator travel. Machines, doors, brackets & complete lift solutions.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CONTROLS -->
+  <div style="
+    position:absolute;
+    bottom:80px;
+    right:60px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    color:#da1a1a;
+    z-index:10;
+  ">
+    <button id="prev" style="padding:12px 18px;">←</button>
+    <span id="counter">1 / 3</span>
+    <button id="next" style="padding:12px 18px;">→</button>
+  </div>
+
+</section>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+
+<script>
+window.addEventListener("load", () => {
+
+  const track = document.getElementById("cfg-track");
+  const slides = document.querySelectorAll(".cfg-slide");
+  const counter = document.getElementById("counter");
+
+  let index = 0;
+  let slideWidth = slides[0].offsetWidth;
+  const total = slides.length;
+
+  function update() {
+    gsap.to(track, {
+      x: -index * slideWidth,
+      duration: 1.2,
+      ease: "power3.inOut"
+    });
+    counter.innerText = `${index + 1} / ${total}`;
+  }
+
+  document.getElementById("next").onclick = () => {
+    index = (index + 1) % total;
+    update();
+  };
+
+  document.getElementById("prev").onclick = () => {
+    index = (index - 1 + total) % total;
+    update();
+  };
+
+  /* AUTOPLAY */
+  let auto = setInterval(() => {
+    index = (index + 1) % total;
+    update();
+  }, 4000);
+
+  /* PAUSE ON HOVER */
+  document.getElementById("cfg-slider").addEventListener("mouseenter", () => {
+    clearInterval(auto);
+  });
+
+  document.getElementById("cfg-slider").addEventListener("mouseleave", () => {
+    auto = setInterval(() => {
+      index = (index + 1) % total;
+      update();
+    }, 4000);
+  });
+
+  /* RESIZE FIX */
+  window.addEventListener("resize", () => {
+    slideWidth = slides[0].offsetWidth;
+    update();
+  });
+
+});
+</script>
+
+
+
+
+<!-- CFG PREMIUM MARQUEE -->
+<section style="
+  width:100%;
+  background:#111;
+  overflow:hidden;
+  font-family:'Poppins',sans-serif;
+">
+
+  <!-- OUTER WRAPPER (LOCKS OVERFLOW) -->
+  <div style="
+    width:100%;
+    overflow:hidden;
+  ">
+
+    <!-- MOVING TRACK -->
+    <div class="cfg-marquee-track"
+      onmouseenter="this.style.animationPlayState='paused'"
+      onmouseleave="this.style.animationPlayState='running'"
+      style="
+        display:flex;
+        width:max-content;
+        align-items:center;
+        padding:18px 0;
+        animation:cfg-marquee 22s linear infinite;
+      "
+    >
+
+      <!-- CONTENT BLOCK -->
+      <div class="cfg-marquee-content" style="display:flex; align-items:center;">
+        <span style="color:#c70000; font-size:24px; font-weight:800; margin:0 40px;">
+          CFG COMPONENTS
+        </span>
+
+        <span style="color:#fff; font-size:20px; margin-right:40px;">
+          Precision Elevator Components
+        </span>
+
+        <span style="color:#c70000; font-size:28px; margin-right:40px;">•</span>
+
+        <span style="color:#fff; font-size:20px; margin-right:40px;">
+          Trusted Since 2017
+        </span>
+
+        <span style="color:#c70000; font-size:28px; margin-right:40px;">•</span>
+
+        <span style="color:#fff; font-size:20px; margin-right:40px;">
+          Machines • Doors • Brackets
+        </span>
+
+        <span style="color:#c70000; font-size:28px; margin-right:40px;">•</span>
+
+        <span style="color:#fff; font-size:20px; margin-right:40px;">
+          Quality • Reliability • Performance
+        </span>
+      </div>
+
+      <!-- DUPLICATE CONTENT (REQUIRED) -->
+      <div class="cfg-marquee-content" style="display:flex; align-items:center;">
+        <span style="color:#c70000; font-size:24px; font-weight:800; margin:0 40px;">
+          CFG COMPONENTS
+        </span>
+
+        <span style="color:#fff; font-size:20px; margin-right:40px;">
+          Precision Elevator Components
+        </span>
+
+        <span style="color:#c70000; font-size:28px; margin-right:40px;">•</span>
+
+        <span style="color:#fff; font-size:20px; margin-right:40px;">
+          Trusted Since 2017
+        </span>
+
+        <span style="color:#c70000; font-size:28px; margin-right:40px;">•</span>
+
+        <span style="color:#fff; font-size:20px; margin-right:40px;">
+          Machines • Doors • Brackets
+        </span>
+
+        <span style="color:#c70000; font-size:28px; margin-right:40px;">•</span>
+
+        <span style="color:#fff; font-size:20px; margin-right:40px;">
+          Quality • Reliability • Performance
+        </span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+@keyframes cfg-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+</style>
+
+
+
+
+
+
+<!-- FLOATING WHATSAPP -->
+<!-- PREMIUM FLOATING WHATSAPP BUTTON WITH CUSTOM SVG -->
+<a href="https://wa.me/919876543210" target="_blank" class="whatsapp-btn">
+
+  <!-- YOUR SVG ICON INSERTED HERE -->
+  <svg viewBox="0 0 32 32" width="40" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd"
+      d="M16 31C23.732 31 30 24.732 30 17C30 9.26801 23.732 3 16 3C8.26801 3 2 9.26801 2 17C2 19.5109 2.661 21.8674 3.81847 23.905L2 31L9.31486 29.3038C11.3014 30.3854 13.5789 31 16 31ZM16 28.8462C22.5425 28.8462 27.8462 23.5425 27.8462 17C27.8462 10.4576 22.5425 5.15385 16 5.15385C9.45755 5.15385 4.15385 10.4576 4.15385 17C4.15385 19.5261 4.9445 21.8675 6.29184 23.7902L5.23077 27.7692L9.27993 26.7569C11.1894 28.0746 13.5046 28.8462 16 28.8462Z"
+      fill="#BFC8D0"/>
+    <path
+      d="M28 16C28 22.6274 22.6274 28 16 28C13.4722 28 11.1269 27.2184 9.19266 25.8837L5.09091 26.9091L6.16576 22.8784C4.80092 20.9307 4 18.5589 4 16C4 9.37258 9.37258 4 16 4C22.6274 4 28 9.37258 28 16Z"
+      fill="url(#paint0_linear_87_7264)"/>
+    <path fill-rule="evenodd" clip-rule="evenodd"
+      d="M16 30C23.732 30 30 23.732 30 16C30 8.26801 23.732 2 16 2C8.26801 2 2 8.26801 2 16C2 18.5109 2.661 20.8674 3.81847 22.905L2 30L9.31486 28.3038C11.3014 29.3854 13.5789 30 16 30ZM16 27.8462C22.5425 27.8462 27.8462 22.5425 27.8462 16C27.8462 9.45755 22.5425 4.15385 16 4.15385C9.45755 4.15385 4.15385 9.45755 4.15385 16C4.15385 18.5261 4.9445 20.8675 6.29184 22.7902L5.23077 26.7692L9.27993 25.7569C11.1894 27.0746 13.5046 27.8462 16 27.8462Z"
+      fill="#ffffff"/>
+    <path
+      d="M12.5 9.49989C12.1672 8.83131 11.6565 8.8905 11.1407 8.8905C10.2188 8.8905 8.78125 9.99478 8.78125 12.05C8.78125 13.7343 9.52345 15.578 12.0244 18.3361C14.438 20.9979 17.6094 22.3748 20.2422 22.3279C22.875 22.2811 23.4167 20.0154 23.4167 19.2503C23.4167 18.9112 23.2062 18.742 23.0613 18.696C22.1641 18.2654 20.5093 17.4631 20.1328 17.3124C19.7563 17.1617 19.5597 17.3656 19.4375 17.4765C19.0961 17.8018 18.4193 18.7608 18.1875 18.9765C17.9558 19.1922 17.6103 19.083 17.4665 19.0015C16.9374 18.7892 15.5029 18.1511 14.3595 17.0426C12.9453 15.6718 12.8623 15.2001 12.5959 14.7803C12.3828 14.4444 12.5392 14.2384 12.6172 14.1483C12.9219 13.7968 13.3426 13.254 13.5313 12.9843C13.7199 12.7145 13.5702 12.305 13.4803 12.05C13.0938 10.953 12.7663 10.0347 12.5 9.49989Z"
+      fill="white"/>
+    <defs>
+      <linearGradient id="paint0_linear_87_7264" x1="26.5" y1="7" x2="4" y2="28" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#5BD066"/>
+        <stop offset="1" stop-color="#27B43E"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+</a>
+
+<style>
+/* Floating WhatsApp – Premium Look */
+.whatsapp-btn {
+  position: fixed;
+  right: 22px;
+  bottom: 28px;
+  width: 70px;
+  height: 70px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  cursor: pointer;
+
+  /* Glow */
+  box-shadow: 0 0 20px rgba(37, 211, 102, 0.65),
+              0 0 40px rgba(37, 211, 102, 0.35);
+
+  animation: float 3s ease-in-out infinite,
+             pulse 2.4s ease-out infinite;
+  transition: 0.3s ease;
+}
+
+/* Hover FX */
+.whatsapp-btn:hover {
+  transform: scale(1.2) translateY(-4px);
+  box-shadow: 0 0 30px rgba(37, 211, 102, 0.9),
+              0 0 65px rgba(37, 211, 102, 0.5);
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Glow pulse */
+@keyframes pulse {
+  0% { box-shadow: 0 0 22px rgba(37, 211, 102, 0.55); }
+  50% { box-shadow: 0 0 38px rgba(37, 211, 102, 0.85); }
+  100% { box-shadow: 0 0 22px rgba(37, 211, 102, 0.55); }
+}
+
+/* Ripple Background */
+.whatsapp-btn::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.25);
+  z-index: -1;
+  animation: ripple 2.2s infinite ease-out;
+}
+
+@keyframes ripple {
+  0% { transform: scale(1); opacity: .7; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+<!-- ============================================================
+                 CLEAN FOOTER (ONLY ORANGE WAVE)
+=============================================================== -->
+<!-- ======= Bulletproof Footer (links/headings forced black) ======= -->
+<section id="footer-wrapper" style="
+  width:100%;
+  background:#ffffff url('https://www.transparenttextures.com/patterns/white-wall.png');
+  font-family:'Poppins',sans-serif;
+  position:relative;
+  overflow:hidden;
+">
+
+  <footer style="
+    width:100%;
+    padding:40px 6% 60px;
+    background:transparent;
+  ">
+    <div id="footer-grid" style="
+      max-width:1250px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:50px;
+      align-items:flex-start;
+    ">
+
+      <!-- Column 1 -->
+      <div>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+          <img src="img/logo.png" width="50" alt="CFG Logo">
+          <h2 style="font-size:20px; font-weight:700; margin:0; color:#000 !important;">CFG Components</h2>
+        </div>
+
+        <p style="color:#000000; font-size:16px; line-height:1.6;text-align: left;">
+          OPP. TINY INDUSTRY, PISOLI ROAD, KONDHWA BUDRUK,
+<br>
+          PUNE – 411048, MAHARASHTRA, INDIA
+        </p>
+
+        <p style="color:#000000; font-size:16px; margin-top:14px;text-align: left;">
+          📞 +91 8380904311
+<br>
+          ✉ cfg.components@gmail.com 
+        </p>
+      </div>
+
+      <!-- Column 2 -->
+      <div class="footer-col">
+        <h3 style="font-size:18px; font-weight:700; margin-bottom:14px;">
+          <span style="color:#000 !important;">Company</span>
+        </h3>
+        <p class="fLink" style="color:#000 !important;">About</p>
+        <p class="fLink" style="color:#000 !important;">Contact</p>
+        <p class="fLink" style="color:#000 !important;">Careers</p>
+        <p class="fLink" style="color:#000 !important;">Team</p>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="footer-col">
+        <h3 style="font-size:18px; font-weight:700; margin-bottom:14px;">
+          <span style="color:#000 !important;">Products</span>
+        </h3>
+        <p class="fLink" style="color:#000 !important;">Elevator Doors</p>
+        <p class="fLink" style="color:#000 !important;">Elevator Machines</p>
+        <p class="fLink" style="color:#000 !important;">Control Panels</p>
+        <p class="fLink" style="color:#000 !important;">Bracket Solutions</p>
+      </div>
+
+      <!-- Column 4 -->
+      <div class="footer-col">
+        <h3 style="font-size:18px; font-weight:700; margin-bottom:14px;">
+          <span style="color:#000 !important;">Follow Us</span>
+        </h3>
+
+        <div style="display:center; gap:20px;">
+          <div class="socialBubble">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="20">
+          </div>
+          <div class="socialBubble">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="20">
+          </div>
+          <div class="socialBubble">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="20">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- single orange bottom wave -->
+  <svg style="width:100%; height:160px; display:block; margin-top: 0;">
+    <path fill="#e6672f"
+      d="M0,50
+         C450,140 1450,-20 1920,80
+         L1920,160
+         L0,160
+         Z"></path>
+  </svg>
+
+  <!-- COPYRIGHT -->
+  <p id="copyright" style="
+    text-align:center;
+    padding:12px 0;
+    margin:0;
+    background:#e6672f;
+    color:#fff;
+    font-size:14px;
+  ">
+    © <span id="year"></span> CFG Components — All Rights Reserved. <br> <a href="https://dwi4u.com" style="color: #fff !important; text-decoration:none; ">Developed By DW INNOVATION PVT. LTD.</a>
+  </p>
+
+</section>
+
+<!-- Strong CSS to ensure defaults (can coexist with other styles) -->
+<style>
+  /* force .fLink and heading spans to black unless JS changes them */
+  .fLink { color: #000 !important; font-size:16px; margin:6px 0; display:block; transition: color .18s ease !important; }
+  .footer-col h3 span { color: #000 !important; }
+  /* social bubble baseline */
+  .socialBubble { width:42px; height:42px; border-radius:50%; background:#fff; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 4px 14px rgba(0,0,0,0.12); transition: transform .22s ease; cursor:pointer; }
+  .socialBubble:hover { transform: scale(1.12); }
+</style>
+
+<!-- JS: DOMContentLoaded wrapper + correct hover logic -->
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+
+  // year
+  const yearEl = document.getElementById('year');
+  if(yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // Ensure all .fLink exist and set base color to black (defensive)
+  document.querySelectorAll('.fLink').forEach(link => {
+    link.style.setProperty('color', '#000', 'important');   // force inline with important
+    link.style.fontSize = '14px';
+    link.style.margin = '6px 0';
+    link.style.cursor = 'pointer';
+
+    // Hover -> red
+    link.addEventListener('mouseenter', () => {
+      link.style.setProperty('color', '#c70000', 'important');
+    });
+
+    // Out -> restore black
+    link.addEventListener('mouseleave', () => {
+      link.style.setProperty('color', '#000', 'important');
+    });
+  });
+
+  // Also ensure heading spans keep black
+  document.querySelectorAll('.footer-col h3 span').forEach(span=>{
+    span.style.setProperty('color', '#000', 'important');
+  });
+
+  // Social bubble hover fallback (in case CSS blocked)
+  document.querySelectorAll('.socialBubble').forEach(b=>{
+    b.addEventListener('mouseenter', ()=> b.style.transform = 'scale(1.12)');
+    b.addEventListener('mouseleave', ()=> b.style.transform = 'scale(1)');
+  });
+
+});
+</script>
+
+
+
+  
+</body>
+</html>

@@ -1,0 +1,2580 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CFG Components</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Remix Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- ⭐ NAVBAR + SIDEBAR CSS ⭐ -->
+  <style>
+    :root{
+      --red:#c70000;
+      --red-deep:#a10000;
+      --yellow:#ffcc00;
+      --bg: #ffffff;
+      --glass: rgba(255,255,255,0.85);
+      --maxw: 1400px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      color:#111;
+      background:#fafafa;
+    }
+
+   </style>
+</head>
+
+<body>
+
+<section id="navbarSection">
+
+<style>
+:root{
+  --red:#D70000;
+  --yellow:#F4C400;
+  --dark:#1a1a1a;
+}
+
+/* ----------------------------------------------
+   PREMIUM NAVBAR WITH BRUSHED METAL TEXTURE
+----------------------------------------------- */
+.cfg-navbar{
+  width:100%;
+
+    background:#ffffff url('https://www.transparenttextures.com/patterns/white-wall.png');
+     
+
+  background-size:cover;
+
+  position:sticky;
+  top:0;
+  z-index:999999;
+
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+
+  box-shadow:
+      0 4px 12px rgba(0,0,0,0.18),
+      inset 0 -2px 4px rgba(255,255,255,0.5);
+
+  transition:0.3s ease;
+}
+
+/* container */
+.cfg-navbar .site-container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:85px;
+  padding:0 18px;
+}
+
+/* ----------------------------------------------
+   LOGO
+----------------------------------------------- */
+.logo-box{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.logo-box img{
+  height:55px;
+}
+.logo-box span{
+  font-size:24px;
+  font-weight:700;
+  color:var(--red);
+  letter-spacing:0.4px;
+}
+
+/* ----------------------------------------------
+   MENU (Desktop)
+----------------------------------------------- */
+.cfg-menu{
+  display:flex;
+  align-items: center;
+  gap:42px;
+}
+
+.cfg-menu a{
+  font-size:17px;
+  font-weight:500;
+  text-decoration:none;
+  color:#111;
+  padding:8px 4px;
+  position:relative;
+  transition:0.3s ease;
+}
+
+/* Hover glow */
+.cfg-menu a:hover{
+  color:var(--red);
+  text-shadow:0 0 10px rgba(215,0,0,0.45);
+}
+
+/* underline animation */
+.cfg-menu a::after{
+  content:"";
+  position:absolute;
+  width:0;
+  height:3px;
+  bottom:0;
+  left:0;
+  background:var(--red);
+  border-radius:20px;
+  transition:0.3s ease;
+}
+.cfg-menu a:hover::after{
+  width:100%;
+}
+
+/* ACTIVE button style */
+.cfg-menu a.active{
+  background:var(--red);
+  color:#fff !important;
+  padding:8px 18px;
+  border-radius:20px;
+  font-weight:600;
+  box-shadow:0 4px 12px rgba(215,0,0,0.4);
+}
+.cfg-menu a.active::after{ width:0 !important; }
+
+/* ----------------------------------------------
+   MOBILE MENU ICON
+----------------------------------------------- */
+.cfg-menu-icon{
+  display:none;
+  font-size:36px;
+  cursor:pointer;
+  color:var(--red);
+  transition:0.3s ease;
+}
+.cfg-menu-icon:hover{
+  transform:scale(1.15);
+}
+
+/* ----------------------------------------------
+   SIDEBAR / MOBILE DRAWER
+----------------------------------------------- */
+.cfg-sidebar{
+  position:fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width:300px;
+
+    background:#ffffff url('https://www.transparenttextures.com/patterns/white-wall.png');
+
+
+  background-size:600px;
+
+  transform:translateX(-100%);
+  transition:0.4s ease;
+
+  padding:50px 30px 30px;
+  border-top-right-radius:22px;
+  border-bottom-right-radius:22px;
+
+  box-shadow:6px 0 25px rgba(0,0,0,0.25);
+  z-index:999999;
+}
+
+/* active drawer */
+.cfg-sidebar.active{
+  transform:translateX(0);
+}
+
+/* close button */
+.cfg-close-btn{
+  font-size:38px;
+  color:var(--red);
+  cursor:pointer;
+  margin-bottom:28px;
+  transition:0.3s;
+}
+.cfg-close-btn:hover{
+  transform:scale(1.2);
+}
+
+/* mobile links */
+.cfg-sidebar a{
+  font-size:20px;
+  padding:16px 0;
+  border-bottom:1px solid #ddd;
+  display:block;
+  text-decoration:none;
+  color:#222;
+  transition:0.3s;
+}
+.cfg-sidebar a:hover{
+  color:var(--red);
+  padding-left:10px;
+}
+
+/* ACTIVE in mobile */
+.cfg-sidebar a.active{
+  color:var(--red);
+  font-weight:700;
+  padding-left:12px;
+}
+
+
+/* ----------------------------------------------
+   DROPDOWN (DESKTOP)
+----------------------------------------------- */
+.cfg-dropdown{
+  position:relative;
+}
+
+.cfg-drop-btn{
+  cursor:pointer;
+  
+}
+
+.cfg-dropdown-menu{
+  position:absolute;
+  top:150%;
+  left:8px;
+  min-width:210px;
+  background:#fff;
+  border-radius:1px;
+  padding:12px 0;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  transition:0.35s ease;
+  box-shadow:0 25px 45px rgba(0,0,0,0.18);
+  z-index:9999;
+}
+
+.cfg-dropdown:hover .cfg-dropdown-menu{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+.cfg-dropdown-menu a{
+  display:block;
+  padding:12px 22px;
+  font-size:15px;
+  color:#222;
+  text-decoration:none;
+  transition:0.3s ease;
+}
+
+.cfg-dropdown-menu a:hover{
+  background:rgba(215,0,0,0.01);
+  color:var(--red);
+  padding-left:28px;
+}
+
+.cfg-dropdown-menu .view-all{
+  font-weight:600;
+  color:var(--red);
+}
+
+/* ----------------------------------------------
+   MOBILE PRODUCTS DROPDOWN
+----------------------------------------------- */
+.cfg-mobile-products{
+  border-bottom:1px solid #ddd;
+}
+
+.cfg-mobile-title{
+  font-size:20px;
+  padding:16px 0;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.cfg-mobile-title span{
+  font-size:22px;
+  transition:0.3s ease;
+}
+
+.cfg-mobile-submenu{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.35s ease;
+}
+
+.cfg-mobile-submenu a{
+  padding:12px 0 12px 14px;
+  font-size:17px;
+  display:block;
+  text-decoration:none;
+  color:#444;
+}
+
+.cfg-mobile-submenu a:hover{
+  color:var(--red);
+}
+
+.cfg-mobile-products.active .cfg-mobile-submenu{
+  max-height:300px;
+}
+
+.cfg-mobile-products.active .cfg-mobile-title span{
+  transform:rotate(45deg);
+}
+
+
+
+
+
+
+
+
+/* ----------------------------------------------
+   RESPONSIVE
+----------------------------------------------- */
+@media(max-width:900px){
+  .cfg-menu{display:none;}
+  .cfg-menu-icon{display:block;}
+}
+</style>
+
+
+
+<!-- NAVBAR HTML -->
+<nav class="cfg-navbar">
+  <div class="site-container">
+
+    <!-- LOGO -->
+    <div class="logo-box">
+      <img src="img/logo.png" alt="CFG Logo">
+      <span>CFG Components</span>
+    </div>
+
+    <!-- DESKTOP MENU -->
+    <div class="cfg-menu">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+       <!-- PRODUCTS DROPDOWN -->
+  <div class="cfg-dropdown">
+    <a href="products.html" class="cfg-drop-btn">Products ▾</a>
+
+    <div class="cfg-dropdown-menu">
+      <a href="elevator-door.html">Elevator Door</a>
+      <a href="traction-machine.html">Traction Machine</a>
+      <a href="hydraulic-kits.html">Hydraulic Kits</a>
+      <a href="door-sensor.html">Door Sensor</a>
+      <a href="elevator-guide">Elevator Guide Rails</a>
+      <a href="cabin.html">Cabins & Car Frames</a>
+      <a href="elevator-com.html">Elevator Components</a>
+      
+    </div>
+  </div>
+      <a href="gallary.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- MOBILE ICON -->
+    <div class="cfg-menu-icon" id="openMenu">&#9776;</div>
+
+  </div>
+</nav>
+
+
+<!-- SIDEBAR DRAWER -->
+<div class="cfg-sidebar" id="sidebar">
+  <div class="cfg-close-btn" id="closeMenu">&times;</div>
+
+  <a href="index.html" class="active">Home</a>
+  <a href="about.html">About</a>
+    <!-- MOBILE PRODUCTS -->
+<div class="cfg-mobile-products">
+  <div class="cfg-mobile-title" id="mobileProducts">
+    Products <span>+</span>
+  </div>
+
+  <div class="cfg-mobile-submenu">
+   <a href="pdoor.html">Elevator Door</a>
+      <a href="ptack.html">Traction Machine</a>
+      <a href="phydra.html">Hydraulic Kits</a>
+      <a href="psensor.html">Door Sensor</a>
+      <a href="pguide.html">Elevator Guide Rails</a>
+      <a href="pcarcab.html">Cabins & Car Frames</a>
+      <a href="pelecomponents.html">Elevator Components</a>
+    <a href="products.html" class="view-all">View All</a>
+  </div>
+</div>
+  <a href="gallary.html">Gallery</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+
+<script>
+const sidebar = document.getElementById("sidebar");
+const openMenu = document.getElementById("openMenu");
+const closeMenu = document.getElementById("closeMenu");
+
+openMenu.addEventListener("click", ()=> sidebar.classList.add("active"));
+closeMenu.addEventListener("click", ()=> sidebar.classList.remove("active"));
+
+document.addEventListener("click",(e)=>{
+  if(!sidebar.contains(e.target) && !openMenu.contains(e.target)){
+    sidebar.classList.remove("active");
+  }
+});
+</script>
+
+<script>
+const mobileProducts = document.getElementById("mobileProducts");
+
+if(mobileProducts){
+  mobileProducts.addEventListener("click",()=>{
+    mobileProducts.parentElement.classList.toggle("active");
+  });
+}
+</script>
+
+</section>
+<!-- END NAV -->
+
+
+
+<!-- ⭐ YOUR HERO SECTION (UNCHANGED) ⭐ -->
+<section class="hero">
+
+  <!-- ===== Background Slider ===== -->
+  <div class="hero-slider">
+    <img src="img/el.jpg" class="slide active">
+    <img src="img/ele.jpg" class="slide">
+    <img src="img/vt.jpg" class="slide">
+    <img src="img/vat.jpg" class="slide">
+
+    <!-- ⭐ VERTICAL PAGINATION DOTS ⭐ -->
+    <div class="hero-pagination">
+  <span class="line active-line" data-slide="0"></span>
+  <span class="line" data-slide="1"></span>
+  <span class="line" data-slide="2"></span>
+  <span class="line" data-slide="3"></span>
+</div>
+
+  </div>
+
+  <!-- ===== Overlay Gradient ===== -->
+  <div class="hero-overlay"></div>
+
+  <!-- ===== Content ===== -->
+  <div class="hero-content">
+    <p class="hero-tagline"></p>
+
+    
+
+    <p class="hero-desc">
+      We provide durable, high-performance industrial components trusted by manufacturers across India.
+    </p>
+
+    <div class="hero-buttons">
+  <button class="hero-btn-primary">Explore Products</button>
+  <button class="hero-btn-secondary">Contact Us</button>
+</div>
+
+  </div>
+
+</section>
+
+<style>
+/* Make hero start *after navbar ends* */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 110vh; /* ⭐ Stretched taller hero section */
+  padding-top:90px; /* Offset for your fixed navbar height */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding-left: 6vw;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+}
+
+/* Background Slider */
+.hero-slider {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-slider .slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+  filter: brightness(1) contrast(1.1);
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* ===== Overlay ===== */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0.05));
+  z-index: 1;
+}
+
+/* ===== Content ===== */
+.hero-content {
+  position: absolute;
+  bottom: 27vh;             /* Move content to bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 3;
+  width: 90%;
+  max-width: 700px;
+}
+
+/* Smaller tagline */
+.hero-tagline {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+/* Smaller heading */
+.hero-heading {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 15px;
+}
+
+.hero-heading span {
+  color: #c70000; /* LOGO yellow */
+}
+
+/* Smaller description */
+.hero-desc {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  opacity: 0.85;
+  margin: 0 auto 25px auto;
+  max-width: 550px;
+}
+
+/* Centered buttons */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Primary Button – Red BG, White Text */
+.hero-btn-primary {
+  padding: 14px 26px;
+  background: #c70000;
+  color: #fff;
+  border: none;
+  border-radius: 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(199,0,0,0.4);
+  transition: 0.25s;
+}
+
+.hero-btn-primary:hover {
+  transform: scale(1.06);
+  background: #a10000;
+}
+
+/* Secondary Button – White BG, Red Border */
+.hero-btn-secondary {
+  padding: 14px 26px;
+  background: #fff;
+  color: #c70000;
+  border: 2px solid #c70000;
+  border-radius: 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.hero-btn-secondary:hover {
+  background: #c70000;
+  color: #fff;
+  transform: scale(1.06);
+}
+
+
+
+/* Vertical Pagination Lines */
+.hero-pagination {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hero-pagination .line {
+  width: 3px;
+  height: 28px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.hero-pagination .active-line {
+  background: #e73838;  /* red active line (matches your sample) */
+  height: 32px;
+}
+/* Responsive */
+@media (max-width: 900px) {
+  .hero {
+    padding: 100px 6vw;
+    height: 120vh;
+  }
+  .hero-heading {
+    font-size: 2.8rem;
+  }
+}
+</style>
+
+
+
+
+<script>
+let current = 0;
+const slides = document.querySelectorAll(".hero-slider .slide");
+const lines = document.querySelectorAll(".hero-pagination .line");
+
+function showSlide(index) {
+  slides[current].classList.remove("active");
+  lines[current].classList.remove("active-line");
+
+  current = index;
+
+  slides[current].classList.add("active");
+  lines[current].classList.add("active-line");
+}
+
+function nextSlide() {
+  let next = (current + 1) % slides.length;
+  showSlide(next);
+}
+
+// Auto-slide every 4 seconds
+let sliderInterval = setInterval(nextSlide, 4000);
+
+// Make lines clickable
+lines.forEach((line, index) => {
+  line.addEventListener("click", () => {
+    clearInterval(sliderInterval);      // stop auto when user clicks
+    showSlide(index);
+    sliderInterval = setInterval(nextSlide, 4000); // restart auto
+  });
+});
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<script>
+document.querySelectorAll('.hero-btn-primary, .hero-btn-secondary').forEach(btn => {
+
+  let hoverAnim = gsap.timeline({ paused: true });
+
+  hoverAnim.to(btn, {
+    scale: 1.08,
+    boxShadow: "0 8px 20px rgba(0,0,0,0.25)",
+    duration: 0.25,
+    ease: "power2.out"
+  });
+
+  btn.addEventListener("mouseenter", () => hoverAnim.play());
+  btn.addEventListener("mouseleave", () => hoverAnim.reverse());
+
+});
+</script>
+
+
+
+
+
+
+<!-- =========================== FEATURES SECTION =========================== -->
+<section id="features" style="
+  padding: 100px 0;
+  background: #fff;
+  font-family: 'Poppins', sans-serif;
+">
+
+  <div style="
+    width: 90%;
+    max-width: 1500px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    text-align: center;
+  ">
+
+    <!-- CARD 1 -->
+    <div class="feature-card" style="
+      position: relative;
+      padding: 20px;
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      transition: 0.3s;
+    ">
+      <div class="shape-bg" style="
+        position:absolute;
+        top:0;
+        left:-25px;
+        width:140%;
+        height:100%;
+        background: #f2f2f2;
+        transform: skewX(-20deg);
+        z-index:-1;
+      "></div>
+
+      <div class="feature-card-inner">
+        <img src="img/main.png" class="feature-icon">
+        <h3 style="font-size:1.4rem; font-weight:700; margin-bottom:10px;">MS Elevator Geared Traction Machine</h3>
+        <p style="opacity:0.8; font-size:0.95rem;">
+          High-accuracy machined components for industrial and engineering applications.
+        </p>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="feature-card" style="
+      position: relative;
+      padding: 20px;
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      transition: 0.3s;
+    ">
+      <div class="shape-bg" style="
+        position:absolute;
+        top:0;
+        left:-25px;
+        width:140%;
+        height:100%;
+        background: #f2f2f2;
+        transform: skewX(-20deg);
+        z-index:-1;
+      "></div>
+
+      <div class="feature-card-inner">
+        <img src="img/gearless-traction-machine-removebg-preview.png" class="feature-icon">
+        <h3 style="font-size:1.4rem; font-weight:700; margin-bottom:10px;">CI Elevator Gearless Traction Machine</h3>
+        <p style="opacity:0.8; font-size:0.95rem;">
+          Tailor-made industrial components built to meet exact specifications.
+        </p>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="feature-card" style="
+      position: relative;
+      padding: 20px;
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      transition: 0.3s;
+    ">
+      <div class="shape-bg" style="
+        position:absolute;
+        top:0;
+        left:-25px;
+        width:140%;
+        height:100%;
+        background: #f2f2f2;
+        transform: skewX(-20deg);
+        z-index:-1;
+      "></div>
+
+      <div class="feature-card-inner">
+        <img src="img/upper.png" class="feature-icon">
+        <h3 style="font-size:1.4rem; font-weight:700; margin-bottom:10px;">MS Elevator Upper Traction Machine</h3>
+        <p style="opacity:0.8; font-size:0.95rem;">
+          Strict inspection & durability testing to ensure long-lasting industrial performance.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =========================== CSS FOR ICONS + HOVER =========================== -->
+<style>
+/* Equal size icons */
+.feature-icon {
+  width: 400px;
+  height: 400px;
+  object-fit: contain;
+  margin: 0 auto 20px auto;
+  display: block;
+}
+
+/* Hover lift + shadow */
+.feature-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+
+/* BG highlight on hover */
+.feature-card:hover .shape-bg {
+  background: #ffe03a !important;
+  transition: background 1s ease;
+}
+
+/* 3D hover tilt container */
+.feature-card {
+  perspective: 300px;
+}
+
+.feature-card-inner {
+  transition: transform 0.3s ease;
+}
+</style>
+
+
+<!-- =========================== GSAP ANIMATIONS =========================== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+/* ===============================
+   1️⃣ SECTION SMOOTH REVEAL
+================================= */
+gsap.from("#features", {
+  opacity: 0,
+  y: 80,
+  duration: 1.2,
+  ease: "power3.out",
+  scrollTrigger: {
+    trigger: "#features",
+    start: "top 85%",
+    once: true
+  }
+});
+
+/* ===============================
+   2️⃣ CARDS: SOFT STAGGERED REVEAL
+================================= */
+gsap.utils.toArray(".feature-card").forEach((card, i) => {
+  gsap.from(card, {
+    opacity: 0,
+    y: 60,
+    duration: 1,
+    delay: i * 0.15,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: "#features",
+      start: "top 75%",
+      scrub: false
+    }
+  });
+});
+
+/* ===============================
+   3️⃣ PARALLAX FLOATING ICONS ON SCROLL
+================================= */
+gsap.utils.toArray(".feature-icon").forEach((icon, i) => {
+  gsap.fromTo(icon,
+    { y: 25 },
+    {
+      y: -25,
+      duration: 2,
+      ease: "power1.out",
+      scrollTrigger: {
+        trigger: icon,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 1
+      }
+    }
+  );
+});
+
+/* ===============================
+   4️⃣ BG SHAPE ANIMATION ON SCROLL
+================================= */
+gsap.utils.toArray(".shape-bg").forEach((bg, i) => {
+  gsap.from(bg, {
+    x: -120,
+    opacity: 0,
+    duration: 1.4,
+    ease: "power2.out",
+    delay: 0.1 * i,
+    scrollTrigger: {
+      trigger: bg,
+      start: "top 90%",
+      scrub: false
+    }
+  });
+});
+
+/* ===============================
+   5️⃣ ICON FLOAT ON HOVER
+================================= */
+document.querySelectorAll(".feature-card").forEach(card => {
+  const icon = card.querySelector(".feature-icon");
+
+  card.addEventListener("mouseenter", () => {
+    gsap.to(icon, { y: -10, duration: 0.3, ease: "power2.out" });
+  });
+
+  card.addEventListener("mouseleave", () => {
+    gsap.to(icon, { y: 0, duration: 0.3, ease: "power2.out" });
+  });
+});
+
+/* ===============================
+   6️⃣ PREMIUM 3D TILT
+================================= */
+document.querySelectorAll(".feature-card").forEach(card => {
+  const inner = card.querySelector(".feature-card-inner");
+
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const rotateY = ((x / rect.width) - 0.5) * 12;
+    const rotateX = ((y / rect.height) - 0.5) * -12;
+
+    gsap.to(inner, {
+      rotateX: rotateX,
+      rotateY: rotateY,
+      duration: 0.3,
+      ease: "power2.out"
+    });
+  });
+
+  card.addEventListener("mouseleave", () => {
+    gsap.to(inner, {
+      rotateX: 0,
+      rotateY: 0,
+      duration: 0.45,
+      ease: "power2.out"
+    });
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+<!-- ========== ABOUT SECTION ========== -->
+<!-- ========== ABOUT SECTION ========== -->
+<section id="about" style="
+  width:100%;
+  padding:100px 40px;
+  background:#ffffff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+">
+  
+  <div style="
+    max-width:1300px;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:50px;
+    flex-wrap:wrap;
+  ">
+
+    <!-- LEFT CONTENT -->
+    <div class="about-left" style="flex:1; min-width:300px;">
+      <h2 style="
+        font-size:2.7rem;
+        font-weight:800;
+        color:#000000;
+        line-height:1.2;
+        margin-bottom:15px;
+      "> Our Company </h2>
+
+      <p style="
+        font-size:1.1rem;
+        color:#444;
+        line-height:1.7;
+        margin-bottom:40px;
+      ">
+        CFG Components, established in 2017, has grown into a reliable name in the 
+        elevator industry. We trade and supply high-quality Elevator Machines, 
+        Doors, Brackets, and advanced components trusted across residential, 
+        commercial and industrial sectors. With a strong focus on durability, 
+        precision and performance, we continue delivering reliable solutions for 
+        modern elevator systems.
+      </p>
+
+      <div style="display:flex; gap:15px;">
+        <button class="about-btn-primary" style="
+          padding:14px 26px;
+          background:#c70000;
+          color:#fff;
+          border:none;
+          border-radius:40px;
+          font-size:1rem;
+          font-weight:600;
+          cursor:pointer;
+          box-shadow:0 4px 10px rgba(199,0,0,0.4);
+          transition:0.3s;
+        ">
+          Know More
+        </button>
+
+        
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE IMAGE GRID -->
+    <div class="about-right" style="
+      flex:1; 
+      min-width:320px; 
+      display:grid; 
+      grid-template-columns:repeat(2,1fr); 
+      gap:20px;
+    ">
+      
+      <!-- Image 1 -->
+      <div class="img-box img-top-right" style="
+        background:#e8ecff;
+        padding:20px;
+        border-radius:20px;
+        text-align:center;
+        position:relative;
+      ">
+        <img src="img/home_about_01.png" style="width:100%; border-radius:15px;">
+      </div>
+
+      <!-- Image 2 -->
+      <div class="img-box img-bottom-right" style="
+        background:#ffe5e5;
+        padding:20px;
+        border-radius:20px;
+        text-align:center;
+        position:relative;
+      ">
+        <img src="img/home_about_02.png" style="width:100%; border-radius:15px;">
+      </div>
+
+      <!-- Image 3 -->
+      <div class="img-box img-wide" style="
+        background:#e9ffe7;
+        padding:20px;
+        border-radius:20px;
+        grid-column:span 2;
+        text-align:center;
+      ">
+        <img src="img/home_about_04.png" style="width:60%; border-radius:15px;">
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<style>
+  /* lightweight CSS fallback */
+  .about-btn-primary:hover,
+  .about-btn-primary:active {
+    transform: scale(1.06);
+    box-shadow:0 12px 30px rgba(199,0,0,0.45);
+  }
+
+  /* touch-friendly active state */
+  .about-btn-primary:focus {
+    outline: none;
+    transform: scale(1.03);
+  }
+</style>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+//
+// LEFT CONTENT — slides from left
+//
+gsap.from(".about-left", {
+  x: -80,
+  opacity: 0,
+  duration: 1.2,
+  ease: "power3.out",
+  scrollTrigger: {
+    trigger: "#about",
+    start: "top 75%",
+  }
+});
+
+//
+// IMAGE 1 — from top-right
+//
+gsap.from(".img-top-right", {
+  x: 80,
+  y: -80,
+  opacity: 0,
+  duration: 1.3,
+  ease: "power3.out",
+  scrollTrigger: {
+    trigger: "#about",
+    start: "top 75%",
+  }
+});
+
+//
+// IMAGE 2 — from bottom-right
+//
+gsap.from(".img-bottom-right", {
+  x: 80,
+  y: 80,
+  opacity: 0,
+  duration: 1.3,
+  ease: "power3.out",
+  scrollTrigger: {
+    trigger: "#about",
+    start: "top 75%",
+  }
+});
+
+//
+// IMAGE 3 — smooth upward reveal
+//
+gsap.from(".img-wide", {
+  y: 100,
+  opacity: 0,
+  duration: 1.4,
+  ease: "power3.out",
+  scrollTrigger: {
+    trigger: ".img-wide",
+    start: "top 80%",
+  }
+});
+
+// Wait until GSAP and DOM are ready
+  (function waitThenBind(){
+    function bind() {
+      if (typeof gsap === "undefined") return; // gsap not loaded, skip
+      const btn = document.querySelector('.about-btn-primary');
+      if (!btn) return;
+
+      // create a smooth GSAP timeline (paused) for hover
+      const tl = gsap.timeline({ paused: true });
+      tl.to(btn, {
+        scale: 1.08,
+        boxShadow: "0 14px 36px rgba(199,0,0,0.52)",
+        duration: 0.28,
+        ease: "power3.out"
+      });
+
+      // mouse events
+      btn.addEventListener('mouseenter', () => tl.play());
+      btn.addEventListener('mouseleave', () => tl.reverse());
+
+      // touch support: tap to animate and retain click behaviour
+      btn.addEventListener('touchstart', () => tl.play(), {passive:true});
+      btn.addEventListener('touchend', () => tl.reverse(), {passive:true});
+    }
+
+    // try to bind on DOMContentLoaded, or poll for gsap if not ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', bind);
+    } else {
+      bind();
+    }
+
+    // safety: if GSAP loads after DOM, try again a few times
+    let tries = 0;
+    const poll = setInterval(()=> {
+      tries++;
+      if (typeof gsap !== "undefined") {
+        bind();
+        clearInterval(poll);
+      } else if (tries > 30) {
+        clearInterval(poll);
+      }
+    }, 200);
+  })();
+
+
+
+</script>
+
+
+
+
+
+<section id="cfg-stats" style="
+  position:relative;
+  width:100%;
+  padding:120px 0;
+  background:#ffffff;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+">
+
+  <!-- WATERMARK (FIXED & VISIBLE) -->
+  <div style="
+    position:absolute;
+    inset:0;
+    z-index:0;
+    background:
+      radial-gradient(circle at center, rgba(255,255,255,0.85), rgba(255,255,255,0.95)),
+      url('img/main.png') center center / 680px no-repeat;
+    opacity:100;   /* 👈 increased so it is visible */
+    pointer-events:none;
+  "></div>
+
+  <!-- CONTENT -->
+  <div style="
+    position:relative;
+    z-index:2;
+    max-width:1200px;
+    margin:auto;
+    padding:0 24px;
+  ">
+
+    <!-- HEADING -->
+    <div style="max-width:680px; margin-bottom:70px;">
+      <h2 style="
+        font-size:44px;
+        font-weight:800;
+        line-height:1.1;
+        color:#1f1f1f;
+        margin-bottom:18px;
+      ">
+        Trusted Elevator Solutions<br>
+        <span style="color:#c70000;">Since 2017</span>
+      </h2>
+
+      <p style="
+        font-size:18px;
+        line-height:1.7;
+        color:#444;
+      ">
+        CFG Components delivers reliable elevator machines, doors, brackets, and
+        accessories with a strong focus on quality, durability, and performance.
+      </p>
+    </div>
+
+    <!-- COUNTERS -->
+    <div style="
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:36px;
+    ">
+
+      <!-- COUNTER -->
+      <div class="cfg-counter" style="
+        background:#f6f1ea;
+        padding:42px 30px;
+        border-radius:16px;
+        box-shadow:0 18px 40px rgba(0,0,0,0.08);
+      ">
+        <div style="
+          font-size:52px;
+          font-weight:800;
+          color:#c70000;
+          margin-bottom:12px;
+        ">
+          <span data-count="8">0</span>+
+        </div>
+        <h4 style="font-size:18px; font-weight:700;">Years of Experience</h4>
+        <p style="font-size:14px; color:#555;">
+          Serving the elevator industry since 2017.
+        </p>
+      </div>
+
+      <div class="cfg-counter" style="
+        background:#f6f1ea;
+        padding:42px 30px;
+        border-radius:16px;
+        box-shadow:0 18px 40px rgba(0,0,0,0.08);
+      ">
+        <div style="
+          font-size:52px;
+          font-weight:800;
+          color:#c70000;
+          margin-bottom:12px;
+        ">
+          <span data-count="50">0</span>+
+        </div>
+        <h4 style="font-size:18px; font-weight:700;">Product Variants</h4>
+        <p style="font-size:14px; color:#555;">
+          Machines, doors, brackets & accessories.
+        </p>
+      </div>
+
+      <div class="cfg-counter" style="
+        background:#f6f1ea;
+        padding:42px 30px;
+        border-radius:16px;
+        box-shadow:0 18px 40px rgba(0,0,0,0.08);
+      ">
+        <div style="
+          font-size:52px;
+          font-weight:800;
+          color:#c70000;
+          margin-bottom:12px;
+        ">
+          <span data-count="300">0</span>+
+        </div>
+        <h4 style="font-size:18px; font-weight:700;">Happy Clients</h4>
+        <p style="font-size:14px; color:#555;">
+          Trusted across India.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+/* CARD ENTRANCE */
+gsap.from(".cfg-counter", {
+  opacity: 0,
+  y: 60,
+  duration: 1,
+  stagger: 0.2,
+  ease: "power3.out",
+  scrollTrigger: {
+    trigger: "#cfg-stats",
+    start: "top 75%"
+  }
+});
+
+/* COUNTERS */
+document.querySelectorAll("[data-count]").forEach(counter => {
+  const target = +counter.dataset.count;
+
+  ScrollTrigger.create({
+    trigger: counter,
+    start: "top 85%",
+    once: true,
+    onEnter: () => {
+      gsap.to(counter, {
+        innerText: target,
+        duration: 2,
+        snap: { innerText: 1 },
+        ease: "power1.out"
+      });
+    }
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ================= PRODUCT CATEGORY SECTION ================= -->
+<!-- ===== Product Categories (copy/paste as a single block) ===== --><!-- ===== Product Categories (self-contained) ===== -->
+<section id="product-category" style="
+  width:100%;
+  padding:100px 24px;
+  background:#ffffff;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+">
+
+  <h2 style="
+    text-align:center;
+    font-size:42px;
+    font-weight:800;
+    color:#000000;
+    margin-bottom:12px;
+  ">Our Product Categories</h2>
+
+  <p style="
+    text-align:center;
+    font-size:16px;
+    color:#555;
+    max-width:900px;
+    margin:0 auto 36px;
+  ">
+    Explore our premium range of elevator products trusted across India.
+  </p>
+
+  <!-- Cards Wrapper -->
+  <div class="pc-wrapper" style="
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    column-gap:28px;
+    row-gap:60px;
+    max-width:1200px;
+    margin:0 auto;
+    align-items:stretch;
+  ">
+
+    <!-- CARD 1 -->
+    <div class="pc-card" data-index="0" tabindex="0">
+      <img src="img/Door.jpg" alt="Elevator Doors">
+      <div class="pc-overlay">
+        <h3>Elevator Doors</h3>
+        <p>10ft Glass, 9ft MS, 8ft SS automatic doors — premium durability & smooth operation.</p>
+        <a class="pc-link" href="products.html#doors"></a>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="pc-card" data-index="1" tabindex="0">
+      <img src="img/ma.jpg" alt="Elevator Machines">
+      <div class="pc-overlay">
+        <h3>Elevator Machines</h3>
+        <p>Gearless & geared traction machines engineered for power, efficiency & long life.</p>
+        <a class="pc-link" href="products.html#machines"></a>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="pc-card" data-index="2" tabindex="0">
+      <img src="img/third.png" alt="Control Panels">
+      <div class="pc-overlay">
+        <h3>Control Panels</h3>
+        <p>Single & three-phase control panels with safety and modern diagnostics.</p>
+        <a class="pc-link" href="products.html#panels"></a>
+      </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="pc-card" data-index="3" tabindex="0">
+      <img src="img/sss cabin.jpg" alt="Elevator Cabins">
+      <div class="pc-overlay">
+        <h3>Elevator Cabins</h3>
+        <p>Stainless steel cabins, car frames & counter-frames crafted for durability.</p>
+        <a class="pc-link" href="products.html#cabins"></a>
+      </div>
+    </div>
+
+    <!-- CARD 5 – Machine Encoders -->
+<div class="pc-card" data-index="4" tabindex="0">
+  <img src="img/enco.jpg" alt="Machine Encoders">
+  <div class="pc-overlay">
+    <h3>Machine Encoders</h3>
+    <p>High-precision encoders ensuring smooth leveling and accurate floor stopping.</p>
+    <a class="pc-link" href="products.html#encoders"></a>
+  </div>
+</div>
+
+<!-- CARD 6 – Over Speed Governor -->
+<div class="pc-card" data-index="5" tabindex="0">
+  <img src="img/machi.jpg" alt="Over Speed Governor">
+  <div class="pc-overlay">
+    <h3>Over Speed Governor</h3>
+    <p>Critical safety device that activates braking during overspeed conditions.</p>
+    <a class="pc-link" href="products.html#osg"></a>
+  </div>
+</div>
+
+<!-- CARD 7 – Elevator Bracket -->
+<div class="pc-card" data-index="6" tabindex="0">
+  <img src="img/bracke.jpg" alt="Elevator Bracket">
+  <div class="pc-overlay">
+    <h3>SS Elevator Bracket</h3>
+    <p>High-strength brackets for machine support, cabin frames & guide rail stability.</p>
+    <a class="pc-link" href="products.html#brackets"></a>
+  </div>
+</div>
+
+<!-- CARD 8 – Door Sensor -->
+<div class="pc-card" data-index="7" tabindex="0">
+  <img src="img/ds.jpg" alt="Door Sensor">
+  <div class="pc-overlay">
+    <h3>Door Sensor</h3>
+    <p>Infrared door sensors for obstruction detection and enhanced passenger safety.</p>
+    <a class="pc-link" href="products.html#sensor"></a>
+  </div>
+</div>
+
+
+  </div>
+
+  <!-- VIEW MORE BUTTON -->
+  <div style="text-align:center; margin-top:44px;">
+    <a id="pc-viewmore" href="products.html" style="
+      background:#c70000;
+      color:white;
+      padding:14px 34px;
+      font-size:16px;
+      font-weight:600;
+      border-radius:40px;
+      box-shadow:0 8px 28px rgba(199,0,0,0.22);
+      text-decoration:none;
+      display:inline-block;
+      transition: transform .18s ease, box-shadow .18s ease;
+    ">View More</a>
+  </div>
+
+</section>
+
+<!-- ===== Styles (paste into page head or inline) ===== -->
+<style>
+/* Base card styles */
+.pc-card{
+  position:relative;
+  border-radius:1px;
+  overflow:hidden;
+  cursor:pointer;
+  height:340px;
+  box-shadow:0 10px 28px rgba(12,12,12,0.08);
+  background:#111;
+  transform: translateX(-40px) translateY(0);
+  opacity: 0;
+  transition: transform .7s cubic-bezier(.22,.9,.3,1), opacity .7s ease, box-shadow .25s ease;
+  will-change: transform, opacity;
+  display:flex;
+  align-items:stretch;
+}
+
+/* final visible state applied by JS */
+.pc-card.in {
+  transform: translateX(0) translateY(0);
+  opacity: 1;
+}
+
+/* image sits below overlay */
+.pc-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition: transform .6s cubic-bezier(.22,.9,.3,1), filter .4s ease;
+  will-change: transform, filter;
+  z-index:1;
+  pointer-events:none; /* image must not intercept overlay clicks */
+}
+
+/* overlay sits above image */
+.pc-overlay{
+  position:absolute;
+  left:0; right:0; bottom:0; top:0;
+  z-index:3;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:28px;
+  color:#fff;
+  background: linear-gradient(180deg, rgba(0,0,0,0.18) 20%, rgba(0,0,0,0.62) 100%);
+  opacity:0;
+  transition: opacity .4s ease, transform .4s cubic-bezier(.2,.9,.3,1);
+  pointer-events:none; /* initially not interactive (so hover triggers on card) */
+}
+
+/* overlay content */
+.pc-overlay h3{
+  margin:0 0 8px 0;
+  font-size:20px;
+  font-weight:700;
+  letter-spacing:0.2px;
+}
+.pc-overlay p{
+  margin:0 0 12px 0;
+  font-size:14px;
+  line-height:1.45;
+  opacity:.95;
+}
+
+/* small CTA inside overlay 
+.pc-link{
+  display:inline-block;
+  background: #ffcf96;
+  color:#c70000;
+  padding:8px 14px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:13px;
+  text-decoration:none;
+  box-shadow: 0 6px 18px rgba(199,0,0,0.08);
+} */
+
+/* Hover - ensure overlay appears and becomes interactive */
+.pc-card:hover,
+.pc-card:focus-within{
+  transform: translateX(0) translateY(-10px) scale(1.02);
+  box-shadow:0 26px 60px rgba(12,12,12,0.16);
+}
+.pc-card:hover img,
+.pc-card:focus-within img{
+  transform: scale(1.12);
+  filter: saturate(1.05) contrast(1.03);
+}
+.pc-card:hover .pc-overlay,
+.pc-card:focus-within .pc-overlay{
+  opacity:1;
+  pointer-events:auto; /* now overlay content clickable */
+}
+
+/* Accessibility: keyboard focus should show overlay same as hover */
+.pc-card:focus{
+  outline: 3px solid rgba(199,0,0,0.12);
+  outline-offset:6px;
+}
+
+/* Responsive tweaks */
+@media (max-width:1000px){
+  .pc-card{ height:320px; }
+}
+@media (max-width:700px){
+  .pc-card{ height:280px; }
+  .pc-wrapper{ gap:18px; }
+  .pc-overlay{ padding:18px; }
+  .pc-overlay h3{ font-size:18px; }
+}
+</style>
+
+<!-- ===== IntersectionObserver (entrance animation) ===== -->
+<script>
+(function(){
+  const cards = Array.from(document.querySelectorAll('.pc-card'));
+
+  if(!('IntersectionObserver' in window)){
+    // fallback: reveal all
+    cards.forEach(c => c.classList.add('in'));
+    return;
+  }
+
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const el = entry.target;
+        const idx = Number(el.dataset.index || 0);
+        // staggered reveal using timeout (keeps CSS hover untouched)
+        setTimeout(()=> el.classList.add('in'), idx * 110);
+        obs.unobserve(el);
+      }
+    });
+  }, { threshold: 0.18 });
+
+  cards.forEach(card => io.observe(card));
+
+  // keyboard accessibility: show overlay on focus
+  cards.forEach(card => {
+    card.addEventListener('focusin', () => card.classList.add('in'));
+  });
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="cfg-testimonials" style="
+  width:100%;
+  padding:120px 0;
+  background:#efe8dd;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+">
+
+  <!-- Heading -->
+  <div style="max-width:1200px; margin:auto; margin-left: 160px; padding:0 24px;">
+    <h2 style="
+      font-size:48px;
+      font-weight:700;
+      color:#222;
+      line-height:1.1;
+      max-width:520px;
+      margin-bottom:60px;
+	  
+    ">
+      What Our Happy<br>Customers Say
+    </h2>
+  </div>
+
+  <!-- Slider -->
+   <div class="cfg-container">
+  <div class="cfg-ticker">
+    <div class="cfg-track">
+
+      <!-- CARD -->
+      <div class="cfg-card light">
+        <img src="https://i.pravatar.cc/100?img=12">
+        <p>
+          From consultation to installation, everything was handled professionally.
+          CFG Components delivers true quality.
+        </p>
+        <h4>Vikas Deshmukh</h4>
+        <span>Elevator Contractor</span>
+      </div>
+
+      <div class="cfg-card dark">
+        <img src="https://i.pravatar.cc/100?img=47">
+        <p>
+          The elevator machines work perfectly and the after-sales support
+          has been outstanding.
+        </p>
+        <h4>Kiran Jagtap</h4>
+        <span>Project Manager</span>
+      </div>
+
+      <div class="cfg-card light">
+        <img src="https://i.pravatar.cc/100?img=26">
+        <p>
+          Installation was quick and results were immediate.
+          Premium components and reliable delivery.
+        </p>
+        <h4>Pari Patil</h4>
+        <span>Builder</span>
+      </div>
+
+      <div class="cfg-card dark">
+        <img src="https://i.pravatar.cc/100?img=33">
+        <p>
+          Professional team with excellent communication.
+          CFG products improved our elevator performance.
+        </p>
+        <h4>Rahul Verma</h4>
+        <span>Facility Manager</span>
+      </div>
+
+      <div class="cfg-card light">
+        <img src="https://i.pravatar.cc/100?img=32">
+        <p>
+          High-quality doors and control panels.
+          Strongly recommend CFG Components.
+        </p>
+        <h4>Shrusti Pawar</h4>
+        <span>Architect</span>
+      </div>
+
+      <!-- DUPLICATE SET FOR INFINITE LOOP -->
+      <div class="cfg-card light">
+        <img src="https://i.pravatar.cc/100?img=12">
+        <p>
+          From consultation to installation, everything was handled professionally.
+          CFG Components delivers true quality.
+        </p>
+        <h4>Vikas Deshmukh</h4>
+        <span>Elevator Contractor</span>
+      </div>
+
+      <div class="cfg-card dark">
+        <img src="https://i.pravatar.cc/100?img=47">
+        <p>
+          The elevator machines work perfectly and the after-sales support
+          has been outstanding.
+        </p>
+        <h4>Kiran Jagtap</h4>
+        <span>Project Manager</span>
+      </div>
+	  <div class="cfg-spacer"></div>
+	  	
+    </div>
+  </div>
+  </div>
+</section>
+
+<style>
+
+.cfg-container{
+  max-width:1200px;
+  margin:0 auto;                 /* FIXED */
+  padding-left:1px;
+  padding-right: 1px;
+}
+
+/* THIS creates visible right-side space */
+.cfg-spacer{
+  width: 10px;
+  flex-shrink: 0;
+}
+
+
+.cfg-ticker{
+  overflow:hidden;
+}
+
+
+.cfg-track{
+  display:flex;
+  gap:18px;
+ 
+  
+}
+
+
+
+.cfg-card{
+  width:300px;
+  height: 390px;
+  padding:55px;
+  border-radius:1px;
+  flex-shrink:0;
+  opacity:0;
+  transform:translateY(120px);
+}
+
+.cfg-card.light{
+  background:#f0dab6;
+  color:#222;
+}
+
+.cfg-card.dark{
+  background:#2d2c28;
+  color:#fff;
+}
+
+.cfg-card img{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:10px;
+  margin-left: -30px;
+  margin-top: -30px;
+}
+
+.cfg-card p{
+  font-size:15px;
+  line-height:1.6;
+  margin-bottom:70px;
+  margin-left: -30px;
+}
+
+.cfg-card h4{
+  font-size:15px;
+  font-weight:600;
+  margin-left:-30px;
+  margin-bottom: 3px;
+
+}
+
+.cfg-card span{
+  font-size:13px;
+  margin-left:-30px;
+  margin-bottom: 3px;
+  opacity:0.7;
+}
+</style>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+/* APPEAR ANIMATION */
+gsap.to(".cfg-card",{
+  opacity:1,
+  y:0,
+  duration:4,
+  ease:"power3.out",
+  stagger:0.15,
+  scrollTrigger:{
+    trigger:"#cfg-testimonials",
+    start:"top 70%"
+  }
+});
+
+/* INFINITE HORIZONTAL LOOP */
+gsap.to(".cfg-track",{
+  x:"-50%",
+  duration:6,
+  ease:"none",
+  repeat:-1
+});
+</script>
+
+
+
+
+
+<!-- ================= BRAND TRUST SECTION ================= -->
+<section id="brand-trust" style="
+  width:100%;
+  padding:90px 20px;
+  background:#1b1b1b;
+  text-align:center;
+  color:white;
+  font-family:'Poppins', sans-serif;
+">
+
+  <!-- Heading -->
+  <h2 style="font-size:34px; font-weight:700; margin-bottom:40px;">
+    Trusted by Leading Elevator & Automation Brands
+  </h2>
+
+  <!-- Logos Wrapper -->
+  <div class="brand-logos" style="
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+    max-width:1200px;
+    margin:auto;
+  ">
+
+    <!-- Each logo box -->
+    <div class="brand-box">
+      <img src="img/otis.png" alt="OTIS" />
+    </div>
+
+    <div class="brand-box">
+      <img src="img/kone.png" alt="KONE" />
+    </div>
+
+    <div class="brand-box">
+      <img src="img/fugi.png" alt="Fujitech" />
+    </div>
+
+    <div class="brand-box">
+      <img src="img/mitsubishi-bg.png" alt="Mitsubishi" />
+    </div>
+
+    <div class="brand-box">
+      <img src="img/schindlerbg.png" alt="Schindler" />
+    </div>
+
+    
+
+  </div>
+
+</section>
+
+<style>
+  .brand-box {
+    background:#242424;
+    padding:20px 30px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:180px;
+    height:90px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.35);
+    opacity:0;
+    transform:translateX(80px); /* start position */
+  }
+
+  .brand-box img {
+    width:120px;
+    filter:brightness(0) invert(1);
+    opacity:0.85;
+    transition:0.3s ease;
+  }
+
+  .brand-box:hover img {
+    opacity:1;
+    transform:scale(1.07);
+  }
+</style>
+
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+// Animate each logo with stagger
+gsap.to(".brand-box", {
+  x: 0,
+  opacity: 1,
+  duration: 1.2,
+  ease: "power3.out",
+  stagger: 0.15,
+  scrollTrigger: {
+    trigger: "#brand-trust",
+    start: "top 80%",
+  }
+});
+</script>
+
+
+
+
+<!-- CFG PREMIUM MARQUEE -->
+<section style="
+  width:100%;
+  background:#111;
+  overflow:hidden;
+  font-family:'Poppins',sans-serif;
+">
+
+  <!-- OUTER WRAPPER (LOCKS OVERFLOW) -->
+  <div style="
+    width:100%;
+    overflow:hidden;
+  ">
+
+    <!-- MOVING TRACK -->
+    <div class="cfg-marquee-track"
+      onmouseenter="this.style.animationPlayState='paused'"
+      onmouseleave="this.style.animationPlayState='running'"
+      style="
+        display:flex;
+        width:max-content;
+        align-items:center;
+        padding:18px 0;
+        animation:cfg-marquee 22s linear infinite;
+      "
+    >
+
+      <!-- CONTENT BLOCK -->
+      <div class="cfg-marquee-content" style="display:flex; align-items:center;">
+        <span style="color:#c70000; font-size:24px; font-weight:800; margin:0 40px;">
+          CFG COMPONENTS
+        </span>
+
+        <span style="color:#fff; font-size:20px; margin-right:40px;">
+          Precision Elevator Components
+        </span>
+
+        <span style="color:#c70000; font-size:28px; margin-right:40px;">•</span>
+
+        <span style="color:#fff; font-size:20px; margin-right:40px;">
+          Trusted Since 2017
+        </span>
+
+        <span style="color:#c70000; font-size:28px; margin-right:40px;">•</span>
+
+        <span style="color:#fff; font-size:20px; margin-right:40px;">
+          Machines • Doors • Brackets
+        </span>
+
+        <span style="color:#c70000; font-size:28px; margin-right:40px;">•</span>
+
+        <span style="color:#fff; font-size:20px; margin-right:40px;">
+          Quality • Reliability • Performance
+        </span>
+      </div>
+
+      <!-- DUPLICATE CONTENT (REQUIRED) -->
+      <div class="cfg-marquee-content" style="display:flex; align-items:center;">
+        <span style="color:#c70000; font-size:24px; font-weight:800; margin:0 40px;">
+          CFG COMPONENTS
+        </span>
+
+        <span style="color:#fff; font-size:20px; margin-right:40px;">
+          Precision Elevator Components
+        </span>
+
+        <span style="color:#c70000; font-size:28px; margin-right:40px;">•</span>
+
+        <span style="color:#fff; font-size:20px; margin-right:40px;">
+          Trusted Since 2017
+        </span>
+
+        <span style="color:#c70000; font-size:28px; margin-right:40px;">•</span>
+
+        <span style="color:#fff; font-size:20px; margin-right:40px;">
+          Machines • Doors • Brackets
+        </span>
+
+        <span style="color:#c70000; font-size:28px; margin-right:40px;">•</span>
+
+        <span style="color:#fff; font-size:20px; margin-right:40px;">
+          Quality • Reliability • Performance
+        </span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+@keyframes cfg-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+</style>
+
+
+
+
+
+
+
+
+<!-- ============================================================
+                 CLEAN FOOTER (ONLY ORANGE WAVE)
+=============================================================== -->
+<!-- ======= Bulletproof Footer (links/headings forced black) ======= -->
+<section id="footer-wrapper" style="
+  width:100%;
+  background:#ffffff url('https://www.transparenttextures.com/patterns/white-wall.png');
+  font-family:'Poppins',sans-serif;
+  position:relative;
+  overflow:hidden;
+">
+
+  <footer style="
+    width:100%;
+    padding:40px 6% 60px;
+    background:transparent;
+  ">
+    <div id="footer-grid" style="
+      max-width:1250px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:50px;
+      align-items:flex-start;
+    ">
+
+      <!-- Column 1 -->
+      <div>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+          <img src="img/logo.png" width="50" alt="CFG Logo">
+          <h2 style="font-size:20px; font-weight:700; margin:0; color:#000 !important;">CFG Components</h2>
+        </div>
+
+        <p style="color:#000000; font-size:16px; line-height:1.6;text-align: left;">
+          OPP. TINY INDUSTRY, PISOLI ROAD, KONDHWA BUDRUK,
+<br>
+          PUNE – 411048, MAHARASHTRA, INDIA
+        </p>
+
+        <p style="color:#000000; font-size:16px; margin-top:14px;text-align: left;">
+          📞 +91 8380904311
+<br>
+          ✉ cfg.components@gmail.com 
+        </p>
+      </div>
+
+      <!-- Column 2 -->
+      <div class="footer-col">
+        <h3 style="font-size:18px; font-weight:700; margin-bottom:14px;">
+          <span style="color:#000 !important;">Company</span>
+        </h3>
+        <p class="fLink"
+        style="color:#000 !important;">About</p>
+        <p class="fLink" style="color:#000 !important;">Contact</p>
+        <p class="fLink" style="color:#000 !important;">Careers</p>
+        <p class="fLink" style="color:#000 !important;">Team</p>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="footer-col">
+        <h3 style="font-size:18px; font-weight:700; margin-bottom:14px;">
+          <span style="color:#000 !important;">Products</span>
+        </h3>
+        <p class="fLink" style="color:#000 !important;">Elevator Doors</p>
+        <p class="fLink" style="color:#000 !important;">Elevator Machines</p>
+        <p class="fLink" style="color:#000 !important;">Control Panels</p>
+        <p class="fLink" style="color:#000 !important;">Bracket Solutions</p>
+      </div>
+
+      <!-- Column 4 -->
+      <div class="footer-col">
+        <h3 style="font-size:18px; font-weight:700; margin-bottom:14px;">
+          <span style="color:#000 !important;">Follow Us</span>
+        </h3>
+
+        <div style="display:center; gap:20px;">
+          <div class="socialBubble">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="20">
+          </div>
+          <div class="socialBubble">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="20">
+          </div>
+          <div class="socialBubble">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="20">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- single orange bottom wave -->
+  <svg style="width:100%; height:160px; display:block; margin-top: 0;">
+    <path fill="#e6672f"
+      d="M0,50
+         C450,140 1450,-20 1920,80
+         L1920,160
+         L0,160
+         Z"></path>
+  </svg>
+
+  <!-- COPYRIGHT -->
+  <p id="copyright" style="
+    text-align:center;
+    padding:12px 0;
+    margin:0;
+    background:#e6672f;
+    color:#fff;
+    font-size:14px;
+  ">
+    © <span id="year"></span> CFG Components — All Rights Reserved. <br> <a href="https://dwi4u.com" style="color: #fff !important; text-decoration:none; ">Developed By DW INNOVATION PVT. LTD.</a>
+  </p>
+
+</section>
+
+<!-- Strong CSS to ensure defaults (can coexist with other styles) -->
+<style>
+  /* force .fLink and heading spans to black unless JS changes them */
+  .fLink { color: #000 !important; font-size:16px; margin:6px 0; display:block;
+     transition: color .18s ease !important; }
+  .footer-col h3 span { color: #000 !important; }
+  /* social bubble baseline */
+  .socialBubble { width:42px; height:42px; border-radius:50%; background:#fff; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 4px 14px rgba(0,0,0,0.12); transition: transform .22s ease; cursor:pointer; }
+  .socialBubble:hover { transform: scale(1.12); }
+</style>
+
+<!-- JS: DOMContentLoaded wrapper + correct hover logic -->
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+
+  // year
+  const yearEl = document.getElementById('year');
+  if(yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // Ensure all .fLink exist and set base color to black (defensive)
+  document.querySelectorAll('.fLink').forEach(link => {
+    link.style.setProperty('color', '#000', 'important');   // force inline with important
+    link.style.fontSize = '14px';
+    link.style.margin = '6px 0';
+    link.style.cursor = 'pointer';
+
+    // Hover -> red
+    link.addEventListener('mouseenter', () => {
+      link.style.setProperty('color', '#c70000', 'important');
+    });
+
+    // Out -> restore black
+    link.addEventListener('mouseleave', () => {
+      link.style.setProperty('color', '#000', 'important');
+    });
+  });
+
+  // Also ensure heading spans keep black
+  document.querySelectorAll('.footer-col h3 span').forEach(span=>{
+    span.style.setProperty('color', '#000', 'important');
+  });
+
+  // Social bubble hover fallback (in case CSS blocked)
+  document.querySelectorAll('.socialBubble').forEach(b=>{
+    b.addEventListener('mouseenter', ()=> b.style.transform = 'scale(1.12)');
+    b.addEventListener('mouseleave', ()=> b.style.transform = 'scale(1)');
+  });
+
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- FLOATING WHATSAPP -->
+<!-- PREMIUM FLOATING WHATSAPP BUTTON WITH CUSTOM SVG -->
+<a href="https://wa.me/919876543210" target="_blank" class="whatsapp-btn">
+
+  <!-- YOUR SVG ICON INSERTED HERE -->
+  <svg viewBox="0 0 32 32" width="40" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd"
+      d="M16 31C23.732 31 30 24.732 30 17C30 9.26801 23.732 3 16 3C8.26801 3 2 9.26801 2 17C2 19.5109 2.661 21.8674 3.81847 23.905L2 31L9.31486 29.3038C11.3014 30.3854 13.5789 31 16 31ZM16 28.8462C22.5425 28.8462 27.8462 23.5425 27.8462 17C27.8462 10.4576 22.5425 5.15385 16 5.15385C9.45755 5.15385 4.15385 10.4576 4.15385 17C4.15385 19.5261 4.9445 21.8675 6.29184 23.7902L5.23077 27.7692L9.27993 26.7569C11.1894 28.0746 13.5046 28.8462 16 28.8462Z"
+      fill="#BFC8D0"/>
+    <path
+      d="M28 16C28 22.6274 22.6274 28 16 28C13.4722 28 11.1269 27.2184 9.19266 25.8837L5.09091 26.9091L6.16576 22.8784C4.80092 20.9307 4 18.5589 4 16C4 9.37258 9.37258 4 16 4C22.6274 4 28 9.37258 28 16Z"
+      fill="url(#paint0_linear_87_7264)"/>
+    <path fill-rule="evenodd" clip-rule="evenodd"
+      d="M16 30C23.732 30 30 23.732 30 16C30 8.26801 23.732 2 16 2C8.26801 2 2 8.26801 2 16C2 18.5109 2.661 20.8674 3.81847 22.905L2 30L9.31486 28.3038C11.3014 29.3854 13.5789 30 16 30ZM16 27.8462C22.5425 27.8462 27.8462 22.5425 27.8462 16C27.8462 9.45755 22.5425 4.15385 16 4.15385C9.45755 4.15385 4.15385 9.45755 4.15385 16C4.15385 18.5261 4.9445 20.8675 6.29184 22.7902L5.23077 26.7692L9.27993 25.7569C11.1894 27.0746 13.5046 27.8462 16 27.8462Z"
+      fill="#ffffff"/>
+    <path
+      d="M12.5 9.49989C12.1672 8.83131 11.6565 8.8905 11.1407 8.8905C10.2188 8.8905 8.78125 9.99478 8.78125 12.05C8.78125 13.7343 9.52345 15.578 12.0244 18.3361C14.438 20.9979 17.6094 22.3748 20.2422 22.3279C22.875 22.2811 23.4167 20.0154 23.4167 19.2503C23.4167 18.9112 23.2062 18.742 23.0613 18.696C22.1641 18.2654 20.5093 17.4631 20.1328 17.3124C19.7563 17.1617 19.5597 17.3656 19.4375 17.4765C19.0961 17.8018 18.4193 18.7608 18.1875 18.9765C17.9558 19.1922 17.6103 19.083 17.4665 19.0015C16.9374 18.7892 15.5029 18.1511 14.3595 17.0426C12.9453 15.6718 12.8623 15.2001 12.5959 14.7803C12.3828 14.4444 12.5392 14.2384 12.6172 14.1483C12.9219 13.7968 13.3426 13.254 13.5313 12.9843C13.7199 12.7145 13.5702 12.305 13.4803 12.05C13.0938 10.953 12.7663 10.0347 12.5 9.49989Z"
+      fill="white"/>
+    <defs>
+      <linearGradient id="paint0_linear_87_7264" x1="26.5" y1="7" x2="4" y2="28" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#5BD066"/>
+        <stop offset="1" stop-color="#27B43E"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+</a>
+
+<style>
+/* Floating WhatsApp – Premium Look */
+.whatsapp-btn {
+  position: fixed;
+  right: 22px;
+  bottom: 28px;
+  width: 70px;
+  height: 70px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  cursor: pointer;
+
+  /* Glow */
+  box-shadow: 0 0 20px rgba(37, 211, 102, 0.65),
+              0 0 40px rgba(37, 211, 102, 0.35);
+
+  animation: float 3s ease-in-out infinite,
+             pulse 2.4s ease-out infinite;
+  transition: 0.3s ease;
+}
+
+/* Hover FX */
+.whatsapp-btn:hover {
+  transform: scale(1.2) translateY(-4px);
+  box-shadow: 0 0 30px rgba(37, 211, 102, 0.9),
+              0 0 65px rgba(37, 211, 102, 0.5);
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Glow pulse */
+@keyframes pulse {
+  0% { box-shadow: 0 0 22px rgba(37, 211, 102, 0.55); }
+  50% { box-shadow: 0 0 38px rgba(37, 211, 102, 0.85); }
+  100% { box-shadow: 0 0 22px rgba(37, 211, 102, 0.55); }
+}
+
+/* Ripple Background */
+.whatsapp-btn::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.25);
+  z-index: -1;
+  animation: ripple 2.2s infinite ease-out;
+}
+
+@keyframes ripple {
+  0% { transform: scale(1); opacity: .7; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+</style>
+
+
+
+<!-- JS: Auto Year + Hover Link Animation -->
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  document.querySelectorAll(".fLink").forEach(link=>{
+    link.style.color="#dcdcdc";
+    link.style.textDecoration="none";
+    link.style.fontSize="15px";
+    link.style.transition="0.3s";
+
+    link.onmouseover=()=>{ link.style.color="#ffcc00"; link.style.transform="translateX(5px)"; };
+    link.onmouseout =()=>{ link.style.color="#dcdcdc"; link.style.transform="translateX(0px)"; };
+  });
+
+  // Social icons hover animation
+  document.querySelectorAll(".socialIcon").forEach(icon=>{
+    icon.style.width="45px";
+    icon.style.height="45px";
+    icon.style.borderRadius="50%";
+    icon.style.background="#ffcc00";
+    icon.style.display="flex";
+    icon.style.alignItems="center";
+    icon.style.justifyContent="center";
+    icon.style.transition="0.3s";
+
+    icon.onmouseover =()=>{ icon.style.transform="scale(1.12) rotate(6deg)"; };
+    icon.onmouseout  =()=>{ icon.style.transform="scale(1)"; };
+  });
+</script>
+
+
+<!-- YEAR AUTO SET JS -->
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+
+
+
+
+
+<!-- ===== SERVICES ANIMATIONS ===== -->
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to(".service-card", {
+    scrollTrigger: {
+      trigger: "#services",
+      start: "top 80%",
+    },
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    stagger: 0.25,
+    ease: "power3.out",
+  });
+
+  // Hover Animation
+  document.querySelectorAll(".service-card").forEach(card => {
+    card.addEventListener("mouseover", () => {
+      card.style.transform = "translateY(-10px) scale(1.03)";
+      card.style.boxShadow = "0 16px 35px rgba(0,0,0,0.15)";
+    });
+    card.addEventListener("mouseout", () => {
+      card.style.transform = "translateY(0) scale(1)";
+      card.style.boxShadow = "0 10px 25px rgba(0,0,0,0.08)";
+    });
+  });
+</script>
+
+
+
+<!-- ⭐ ALL OTHER SECTIONS SAME AS YOUR ORIGINAL ⭐ -->
+<!-- STATS, PRODUCTS, WHY CHOOSE US, CONTACT, FOOTER — unchanged -->
+
+
+
+<!-- ⭐ NAVBAR JS ⭐ -->
+<script>
+  const hamburger = document.getElementById("hambtn");
+  const sidebar   = document.getElementById("sidebar");
+  const overlay   = document.getElementById("overlay");
+  const mainNav   = document.getElementById("mainNav");
+
+  function openMenu(){
+    sidebar.classList.add("open");
+    overlay.classList.add("visible");
+    hamburger.classList.add("open");
+    document.body.style.overflow="hidden";
+  }
+  function closeMenu(){
+    sidebar.classList.remove("open");
+    overlay.classList.remove("visible");
+    hamburger.classList.remove("open");
+    document.body.style.overflow="";
+  }
+  hamburger.onclick = () => sidebar.classList.contains("open") ? closeMenu() : openMenu();
+  overlay.onclick = closeMenu;
+
+  window.addEventListener("scroll",()=>{
+    if(window.scrollY>20) mainNav.classList.add("nav-shadow");
+    else mainNav.classList.remove("nav-shadow");
+  });
+</script>
+
+
+<style>
+  .p-card:hover {
+    transform:translateY(-10px) scale(1.03) !important;
+    box-shadow:0 20px 40px rgba(0,0,0,0.15);
+    border:2px solid #ffcc00;
+  }
+</style>
+
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.utils.toArray(".p-card").forEach((card, i) => {
+  gsap.to(card, {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    delay: i * 0.15,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: card,
+      start: "top 85%",
+    }
+  });
+});
+</script>
+
+
+</body>
+</html>

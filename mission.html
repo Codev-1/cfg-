@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+
+<div class="slider-container">
+
+  <!-- LEFT TEXT -->
+  <div class="left-slide">
+    <!-- VISION -->
+    <div style="color:#c70000;">
+      <h1>Our Vision</h1>
+      <p>
+        To become a leading and trusted name in the elevator industry by
+        delivering innovative, reliable, and high-performance components
+        that shape the future of vertical mobility.
+      </p>
+    </div>
+
+    <!-- MISSION -->
+    <div style="color:#222;">
+      <h1>Our Mission</h1>
+      <p>
+        To consistently supply quality elevator machines, doors, brackets,
+        and components while ensuring durability, competitive pricing,
+        and timely delivery for every client.
+      </p>
+    </div>
+  </div>
+
+  <!-- RIGHT VISUAL -->
+  <div class="right-slide">
+    <!-- MISSION IMAGE -->
+    <div style="
+      background:
+        linear-gradient(180deg,rgba(0,0,0,0.45),rgba(0,0,0,0.7)),
+        url('img/main.png') center/contain no-repeat;
+    "></div>
+
+    <!-- VISION IMAGE -->
+    <div style="
+      background:
+        linear-gradient(180deg,rgba(0,0,0,0.45),rgba(0,0,0,0.7)),
+        url('img/gearless-traction-machine-removebg-preview.png') center/contain no-repeat;
+    "></div>
+  </div>
+
+  <!-- ARROWS -->
+  <div class="action-buttons">
+    <button class="down-button">
+      <i class="fa-solid fa-caret-down"></i>
+    </button>
+    <button class="up-button">
+      <i class="fa-solid fa-caret-up"></i>
+    </button>
+  </div>
+
+</div>
+
+<style>
+	* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+}
+
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 90vh;
+}
+
+/* LEFT PANEL */
+.left-slide {
+  height: 100%;
+  width: 40%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.6s ease-in-out;
+}
+
+.left-slide > div {
+  height: 100%;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #f6f1ea;
+}
+
+.left-slide h1 {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.left-slide p {
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 420px;
+}
+
+/* RIGHT PANEL */
+.right-slide {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 40%;
+  width: 60%;
+  transition: transform 0.6s ease-in-out;
+}
+
+.right-slide > div {
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* BUTTONS */
+button {
+  background-color: #c70000;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 14px 18px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #a50000;
+}
+
+.slider-container .action-buttons button {
+  position: absolute;
+  left: 40%;
+  top: 50%;
+  z-index: 10;
+}
+
+.slider-container .action-buttons .down-button {
+  transform: translateX(-100%);
+  border-radius: 50% 0 0 50%;
+}
+
+.slider-container .action-buttons .up-button {
+  transform: translateY(-100%);
+  border-radius: 0 50% 50% 0;
+}
+
+</style>
+
+
+<script>
+const sliderContainer = document.querySelector(".slider-container");
+const slideRight = document.querySelector(".right-slide");
+const slideLeft = document.querySelector(".left-slide");
+const upButton = document.querySelector(".up-button");
+const downButton = document.querySelector(".down-button");
+
+const slidesLength = slideRight.querySelectorAll("div").length;
+let activeSlideIndex = 0;
+
+/* Position left slides correctly */
+slideLeft.style.top = `-${(slidesLength - 1) * 100}vh`;
+
+upButton.addEventListener("click", () => changeSlide("up"));
+downButton.addEventListener("click", () => changeSlide("down"));
+
+function changeSlide(direction) {
+  const sliderHeight = sliderContainer.clientHeight;
+
+  if (direction === "up") {
+    activeSlideIndex++;
+    if (activeSlideIndex > slidesLength - 1) {
+      activeSlideIndex = 0;
+    }
+  } else {
+    activeSlideIndex--;
+    if (activeSlideIndex < 0) {
+      activeSlideIndex = slidesLength - 1;
+    }
+  }
+
+  slideRight.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`;
+  slideLeft.style.transform = `translateY(${activeSlideIndex * sliderHeight}px)`;
+}
+</script>
+
+
+<section id="cfg-mission-vision" style="
+  position:relative;
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
+  font-family:'Poppins',sans-serif;
+  background:#ffffff;
+">
+
+  <!-- LEFT TEXT -->
+  <div class="cfg-left" style="
+    position:absolute;
+    left:0;
+    top:0;
+    width:40%;
+    height:100%;
+    background:#f6f1ea;
+    overflow:hidden;
+  ">
+    <div class="cfg-text-track">
+
+      <!-- SLIDE 1 : MISSION -->
+      <div class="cfg-text-slide">
+        <h1 class="cfg-title">Our Mission</h1>
+        <p class="cfg-desc">
+          To consistently deliver high-quality elevator machines, doors, brackets,
+          and essential components with unmatched reliability, competitive pricing,
+          and timely delivery across India.
+        </p>
+      </div>
+
+      <!-- SLIDE 2 : VISION -->
+      <div class="cfg-text-slide">
+        <h1 class="cfg-title">Our Vision</h1>
+        <p class="cfg-desc">
+          To become a nationally trusted leader in elevator components by driving
+          innovation, performance excellence, and long-term partnerships that
+          elevate modern infrastructure.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RIGHT VISUAL -->
+  <div class="cfg-right" style="
+    position:absolute;
+    right:0;
+    top:0;
+    width:60%;
+    height:100%;
+    overflow:hidden;
+    background:#111;
+  ">
+    <div class="cfg-image-track">
+
+      <!-- IMAGE 1 -->
+      <div class="cfg-image-slide" style="
+        background:
+          radial-gradient(circle at center, rgba(199,0,0,0.25), transparent 60%),
+          url('img/main.png') center/contain no-repeat;
+      "></div>
+
+      <!-- IMAGE 2 -->
+      <div class="cfg-image-slide" style="
+        background:
+          radial-gradient(circle at center, rgba(199,0,0,0.25), transparent 60%),
+          url('img/gearless-traction-machine-removebg-preview.png') center/contain no-repeat;
+      "></div>
+
+    </div>
+  </div>
+
+  <!-- ARROWS -->
+  <div style="
+    position:absolute;
+    left:40%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    z-index:10;
+    display:flex;
+    flex-direction:column;
+  ">
+    <button id="cfg-up" style="all:unset; cursor:pointer; padding:16px; background:#c70000; color:#fff;">
+      ▲
+    </button>
+    <button id="cfg-down" style="all:unset; cursor:pointer; padding:16px; background:#c70000; color:#fff;">
+      ▼
+    </button>
+  </div>
+
+</section>
+
+<style>
+.cfg-text-track,
+.cfg-image-track {
+  height:200%;
+}
+
+.cfg-text-slide {
+  height:100vh;
+  padding:90px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.cfg-title {
+  font-size:52px;
+  font-weight:800;
+  margin-bottom:24px;
+  line-height:1.1;
+}
+
+.cfg-desc {
+  font-size:18px;
+  line-height:1.8;
+  max-width:420px;
+  color:#444;
+}
+
+.cfg-image-slide {
+  height:100vh;
+  filter:drop-shadow(0 40px 60px rgba(0,0,0,0.4));
+}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/Observer.min.js"></script>
+
+<script>
+gsap.registerPlugin(Observer);
+
+const textTrack = document.querySelector(".cfg-text-track");
+const imageTrack = document.querySelector(".cfg-image-track");
+const titles = document.querySelectorAll(".cfg-title");
+const descriptions = document.querySelectorAll(".cfg-desc");
+
+let index = 0;
+const total = titles.length;
+let animating = false;
+
+/* WORD BY WORD SPLIT */
+titles.forEach(t => {
+  const words = t.innerText.split(" ");
+  t.innerHTML = words.map(w => `<span style="display:inline-block; opacity:0">${w}&nbsp;</span>`).join("");
+});
+
+/* ANIMATE TEXT */
+function animateText(i) {
+  gsap.fromTo(
+    titles[i].children,
+    { y:40, opacity:0 },
+    { y:0, opacity:1, duration:0.8, stagger:0.06, ease:"power4.out" }
+  );
+
+  gsap.fromTo(
+    descriptions[i],
+    { y:30, opacity:0 },
+    { y:0, opacity:1, duration:0.9, delay:0.4, ease:"power3.out" }
+  );
+}
+
+/* SLIDE CHANGE */
+function go(dir) {
+  if (animating) return;
+  animating = true;
+
+  index = (index + dir + total) % total;
+
+  gsap.to(textTrack, {
+    y: -index * window.innerHeight,
+    duration: 1.2,
+    ease: "expo.inOut"
+  });
+
+  gsap.to(imageTrack, {
+    y: -index * window.innerHeight,
+    duration: 1.4,
+    ease: "expo.inOut",
+    onComplete: () => {
+      animateText(index);
+      animating = false;
+    }
+  });
+}
+
+/* BUTTONS */
+document.getElementById("cfg-up").onclick = () => go(-1);
+document.getElementById("cfg-down").onclick = () => go(1);
+
+/* SCROLL / TOUCH */
+Observer.create({
+  target: window,
+  type: "wheel,touch",
+  onDown: () => go(1),
+  onUp: () => go(-1),
+  tolerance: 10,
+  preventDefault: true
+});
+
+/* INIT */
+animateText(0);
+</script>
+
+
+
+<section id="cfg-infographic" style="
+  position:relative;
+  width:100%;
+  padding:140px 0;
+  background:#f6f1ea;
+  font-family:'Poppins',sans-serif;
+">
+
+  <div style="
+    position:relative;
+    width:900px;
+    height:600px;
+    margin:auto;
+  ">
+
+    <!-- CENTER CIRCLE -->
+    <div style="
+      position:absolute;
+      left:50%;
+      top:50%;
+      width:240px;
+      height:240px;
+      background:#ffffff;
+      border-radius:50%;
+      transform:translate(-50%,-50%);
+      box-shadow:0 30px 60px rgba(0,0,0,0.15);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      z-index:5;
+    ">
+      <img src="img/ceo.jpg" style="
+        width:80px;
+        height:80px;
+        border-radius:50%;
+        object-fit:cover;
+        margin-bottom:12px;
+      ">
+      <h3 style="margin:0;font-size:18px;">Manish Tapase</h3>
+      <p style="margin:4px 0 0;font-size:13px;color:#666;">CEO – CFG Components</p>
+    </div>
+
+    <!-- TILE 1 -->
+    <div class="cfg-tile tile-1">
+      <span>01</span>
+      <h4>Nature of Business</h4>
+      <p>Trader – Wholesaler / Distributor</p>
+    </div>
+
+    <!-- TILE 2 -->
+    <div class="cfg-tile tile-2">
+      <span>02</span>
+      <h4>Additional Business</h4>
+      <p>Supplier of Services & Retail</p>
+    </div>
+
+    <!-- TILE 3 -->
+    <div class="cfg-tile tile-3">
+      <span>03</span>
+      <h4>Employees</h4>
+      <p>10+ Skilled Professionals</p>
+    </div>
+
+    <!-- TILE 4 -->
+    <div class="cfg-tile tile-4">
+      <span>04</span>
+      <h4>Legal Status</h4>
+      <p>Proprietorship Firm</p>
+    </div>
+
+    <!-- TILE 5 -->
+    <div class="cfg-tile tile-5">
+      <span>05</span>
+      <h4>GST Number</h4>
+      <p>27AALPZ9424C1Z9</p>
+    </div>
+
+  </div>
+</section>
+
+
+<style>
+.cfg-tile{
+  position:absolute;
+  width:300px;
+  background:#2f343a;
+  color:#fff;
+  padding:20px 22px;
+  border-radius:50px 8px 8px 50px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.25);
+  transition:all 0.4s ease;
+}
+
+.cfg-tile span{
+  position:absolute;
+  top:-10px;
+  right:-10px;
+  width:34px;
+  height:34px;
+  background:#c70000;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:13px;
+  font-weight:700;
+}
+
+.cfg-tile h4{margin:0 0 6px;font-size:16px;}
+.cfg-tile p{margin:0;font-size:14px;opacity:0.85}
+
+/* 🔴 INDIVIDUAL POSITIONS (EQUAL RADIUS) */
+.tile-1{ left:430px; top:40px; }
+.tile-2{ left:520px; top:160px; }
+.tile-3{ left:540px; top:300px; }
+.tile-4{ left:500px; top:430px; }
+.tile-5{ left:400px; top:520px; }
+
+/* Hover polish */
+.cfg-tile:hover{
+  transform:translateX(10px);
+  box-shadow:0 30px 70px rgba(199,0,0,0.35);
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="about-overview" style="
+  padding:120px 0;
+  background:#f6f1ea;
+  font-family:'Poppins',sans-serif;
+">
+
+  <div style="
+    max-width:1100px;
+    margin:auto;
+    padding:0 24px;
+  ">
+
+    <h2 style="
+      font-size:44px;
+      font-weight:800;
+      margin-bottom:30px;
+    ">
+      Who We Are
+    </h2>
+
+    <p style="
+      font-size:18px;
+      line-height:1.8;
+      color:#444;
+      max-width:900px;
+    ">
+      Established in 2017 as a proprietorship firm, CFG Components is engaged in
+      trading and wholesale of Elevator Machines, Elevator Doors, Elevator Brackets,
+      and other essential components. Our products serve residential, commercial,
+      and industrial sectors across India.
+    </p>
+
+  </div>
+</section>
+
+
+
+
+<section id="about-why" style="
+  padding:120px 0;
+  background:#ffffff;
+  font-family:'Poppins',sans-serif;
+">
+
+  <div style="
+    max-width:1200px;
+    margin:auto;
+    padding:0 24px;
+  ">
+
+    <h2 style="
+      font-size:42px;
+      font-weight:800;
+      margin-bottom:60px;
+    ">
+      Why Choose CFG Components
+    </h2>
+
+    <div style="
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:36px;
+    ">
+
+      <!-- Card -->
+      <div class="why-card">
+        <h3>Established Since 2017</h3>
+        <p>Strong reputation built on trust, consistency, and industry expertise.</p>
+      </div>
+
+      <div class="why-card">
+        <h3>Wide Product Range</h3>
+        <p>Machines, doors, brackets, and essential elevator components.</p>
+      </div>
+
+      <div class="why-card">
+        <h3>Quality & Durability</h3>
+        <p>Products selected for long-term performance and reliability.</p>
+      </div>
+
+      <div class="why-card">
+        <h3>Competitive Pricing</h3>
+        <p>Cost-effective solutions with timely and reliable delivery.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+.why-card{
+  background:#f6f1ea;
+  padding:36px 30px;
+  border-radius:14px;
+  box-shadow:0 18px 40px rgba(0,0,0,0.08);
+  transition:.3s ease;
+}
+.why-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 28px 60px rgba(0,0,0,0.15);
+}
+.why-card h3{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.why-card p{
+  font-size:15px;
+  line-height:1.6;
+  color:#444;
+}
+</style>
+
+
+
+<section id="about-stats" style="
+  padding:120px 0;
+  background:#ffffff;
+  font-family:'Poppins',sans-serif;
+">
+
+  <div style="
+    max-width:1100px;
+    margin:auto;
+    padding:0 24px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:36px;
+    text-align:center;
+  ">
+
+    <div class="stat-box">
+      <span data-count="8">0</span>+
+      <p>Years Experience</p>
+    </div>
+
+    <div class="stat-box">
+      <span data-count="50">0</span>+
+      <p>Product Variants</p>
+    </div>
+
+    <div class="stat-box">
+      <span data-count="300">0</span>+
+      <p>Happy Clients</p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.stat-box{
+  background:#f6f1ea;
+  padding:46px 30px;
+  border-radius:16px;
+  box-shadow:0 18px 40px rgba(0,0,0,0.08);
+}
+.stat-box span{
+  font-size:54px;
+  font-weight:800;
+  color:#c70000;
+}
+.stat-box p{
+  margin-top:10px;
+  font-size:16px;
+  font-weight:600;
+}
+</style>
+
+
+<section style="
+  padding:120px 0;
+  background:#f6f1ea;
+  font-family:'Poppins',sans-serif;
+">
+
+  <div style="
+    max-width:1000px;
+    margin:auto;
+    padding:0 24px;
+  ">
+
+    <h2 style="font-size:40px; font-weight:800; margin-bottom:40px;">
+      Company Information
+    </h2>
+
+    <ul style="
+      list-style:none;
+      padding:0;
+      font-size:16px;
+      line-height:2;
+    ">
+      <li><strong>Nature of Business:</strong> Trader – Wholesaler / Distributor</li>
+      <li><strong>Additional Business:</strong> Supplier of Services, Retail Business</li>
+      <li><strong>CEO:</strong> Manish Tapase</li>
+      <li><strong>Employees:</strong> Up to 10 People</li>
+      <li><strong>Legal Status:</strong> Proprietorship</li>
+      <li><strong>GST No:</strong> 27AALPZ9424C1Z9</li>
+    </ul>
+
+  </div>
+</section>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+/* Hero */
+gsap.from(".about-hero-text", {
+  y:60, opacity:0, duration:1, ease:"power3.out"
+});
+gsap.from(".about-hero-img", {
+  scale:0.9, opacity:0, duration:1.2, ease:"power3.out"
+});
+
+/* Why Cards */
+gsap.from(".why-card",{
+  opacity:0,
+  y:60,
+  stagger:0.2,
+  duration:1,
+  scrollTrigger:{
+    trigger:"#about-why",
+    start:"top 75%"
+  }
+});
+
+/* Counters */
+document.querySelectorAll("[data-count]").forEach(el=>{
+  const target = +el.dataset.count;
+  ScrollTrigger.create({
+    trigger: el,
+    start:"top 85%",
+    once:true,
+    onEnter:()=>{
+      gsap.fromTo(el,{innerText:0},{
+        innerText:target,
+        duration:2,
+        snap:{innerText:1},
+        ease:"power1.out"
+      });
+    }
+  });
+});
+</script>
+
+
+
+
+
+
+
+<section id="about" style="
+  width:100%;
+  padding:110px 40px;
+  background:#ffffff;
+  font-family:'Poppins', sans-serif;
+  position:relative;
+  overflow:hidden;
+">
+
+  <div style="
+    max-width:1300px; 
+    margin:auto; 
+    display:flex; 
+    flex-wrap:wrap; 
+    align-items:center; 
+    justify-content:space-between;
+    gap:60px;
+  ">
+
+    <!-- ================= LEFT CONTENT ================= -->
+    <div style="flex:1; min-width:350px;">
+
+      <p style="
+        color:#c70000; 
+        font-size:1rem; 
+        font-weight:600; 
+        margin-bottom:6px;
+      ">
+        About Our Company
+      </p>
+
+      <h2 style="
+        font-size:3rem;
+        font-weight:800;
+        color:#0a0a0a;
+        line-height:1.2;
+        margin-bottom:18px;
+      ">
+        Building stronger<br>industrial components.
+      </h2>
+
+      <p style="
+        font-size:1.05rem;
+        color:#555;
+        line-height:1.7;
+        max-width:550px;
+      ">
+        CFG Components delivers reliable and precision-engineered elevator machines,
+        automatic doors, brackets and custom components trusted across India.  
+        With high-grade materials and strict quality assurance, we ensure performance,
+        durability and safety in every installation.
+      </p>
+
+      <!-- ICON FEATURES -->
+      <div style="display:flex; align-items:center; gap:40px; margin:35px 0;">
+        
+        <!-- Feature 1 -->
+        <div style="display:flex; align-items:center; gap:14px;">
+          <img src="https://cdn-icons-png.flaticon.com/512/2721/2721263.png" width="46">
+          <p style="font-weight:700; font-size:1.05rem; color:#0a0a0a;">
+            Precision Engineering
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div style="display:flex; align-items:center; gap:14px;">
+          <img src="https://cdn-icons-png.flaticon.com/512/2991/2991108.png" width="46">
+          <p style="font-weight:700; font-size:1.05rem; color:#0a0a0a;">
+            Reliable Performance
+          </p>
+        </div>
+
+      </div>
+
+      <!-- BUTTON + CONTACT -->
+      <div style="display:flex; align-items:center; gap:25px; margin-top:15px;">
+
+        <button style="
+          padding:14px 28px;
+          background:#c70000;
+          color:#fff;
+          border:none;
+          border-radius:40px;
+          font-size:1rem;
+          font-weight:600;
+          cursor:pointer;
+          box-shadow:0 4px 10px rgba(199,0,0,0.4);
+          transition:.3s;
+        "
+        onmouseover="this.style.transform='scale(1.06)'"
+        onmouseout="this.style.transform='scale(1)'">
+          About Us →
+        </button>
+
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="
+            width:50px; 
+            height:50px; 
+            background:#fff; 
+            border-radius:50%; 
+            display:flex; 
+            align-items:center; 
+            justify-content:center;
+            box-shadow:0 4px 10px rgba(0,0,0,0.15);
+          ">
+            <img src="https://cdn-icons-png.flaticon.com/512/126/126341.png" width="24">
+          </div>
+
+          <div>
+            <p style="font-size:.85rem; color:#777; margin:0;">Call us for help</p>
+            <p style="font-size:1.1rem; font-weight:700; margin:0;">+91 98765 43210</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ================= RIGHT IMAGE WITH GEARS ================= -->
+    <div style="flex:1; min-width:350px; position:relative;">
+
+      <!-- Stats Top -->
+      <div style="
+        display:flex; 
+        align-items:center; 
+        gap:60px; 
+        margin-bottom:25px;
+      ">
+        <div>
+          <h3 style="font-size:2.4rem; color:#c70000; margin:0;">3,000+</h3>
+          <p style="margin:0; font-weight:600;">Satisfied Clients</p>
+        </div>
+
+        <div>
+          <h3 style="font-size:2.4rem; color:#c70000; margin:0;">520+</h3>
+          <p style="margin:0; font-weight:600;">Projects Completed</p>
+        </div>
+      </div>
+
+      <!-- MAIN IMAGE WRAPPER -->
+      <div style="
+        width:100%;
+        max-width:420px;
+        margin:auto;
+        position:relative;
+      ">
+        <!-- Inner rotating circle -->
+        <img src="img/home_about_04.png" style="
+          width:100%;
+          border-radius:20px;
+          position:relative;
+          z-index:2;
+        ">
+
+        <!-- Rotating Gear Effect -->
+        <img src="https://cdn-icons-png.flaticon.com/128/833/833593.png" style="
+          position:absolute;
+          width:150px;
+          bottom:-40px;
+          right:-30px;
+          opacity:0.12;
+          animation:spin 18s linear infinite;
+        ">
+
+        <img src="https://cdn-icons-png.flaticon.com/128/833/833593.png" style="
+          position:absolute;
+          width:120px;
+          top:-40px;
+          left:-30px;
+          opacity:0.12;
+          animation:spinReverse 20s linear infinite;
+        ">
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+@keyframes spin {
+  from { transform:rotate(0deg); }
+  to   { transform:rotate(360deg); }
+}
+@keyframes spinReverse {
+  from { transform:rotate(360deg); }
+  to   { transform:rotate(0deg); }
+}
+</style>
+
+
+
+<section id="cfg-slider" style="
+  position:relative;
+  width:100%;
+  height:90vh;
+  overflow:hidden;
+  background:#f6f1ea;
+  font-family:Poppins,sans-serif;
+">
+
+  <div id="cfg-track" style="
+    display:flex;
+    height:100%;
+    will-change:transform;
+  ">
+
+    <div class="cfg-slide" style="flex:0 0 100%; display:flex;">
+      <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc"
+        style="width:55%; height:100%; object-fit:cover;">
+      <div style="width:45%; padding:80px; color:#000000;">
+        <h2>Precision Elevator Components</h2>
+        <p>High-performance machines engineered for reliability.</p>
+      </div>
+    </div>
+
+    <div class="cfg-slide" style="flex:0 0 100%; display:flex;">
+      <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758"
+        style="width:55%; height:100%; object-fit:cover;">
+      <div style="width:45%; padding:80px; color:#000000ca;">
+        <h2>Trusted Since 2017</h2>
+        <p>A proven partner to elevator manufacturers across India.</p>
+      </div>
+    </div>
+
+    <div class="cfg-slide" style="flex:0 0 100%; display:flex;">
+      <img src="https://images.unsplash.com/photo-1590650153855-d9e808231d41"
+        style="width:55%; height:100%; object-fit:cover;">
+      <div style="width:45%; padding:80px; color:#000000;">
+        <h2>Wide Product Range</h2>
+        <p>Machines, doors, brackets & complete lift solutions.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CONTROLS -->
+  <div style="
+    position:absolute;
+    bottom:40px;
+    right:60px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    color:#fff;
+    z-index:10;
+  ">
+    <button id="prev" style="padding:12px 18px;">←</button>
+    <span id="counter">1 / 3</span>
+    <button id="next" style="padding:12px 18px;">→</button>
+  </div>
+
+</section>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+
+<script>
+window.addEventListener("load", () => {
+
+  const track = document.getElementById("cfg-track");
+  const slides = document.querySelectorAll(".cfg-slide");
+  const counter = document.getElementById("counter");
+
+  let index = 0;
+  let slideWidth = slides[0].offsetWidth;
+  const total = slides.length;
+
+  function update() {
+    gsap.to(track, {
+      x: -index * slideWidth,
+      duration: 1.2,
+      ease: "power3.inOut"
+    });
+    counter.innerText = `${index + 1} / ${total}`;
+  }
+
+  document.getElementById("next").onclick = () => {
+    index = (index + 1) % total;
+    update();
+  };
+
+  document.getElementById("prev").onclick = () => {
+    index = (index - 1 + total) % total;
+    update();
+  };
+
+  /* AUTOPLAY */
+  let auto = setInterval(() => {
+    index = (index + 1) % total;
+    update();
+  }, 4000);
+
+  /* PAUSE ON HOVER */
+  document.getElementById("cfg-slider").addEventListener("mouseenter", () => {
+    clearInterval(auto);
+  });
+
+  document.getElementById("cfg-slider").addEventListener("mouseleave", () => {
+    auto = setInterval(() => {
+      index = (index + 1) % total;
+      update();
+    }, 4000);
+  });
+
+  /* RESIZE FIX */
+  window.addEventListener("resize", () => {
+    slideWidth = slides[0].offsetWidth;
+    update();
+  });
+
+});
+</script>
+
+
+
+<section style="
+  width:100%;
+  min-height:100vh;
+  background:linear-gradient(180deg,#efe8dd,#f6f1ea);
+  display:flex;
+  align-items:center;
+  font-family:'Poppins',sans-serif;
+">
+
+  <!-- MAIN WRAPPER -->
+  <div style="
+    max-width:1300px;
+    margin:auto;
+    padding:0 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:60px;
+    flex-wrap:wrap;
+  ">
+
+    <!-- LEFT CONTENT -->
+    <div style="
+      flex:1;
+      min-width:320px;
+    ">
+
+      <div style="
+        display:inline-block;
+        padding:6px 16px;
+        background:#2d2c28;
+        color:#ffffff;
+        font-size:13px;
+        letter-spacing:1px;
+        border-radius:999px;
+        margin-bottom:18px;
+      ">
+        INDUSTRIAL MANUFACTURING
+      </div>
+
+      <h1 style="
+        font-size:56px;
+        font-weight:800;
+        line-height:1.05;
+        margin:0;
+        color:#1f1f1f;
+      ">
+        Engineering<br>
+        <span style="color:#c70000;">Precision Components</span>
+      </h1>
+
+      <p style="
+        margin-top:26px;
+        max-width:520px;
+        font-size:18px;
+        line-height:1.6;
+        color:#3a3a3a;
+      ">
+        CFG Components specializes in CNC machining, elevator components,
+        and industrial-grade fabrication solutions designed for strength,
+        accuracy, and long-term performance.
+      </p>
+
+      <button onclick="location.href='#contact'" style="
+        margin-top:42px;
+        padding:16px 36px;
+        background:#c70000;
+        color:#ffffff;
+        border:none;
+        border-radius:999px;
+        cursor:pointer;
+        font-size:15px;
+        font-weight:700;
+        letter-spacing:.3px;
+        
+        transition:all .25s ease;
+      "
+      onmouseover="this.style.transform='translateY(-3px)'"
+      onmouseout="this.style.transform='translateY(0)'"
+      >
+        Explore Products
+      </button>
+
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div style="
+      flex:1;
+      min-width:320px;
+      display:flex;
+      justify-content:center;
+      position:relative;
+    ">
+
+      <!-- BACK SHAPE -->
+      <div style="
+        position:absolute;
+        width:380px;
+        height:380px;
+        background:#c70000;
+        border-radius:50%;
+        opacity:0.08;
+        z-index:0;
+      "></div>
+
+      <!-- IMAGE -->
+      <img src="img/main.png" alt="CFG Machine" style="
+        width:420px;
+        max-width:100%;
+        position:relative;
+        z-index:1;
+        filter:drop-shadow(0 30px 50px rgba(0,0,0,0.25));
+      ">
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<section id="about-hero" style="
+  position:relative;
+  padding:140px 0 120px;
+  background:#ffffff;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+">
+
+  <!-- Decorative Shape -->
+  <div style="
+    position:absolute;
+    top:-120px;
+    right:-120px;
+    width:380px;
+    height:380px;
+    background:#c70000;
+    opacity:0.08;
+    border-radius:50%;
+  "></div>
+
+  <div style="
+    max-width:1200px;
+    margin:auto;
+    padding:0 24px;
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:60px;
+    align-items:center;
+    position:relative;
+  ">
+
+    <!-- Text -->
+    <div class="about-hero-text">
+      <h1 style="
+        font-size:52px;
+        font-weight:800;
+        line-height:1.1;
+        margin-bottom:20px;
+      ">
+        Trusted Elevator<br>
+        <span style="color:#c70000;">Components Partner</span><br>
+        Since 2017
+      </h1>
+
+      <p style="
+        font-size:18px;
+        color:#444;
+        line-height:1.7;
+        max-width:520px;
+      ">
+        CFG Components has grown into a reliable and trusted name in the elevator
+        industry, delivering durable, high-performance components backed by
+        expertise and customer-centric values.
+      </p>
+    </div>
+
+    <!-- Image -->
+    <!-- Image Slider -->
+<div class="about-hero-img" style="
+  position:relative;
+  width:100%;
+  max-width:420px;
+  height:420px;
+  margin:auto;
+">
+
+  <img src="img/main.png" class="hero-img"
+  style="
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    opacity:1;
+    z-index:3;
+    transform:scale(1);
+    transition:none;
+    filter:drop-shadow(0 40px 60px rgba(0,0,0,0.15));
+  ">
+
+  <img src="img/gearless-traction-machine-removebg-preview.png" class="hero-img"
+    style="
+      position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    opacity:0;
+    z-index:1;
+    transform:scale(1);
+    transition:none;
+    filter:drop-shadow(0 40px 60px rgba(0,0,0,0.15));
+    ">
+
+  <img src="img/enco-removebg-preview.png" class="hero-img"
+    style="
+      position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    opacity:0;
+    z-index:1;
+    transform:scale(1);
+    transition:none;
+    filter:drop-shadow(0 40px 60px rgba(0,0,0,0.15));
+    ">
+</div>
+
+    </div>
+
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  if (typeof gsap === "undefined") {
+    console.error("GSAP not loaded");
+    return;
+  }
+
+  const images = document.querySelectorAll(".hero-img");
+  if (!images.length) return;
+
+  let current = 0;
+
+  // show first image
+  gsap.set(images, { opacity: 0, scale: 1.05 });
+  gsap.set(images[0], { opacity: 1, scale: 1, zIndex: 3 });
+
+  setInterval(() => {
+    const prev = current;
+    current = (current + 1) % images.length;
+
+    // fade out previous
+    gsap.to(images[prev], {
+      opacity: 0,
+      scale: 1.05,
+      zIndex: 1,
+      duration: 1,
+      ease: "power3.out"
+    });
+
+    // fade in next
+    gsap.fromTo(
+      images[current],
+      { opacity: 0, scale: 0.95, zIndex: 2 },
+      {
+        opacity: 1,
+        scale: 1,
+        zIndex: 3,
+        duration: 1.2,
+        ease: "power3.out"
+      }
+    );
+
+  }, 3000);
+
+});
+</script>
+
+
+
+	
+</body>
+</html>
