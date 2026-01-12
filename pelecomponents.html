@@ -4,8 +4,568 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
+
+  <link rel="stylesheet" href="footer.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- <style>
+     
+    :root{
+      --red:#c70000;
+      --red-deep:#a10000;
+      --yellow:#ffcc00;
+      --bg: #ffffff;
+      --glass: rgba(255,255,255,0.85);
+      --maxw: 1400px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      color:#111;
+      background:#fafafa;
+    }
+
+   </style> -->
+  
+
 </head>
 <body>
+
+<section id="navbarSection">
+
+<!-- NAVBAR HTML -->
+<nav class="cfg-navbar">
+  <div class="site-container">
+
+    <!-- LOGO -->
+    <div class="logo-box">
+      <img src="img/logo.png" alt="CFG Logo">
+      <span>CFG Components</span>
+    </div>
+
+    <!-- DESKTOP MENU -->
+    <div class="cfg-menu">
+      <a href="index.html" >Home</a>
+      <a href="about.html">About</a>
+       <!-- PRODUCTS DROPDOWN -->
+  <div class="cfg-dropdown">
+    <a href="products.html" class="cfg-drop-btn">Products ▾</a>
+
+    <div class="cfg-dropdown-menu">
+     <a href="pdoor.html">Elevator Door</a>
+      <a href="ptack.html">Traction Machine</a>
+      <a href="phydra.html">Hydraulic Kits</a>
+      <a href="psensor.html">Door Sensor</a>
+      <a href="pguide.html">Elevator Guide Rails</a>
+      <a href="pcarcab.html">Cabins & Car Frames</a>
+      <a href="pelecomponents.html" class="active">Elevator Components</a>
+      
+    </div>
+  </div>
+      <a href="gallary.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- MOBILE ICON -->
+<div class="cfg-menu-icon" id="openMenu">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+  </div>
+</nav>
+
+
+<!-- SIDEBAR DRAWER -->
+<div class="cfg-sidebar" id="sidebar">
+<div class="cfg-sidebar-header">
+  <div class="cfg-sidebar-logo">
+    <img src="img/logo.png" alt="CFG Logo">
+    <span>CFG Components</span>
+  </div>
+
+  <!-- <div class="cfg-close-btn" id="closeMenu">&times;</div> -->
+</div>
+
+  <a href="index.html" >Home</a>
+  <a href="about.html">About</a>
+    <!-- MOBILE PRODUCTS -->
+<div class="cfg-mobile-products">
+  <div class="cfg-mobile-title" id="mobileProducts">
+    Products <span>+</span>
+  </div>
+
+  <div class="cfg-mobile-submenu">
+   <a href="pdoor.html">Elevator Door</a>
+      <a href="ptack.html">Traction Machine</a>
+      <a href="phydra.html">Hydraulic Kits</a>
+      <a href="psensor.html">Door Sensor</a>
+      <a href="pguide.html">Elevator Guide Rails</a>
+      <a href="pcarcab.html">Cabins & Car Frames</a>
+      <a href="pelecomponents.html" class="active" >Elevator Components</a>
+    <a href="products.html" class="view-all">View All</a>
+  </div>
+</div>
+  <a href="gallary.html">Gallery</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+</section>
+
+<style>
+
+  
+:root{
+  --red:#D70000;
+  --yellow:#F4C400;
+  --dark:#1a1a1a;
+}
+
+/* ----------------------------------------------
+   PREMIUM NAVBAR WITH BRUSHED METAL TEXTURE
+----------------------------------------------- */
+.cfg-navbar{
+  width:100%;
+
+    background:#ffffff url('https://www.transparenttextures.com/patterns/white-wall.png');
+     
+
+  background-size:cover;
+
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:999999;
+
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+
+  box-shadow:
+      0 4px 12px rgba(0,0,0,0.18),
+      inset 0 -2px 4px rgba(255,255,255,0.5);
+
+  transition:0.3s ease;
+}
+
+/* container */
+.cfg-navbar .site-container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:85px;
+  padding:0 18px;
+}
+
+/* ----------------------------------------------
+   LOGO
+----------------------------------------------- */
+.logo-box{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.logo-box img{
+  height:55px;
+}
+.logo-box span{
+  font-size:24px;
+  font-weight:700;
+  color:var(--red);
+  letter-spacing:0.4px;
+}
+
+/* ----------------------------------------------
+   MENU (Desktop)
+----------------------------------------------- */
+.cfg-menu{
+  display:flex;
+  align-items: center;
+  gap:42px;
+}
+
+.cfg-menu a{
+  font-size:17px;
+  font-weight:500;
+  text-decoration:none;
+  color:#111;
+  padding:8px 4px;
+  position:relative;
+  transition:0.3s ease;
+}
+
+/* Hover glow */
+.cfg-menu a:hover{
+  color:var(--red);
+  text-shadow:0 0 10px rgba(215,0,0,0.45);
+}
+
+/* underline animation */
+.cfg-menu a::after{
+  content:"";
+  position:absolute;
+  width:0;
+  height:3px;
+  bottom:0;
+  left:0;
+  background:var(--red);
+  border-radius:20px;
+  transition:0.3s ease;
+}
+.cfg-menu a:hover::after{
+  width:100%;
+}
+
+/* ACTIVE button style */
+.cfg-menu a.active{
+ 
+  color:var(--red) !important;
+  padding:8px 18px;
+  border-radius:20px;
+  font-weight:600;
+  /* box-shadow:0 4px 12px rgba(215,0,0,0.4); */
+}
+.cfg-menu a.active::after{ width:0 !important; }
+
+/* ----------------------------------------------
+   MOBILE MENU ICON
+----------------------------------------------- */
+/* .cfg-menu-icon{
+  display:none;
+  font-size:36px;
+  cursor:pointer;
+  color:var(--red);
+  transition:0.3s ease;
+} */ 
+ /* .cfg-menu-icon:hover{
+  transform:scale(1.15);
+} */
+
+/* ----------------------------------------------
+   SIDEBAR / MOBILE DRAWER
+----------------------------------------------- */
+.cfg-sidebar{
+  position:fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width:300px;
+
+    background:#ffffff url('https://www.transparenttextures.com/patterns/white-wall.png');
+
+
+  background-size:600px;
+
+  transform:translateX(-100%);
+  transition:0.4s ease;
+
+  padding:50px 30px 30px;
+  border-top-right-radius:22px;
+  border-bottom-right-radius:22px;
+
+  box-shadow:6px 0 25px rgba(0,0,0,0.25);
+  z-index:999999;
+}
+
+/* active drawer */
+.cfg-sidebar.active{
+  transform:translateX(0);
+}
+
+/* close button */
+.cfg-close-btn{
+  font-size:38px;
+  color:var(--red);
+  cursor:pointer;
+  margin-bottom:28px;
+  transition:0.3s;
+}
+.cfg-close-btn:hover{
+  transform:scale(1.2);
+}
+
+/* mobile links */
+.cfg-sidebar a{
+  font-size:20px;
+  padding:16px 0;
+  border-bottom:1px solid #ddd;
+  display:block;
+  text-decoration:none;
+  color:#222;
+  transition:0.3s;
+}
+.cfg-sidebar a:hover{
+  color:var(--red);
+  padding-left:10px;
+}
+
+/* ACTIVE in mobile */
+.cfg-sidebar a.active{
+  color:var(--red);
+  font-weight:700;
+  padding-left:12px;
+}
+
+
+/* ----------------------------------------------
+   DROPDOWN (DESKTOP)
+----------------------------------------------- */
+.cfg-dropdown{
+  position:relative;
+}
+
+.cfg-drop-btn{
+  cursor:pointer;
+  
+}
+
+.cfg-dropdown-menu{
+  position:absolute;
+  top:150%;
+  left:1px;
+  min-width:220px;
+  background:#fff;
+  border-radius:1px;
+  padding:12px 0;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  transition:0.35s ease;
+  box-shadow:0 25px 45px rgba(0,0,0,0.18);
+  z-index:9999;
+}
+
+.cfg-dropdown:hover .cfg-dropdown-menu{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+.cfg-dropdown-menu a{
+  display:block;
+  padding:12px 22px;
+  font-size:15px;
+  color:#222;
+  text-decoration:none;
+  transition:0.3s ease;
+}
+
+.cfg-dropdown-menu a:hover{
+  background:rgba(215,0,0,0.01);
+  color:var(--red);
+  padding-left:28px;
+}
+
+.cfg-dropdown-menu .view-all{
+  font-weight:600;
+  color:var(--red);
+}
+
+/* ----------------------------------------------
+   MOBILE PRODUCTS DROPDOWN
+----------------------------------------------- */
+.cfg-mobile-products{
+  border-bottom:1px solid #ddd;
+}
+
+.cfg-mobile-title{
+  font-size:20px;
+  padding:16px 0;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.cfg-mobile-title span{
+  font-size:22px;
+  transition:0.3s ease;
+}
+
+.cfg-mobile-submenu{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.35s ease;
+}
+
+.cfg-mobile-submenu a{
+  padding:12px 0 12px 14px;
+  font-size:17px;
+  display:block;
+  text-decoration:none;
+  color:#444;
+}
+
+.cfg-mobile-submenu a:hover{
+  color:var(--red);
+}
+
+.cfg-mobile-products.active .cfg-mobile-submenu{
+  max-height:300px;
+}
+
+.cfg-mobile-products.active .cfg-mobile-title span{
+  transform:rotate(45deg);
+}
+
+
+/* ----------------------------------------------
+   SIDEBAR HEADER (LOGO + CLOSE)
+----------------------------------------------- */
+.cfg-sidebar-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:30px;
+}
+
+/* logo inside sidebar */
+.cfg-sidebar-logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-left: -15px;
+}
+
+.cfg-sidebar-logo img{
+  height:59px;
+}
+
+.cfg-sidebar-logo span{
+  font-size:20px;
+  font-weight:700;
+  color:var(--red);
+  letter-spacing:0.4px;
+}
+
+/* close button refinement */
+.cfg-close-btn{
+  font-size:36px;
+  color:var(--red);
+  cursor:pointer;
+  line-height:1;
+  transition:0.3s ease;
+}
+
+.cfg-close-btn:hover{
+  transform:rotate(180deg) scale(1.1);
+}
+
+/* MOBILE MENU ICON (Animated) */
+.cfg-menu-icon{
+  display:none;
+  width:28px;
+   padding: 6px 0;
+  cursor:pointer;
+  /* display:flex; */
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.cfg-menu-icon span{
+  display: block;
+  height:3px;
+  width:100%;
+  background:var(--red);
+  border-radius: 999px;
+    margin-bottom: 8px;   /* ✅ REAL spacing (mobile-safe) */
+    transition:
+        transform 0.45s cubic-bezier(.68,-0.55,.27,1.55),
+        opacity 0.3s ease;
+}
+
+.cfg-menu span:last-child{
+margin-bottom: 0;
+}
+
+/* ACTIVE → CLOSE ICON */
+.cfg-menu-icon.active span:nth-child(1){
+    transform: translateY(11px) rotate(135deg);
+}
+
+.cfg-menu-icon.active span:nth-child(2){
+   opacity: 0;
+    transform: scale(0);
+}
+
+.cfg-menu-icon.active span:nth-child(3){
+   transform: translateY(-11px) rotate(-135deg);
+}
+
+
+
+
+
+/* ----------------------------------------------
+   RESPONSIVE
+----------------------------------------------- */
+@media(max-width:900px){
+  .cfg-menu{display:none;}
+
+  .cfg-menu-icon{
+    display:flex;        
+    align-items:center;
+    justify-content:center;
+  }
+}
+
+</style>
+
+<script>
+const sidebar = document.getElementById("sidebar");
+const openMenu = document.getElementById("openMenu");
+const closeMenu = document.getElementById("closeMenu");
+
+/* OPEN / CLOSE via HAMBURGER */
+openMenu.addEventListener("click", (e) => {
+  e.stopPropagation();               // 🔴 stop bubbling
+  sidebar.classList.toggle("active");
+  openMenu.classList.toggle("active");
+});
+
+/* CLOSE via X */
+closeMenu.addEventListener("click", (e) => {
+  e.stopPropagation();
+  sidebar.classList.remove("active");
+  openMenu.classList.remove("active");
+});
+
+/* PREVENT CLOSE WHEN CLICKING INSIDE SIDEBAR */
+sidebar.addEventListener("click", (e) => {
+  e.stopPropagation();
+});
+
+/* CLOSE WHEN CLICKING ANYWHERE ELSE */
+document.addEventListener("click", () => {
+  if (sidebar.classList.contains("active")) {
+    sidebar.classList.remove("active");
+    openMenu.classList.remove("active");
+  }
+});
+</script>
+
+
+
+<script>
+const mobileProducts = document.getElementById("mobileProducts");
+const submenu = mobileProducts.nextElementSibling;
+
+mobileProducts.addEventListener("click", () => {
+  const parent = mobileProducts.parentElement;
+
+  parent.classList.toggle("active");
+
+  if (parent.classList.contains("active")) {
+    submenu.style.maxHeight = submenu.scrollHeight + "px";
+  } else {
+    submenu.style.maxHeight = null;
+  }
+});
+</script>
+
 
 
 <section style="
@@ -42,156 +602,708 @@
 </section>
 
 
-<section style="padding:90px 24px;background:#f6f1ea;font-family:'Poppins',sans-serif;">
-  <div class="cfg-zigzag-row" style="max-width:1300px;margin:auto;display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center;">
+ <section class="cfg-section bg-light">
+        <div class="cfg-container">
+            <div class="slider-wrapper">
+                <div class="slider-track anim-3">
+                    <div class="slide"><img src="img/home_about_01.png" alt="Speed Governor 1"></div>
+                    <div class="slide"><img src="img/home_about_02-removebg-preview.png" alt="Speed Governor 2"></div>
+                    <div class="slide"><img src="img/governor.webp" alt="Speed Governor 3"></div>
+                </div>
+            </div>
+            <div class="cfg-content">
+                <h2>Over Speed Governor</h2>
+                <p>A critical elevator safety device that detects excessive speed and activates the safety gear to stop the elevator car immediately.</p>
+                <div class="spec-grid">
+                    <div><strong>Material:</strong> Mild Steel</div>
+                    <div><strong>Voltage:</strong> 220 V</div>
+                    <div><strong>Accuracy:</strong> +/- 0.05 m/s</div>
+                    <div><strong>Standard:</strong> EN81-20</div>
+                </div>
+                <ul class="feature-list">
+                    <li>Reliable Speed Detection for emergency protection</li>
+                    <li>Durable Construction for long service life</li>
+                    <li>Automatic reset and manual test features</li>
+                </ul>
+                <button class="btn-quote" onclick="sendQuoteRequest('Over Speed Governor')">Get Best Quote</button>
+            </div>
+        </div>
+    </section>
 
-    <div class="cfg-img gsap-left">
-      <img src="img/home_about_02-removebg-preview.png" style="width:100%;max-width:520px;margin:auto;display:block;filter:drop-shadow(0 40px 60px rgba(0,0,0,.25));">
+    <section class="cfg-section bg-white">
+        <div class="cfg-container reverse">
+            <div class="cfg-content">
+                <h2>Guide Clip</h2>
+                <p>Guide clips securely fasten guide rails to the shaft wall, ensuring alignment and vibration control for smooth car travel.</p>
+                <div class="spec-grid">
+                    <div><strong>Type:</strong> Forged/Pressed</div>
+                    <div><strong>Surface:</strong> Zinc Plated</div>
+                </div>
+                <ul class="feature-list">
+                    <li>High tensile steel construction</li>
+                    <li>Vibration dampening rubber inserts available</li>
+                    <li>Easy vertical and horizontal adjustment</li>
+                </ul>
+                <button class="btn-quote" onclick="sendQuoteRequest('Guide Clip')">Get Best Quote</button>
+            </div>
+            <div class="slider-wrapper">
+                <div class="slider-track anim-3">
+                    <div class="slide"><img src="img/gclip.jpeg" alt="Guide Clip 1"></div>
+                    <div class="slide"><img src="img/gclip1.jpeg" alt="Guide Clip 2"></div>
+					                    <div class="slide"><img src="img/gclip2.jpeg" alt="Guide Clip 2"></div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="cfg-section bg-light">
+        <div class="cfg-container">
+            <div class="slider-wrapper">
+                <div class="slider-track anim-3">
+                    <div class="slide"><img src="img/rcli1.jpeg" alt="Rope Clip View 1"></div>
+                    <div class="slide"><img src="img/rcli2.jpeg" alt="Rope Clip View 2"></div>
+					                    <div class="slide"><img src="img/rcli3.jpeg" alt="Rope Clip View 2"></div>
+
+                </div>
+            </div>
+            <div class="cfg-content">
+                <h2>Rope Clip (U-Bolt Clamp)</h2>
+                <p>High-security fastening solution for terminating wire ropes. Engineered to provide maximum grip without damaging the rope strands.</p>
+                <div class="spec-grid">
+                    <div><strong>Material:</strong> Forged Carbon Steel</div>
+                    <div><strong>Finish:</strong> Hot Dip Galvanized</div>
+                    <div><strong>Standard:</strong> DIN 1142 / EN 13411-5</div>
+                    <div><strong>Size Range:</strong> 6mm to 20mm</div>
+                </div>
+                <ul class="feature-list">
+                    <li>Heavy-duty forged base for superior stability</li>
+                    <li>Precision threaded U-bolt for consistent torque</li>
+                    <li>Rust-resistant coating for long-term shaft use</li>
+                </ul>
+                <button class="btn-quote" onclick="sendQuoteRequest('Wire Rope Clips')">Get Best Quote</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="cfg-section bg-white">
+        <div class="cfg-container reverse">
+            <div class="cfg-content">
+                <h2>Elevator Guide Rail Brackets</h2>
+                <p>Structural support components that anchor guide rails to the elevator shaft walls. Designed for rigid alignment and load distribution.</p>
+                <div class="spec-grid">
+                    <div><strong>Material:</strong> Mild Steel (Heavy Gauge)</div>
+                    <div><strong>Type:</strong> Adjustable / Fixed</div>
+                    <div><strong>Application:</strong> T-Rail Mounting</div>
+                    <div><strong>Finish:</strong> Primer/Zinc Coated</div>
+                </div>
+                <ul class="feature-list">
+                    <li>Slotted holes for precise horizontal adjustment</li>
+                    <li>High vibration dampening properties</li>
+                    <li>Supports Cabin and Counterweight rails</li>
+                </ul>
+                <button class="btn-quote" onclick="sendQuoteRequest('Elevator Brackets')">Get Best Quote</button>
+            </div>
+            <div class="slider-wrapper">
+                <div class="slider-track anim-3">
+                    <div class="slide"><img src="img/bracke-removebg-preview.png" alt="Bracket 1"></div>
+                    <div class="slide"><img src="img/bracket.webp" alt="Bracket 2"></div>
+                    <div class="slide"><img src="img/brackets-.webp" alt="Bracket 3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cfg-section bg-light">
+        <div class="cfg-container">
+            <div class="slider-wrapper">
+                <div class="slider-track anim-2">
+                    <div class="slide"><img src="img/wedge-anchor-fasteners-removebg-preview.png" alt="Wedge Anchor 1"></div>
+                    <div class="slide"><img src="img/fasteners.webp" alt="Wedge Anchor 2"></div>
+                </div>
+            </div>
+            <div class="cfg-content">
+                <h2>Wedge Anchor Fasteners</h2>
+                <p>Reliable heavy-duty mechanical anchors used for fixing brackets and machinery into solid concrete shaft walls.</p>
+                <div class="spec-grid">
+                    <div><strong>Material:</strong> Grade 8.8 Steel</div>
+                    <div><strong>Coating:</strong> Zinc / Yellow Passivated</div>
+                    <div><strong>Installation:</strong> Pre-drilled Hole</div>
+                    <div><strong>Expansion:</strong> Torque Controlled</div>
+                </div>
+                <ul class="feature-list">
+                    <li>Deep expansion sleeve for high pull-out resistance</li>
+                    <li>Fire-resistant and seismically approved</li>
+                    <li>Available in M10, M12, and M16 sizes</li>
+                </ul>
+                <button class="btn-quote" onclick="sendQuoteRequest('Wedge Anchor Fasteners')">Get Best Quote</button>
+            </div>
+        </div>
+    </section>
+
+
+	<section class="cfg-section bg-white">
+        <div class="cfg-container reverse">
+            <div class="cfg-content">
+                <h2>PVC Wiring Truff (Casing)</h2>
+                <p>Organized cable management system for elevator wiring. Protects electrical lines from dust, moisture, and mechanical wear.</p>
+                <div class="spec-grid">
+                    <div><strong>Material:</strong> Flame Retardant PVC</div>
+                    <div><strong>Standard:</strong> UL94 V-0 Rated</div>
+                    <div><strong>Length:</strong> 2 Meters (Standard)</div>
+                    <div><strong>Features:</strong> Snap-fit cover</div>
+                </div>
+                <ul class="feature-list">
+                    <li>Non-conductive material for electrical safety</li>
+                    <li>Smooth internal finish for easy wire pulling</li>
+                    <li>Resistant to chemicals and high shaft temperatures</li>
+                </ul>
+                <button class="btn-quote" onclick="sendQuoteRequest('PVC Wiring Truff')">Get Best Quote</button>
+            </div>
+            <div class="slider-wrapper">
+                <div class="slider-track anim-2">
+                    <div class="slide"><img src="img/pvc.jpeg" alt="PVC Truff"></div>
+					                    <div class="slide"><img src="img/pvc1.jpeg" alt="PVC Truff"></div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="cfg-section bg-light">
+        <div class="cfg-container">
+            <div class="slider-wrapper">
+                <div class="slider-track anim-1">
+                    <div class="slide"><img src="img/limit.jpeg" alt="Limit Switch"></div>
+                </div>
+            </div>
+            <div class="cfg-content">
+                <h2>Limit Switch</h2>
+                <p>Ensures safe elevator operation by controlling travel limits and preventing over-travel into the pit or overhead.</p>
+                <div class="spec-grid">
+                    <div><strong>Contact:</strong> 1NO + 1NC</div>
+                    <div><strong>Protection:</strong> IP65 Waterproof</div>
+                </div>
+                <ul class="feature-list">
+                    <li>Precision snap-action mechanism</li>
+                    <li>Cast aluminum housing for durability</li>
+                    <li>Certified for safety circuit integration</li>
+                </ul>
+                <button class="btn-quote" onclick="sendQuoteRequest('Limit Switch')">Get Best Quote</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="cfg-section bg-white">
+        <div class="cfg-container reverse">
+            <div class="cfg-content">
+                <h2>Wire Rope</h2>
+                <p>High-strength multi-strand wire ropes designed for high traction, low stretch, and safe elevator car suspension.</p>
+                <div class="spec-grid">
+                    <div><strong>Diameter:</strong> 8mm - 16mm</div>
+                    <div><strong>Core:</strong> Fibre / Steel Core</div>
+                </div>
+                <ul class="feature-list">
+                    <li>Superior fatigue resistance</li>
+                    <li>Optimized for traction sheave longevity</li>
+                    <li>Anti-rust lubrication treatment</li>
+                </ul>
+                <button class="btn-quote" onclick="sendQuoteRequest('Wire Rope')">Get Best Quote</button>
+            </div>
+            <div class="slider-wrapper">
+                <div class="slider-track anim-2">
+                    <div class="slide"><img src="img/rop.jpeg" alt="Wire Rope 1"></div>
+                    <div class="slide"><img src="img/rope.jpeg" alt="Wire Rope 2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+	<section class="cfg-section bg-light">
+        <div class="cfg-container">
+            <div class="slider-wrapper">
+                <div class="slider-track anim-3">
+                    <div class="slide"><img src="img/bolt.jpeg" alt="Hardware 1"></div>
+                    <div class="slide"><img src="img/bolt1.jpeg" alt="Hardware 2"></div>
+                    <div class="slide"><img src="img/bolt2.jpeg" alt="Hardware 3"></div>
+                </div>
+            </div>
+            <div class="cfg-content">
+                <h2>General Elevator Hardware</h2>
+                <p>A complete inventory of essential washers, nuts, bolts, and specialized fasteners required for elevator assembly and maintenance.</p>
+                <div class="spec-grid">
+                    <div><strong>Items:</strong> Bolts, Nuts, Spring Washers</div>
+                    <div><strong>Grade:</strong> 4.8 / 8.8 / 10.9</div>
+                    <div><strong>Packing:</strong> Bulk / Kit-based</div>
+                    <div><strong>Usage:</strong> Structural assembly</div>
+                </div>
+                <ul class="feature-list">
+                    <li>Precision matched threads to avoid loosening</li>
+                    <li>High tensile strength for safety-critical joints</li>
+                    <li>Coated to prevent corrosion in humid lift shafts</li>
+                </ul>
+                <button class="btn-quote" onclick="sendQuoteRequest('Elevator Hardware Kits')">Get Best Quote</button>
+            </div>
+        </div>
+    </section>
+
+
+
+	<style>
+    :root {
+        --brand-red: #c70000;
+        --navy-dark: #1f1f1f;
+        --bg-beige: #f6f1ea;
+        --text-gray: #666;
+        --white: #ffffff;
+    }
+
+    body { margin: 0; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+
+    /* --- Layout Containers --- */
+    .cfg-section { padding: 90px 24px; }
+    .bg-light { background-color: var(--bg-beige); }
+    .bg-white { background-color: var(--white); }
+
+    .cfg-container {
+        max-width: 1300px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 80px;
+        align-items: center;
+    }
+
+    .reverse { grid-template-columns: 1fr 1.1fr; }
+
+    /* --- FIXED Image Slider System --- */
+    .slider-wrapper {
+        width: 100%;
+        max-width: 520px;
+        height: 420px;
+        margin: auto;
+        overflow: hidden;
+        border-radius: 15px;
+        position: relative;
+        background: #fff;
+        filter: drop-shadow(0 40px 60px rgba(0,0,0,.15));
+    }
+
+    .slider-track { 
+        display: flex; 
+        height: 100%; 
+        transition: transform 0.5s ease-in-out;
+    }
+
+    /* CRITICAL: Each slide must be exactly the width of the wrapper window */
+    .slide {
+        flex: 0 0 100%;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: zoom-in;
+    }
+
+    .slide img {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+        display: block;
+    }
+
+    /* DYNAMIC TRACK WIDTHS AND ANIMATIONS */
+    /* If you have 3 images, the track must be 300% wide */
+ /* REMOVE manual widths */
+.anim-3 { animation: slide3 12s infinite ease-in-out; }
+.anim-2 { animation: slide2 8s infinite ease-in-out; }
+.anim-1 { }
+
+/* Correct transforms based on full-slide widths */
+@keyframes slide3 {
+    0%, 25% { transform: translateX(0); }
+    33.33%, 58.33% { transform: translateX(-100%); }
+    66.66%, 91.66% { transform: translateX(-200%); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes slide2 {
+    0%, 45% { transform: translateX(0); }
+    55%, 100% { transform: translateX(-100%); }
+}
+
+
+    .slider-wrapper:hover .slider-track { animation-play-state: paused; }
+
+    /* --- Content Styling --- */
+    .cfg-content h2 { font-size: 38px; font-weight: 800; color: var(--navy-dark); margin-bottom: 18px; line-height: 1.2; }
+    .cfg-content p { font-size: 17px; line-height: 1.7; color: var(--text-gray); margin-bottom: 28px; }
+
+    .spec-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px 40px;
+        margin-bottom: 32px;
+        font-size: 15px;
+    }
+
+    .feature-list { padding-left: 18px; line-height: 1.9; color: #444; margin-bottom: 38px; }
+
+    /* --- Button Styling --- */
+    .btn-quote {
+        display: inline-block;
+        padding: 16px 44px;
+        background: var(--brand-red);
+        color: var(--white);
+        border-radius: 999px;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 15px 35px rgba(199,0,0,0.3);
+        transition: 0.3s ease;
+    }
+
+    .btn-quote:hover { transform: translateY(-3px); box-shadow: 0 20px 45px rgba(199,0,0,0.4); }
+
+    /* --- Lightbox Modal --- */
+    .lightbox-modal {
+        display: none; /* Changed to flex in JS */
+        position: fixed;
+        z-index: 100000 !important;
+        inset: 0;
+        background: rgba(5, 10, 18, 0.98);
+        backdrop-filter: blur(12px);
+        align-items: center;
+        justify-content: center;
+		margin-top: 50px;
+    }
+
+    .lightbox-content {
+        max-width: 90%;
+        max-height: 85vh;
+        object-fit: contain;
+        animation: zoomIn 0.3s ease-out;
+    }
+
+    .close-lightbox {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        color: #fff;
+        font-size: 50px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+    /* --- Responsive --- */
+    @media (max-width: 900px) {
+        .cfg-container { grid-template-columns: 1fr; text-align: center; gap: 50px; }
+        .cfg-container.reverse > div:first-child { order: 2; }
+        .cfg-container.reverse > div:last-child { order: 1; }
+        .spec-grid { justify-items: center; }
+        .feature-list { display: inline-block; text-align: left; }
+        .slider-wrapper { height: 320px; }
+    }
+</style>
+
+
+    <div id="imageLightbox" class="lightbox-modal">
+        <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="fullImage">
     </div>
 
-    <div class="cfg-content gsap-right">
-      <h2 style="font-size:42px;font-weight:800;margin-bottom:18px;">Over Speed Governor</h2>
-      <p style="font-size:18px;line-height:1.75;color:#666;margin-bottom:28px;">
-        A critical elevator safety device that detects excessive speed and
-        activates the safety gear to stop the elevator car immediately.
-      </p>
+	
+	<style>
+    :root {
+        --brand-red: #c70000;
+        --navy-dark: #1f1f1f;
+        --bg-beige: #f6f1ea;
+        --text-gray: #666;
+        --white: #ffffff;
+    }
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px 40px;margin-bottom:32px;">
-        <div><strong>Material:</strong> Mild Steel</div>
-        <div><strong>Application:</strong> Elevator Safety</div>
-        <div><strong>Voltage:</strong> 220 V</div>
-        <div><strong>Finish:</strong> Paint Coated</div>
-      </div>
+    body { margin: 0; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
 
-      <ul style="padding-left:18px;line-height:1.9;color:#444;margin-bottom:38px;">
-        <li><strong>Reliable Speed Detection</strong> for emergency protection</li>
-        <li><strong>Durable Construction</strong> for long service life</li>
-        <li><strong>Compliance Ready</strong> with elevator safety standards</li>
-      </ul>
+    /* --- Layout Containers --- */
+    .cfg-section { padding: 90px 24px; }
+    .bg-light { background-color: var(--bg-beige); }
+    .bg-white { background-color: var(--white); }
 
-      <a href="contact.html" style="padding:16px 44px;background:#c70000;color:#fff;border-radius:999px;font-weight:700;text-decoration:none;">
-        Get Best Quote
-      </a>
-    </div>
+    .cfg-container {
+        max-width: 1300px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 80px;
+        align-items: center;
+    }
+
+    .reverse { grid-template-columns: 1fr 1.1fr; }
+
+    /* --- FIXED Image Slider System --- */
+    .slider-wrapper {
+        width: 100%;
+        max-width: 520px;
+        height: 420px;
+        margin: auto;
+        overflow: hidden;
+        border-radius: 15px;
+        position: relative;
+        background: #fff;
+        filter: drop-shadow(0 40px 60px rgba(0,0,0,.15));
+    }
+
+    .slider-track { 
+        display: flex; 
+        height: 100%; 
+        transition: transform 0.5s ease-in-out;
+    }
+
+    /* CRITICAL: Each slide must be exactly the width of the wrapper window */
+    .slide {
+        flex: 0 0 100%;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: zoom-in;
+    }
+
+    .slide img {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+        display: block;
+    }
+
+    /* DYNAMIC TRACK WIDTHS AND ANIMATIONS */
+    /* If you have 3 images, the track must be 300% wide */
+ /* REMOVE manual widths */
+.anim-3 { animation: slide3 12s infinite ease-in-out; }
+.anim-2 { animation: slide2 8s infinite ease-in-out; }
+.anim-1 { }
+
+/* Correct transforms based on full-slide widths */
+@keyframes slide3 {
+    0%, 25% { transform: translateX(0); }
+    33.33%, 58.33% { transform: translateX(-100%); }
+    66.66%, 91.66% { transform: translateX(-200%); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes slide2 {
+    0%, 45% { transform: translateX(0); }
+    55%, 100% { transform: translateX(-100%); }
+}
+
+
+    .slider-wrapper:hover .slider-track { animation-play-state: paused; }
+
+    /* --- Content Styling --- */
+    .cfg-content h2 { font-size: 38px; font-weight: 800; color: var(--navy-dark); margin-bottom: 18px; line-height: 1.2; }
+    .cfg-content p { font-size: 17px; line-height: 1.7; color: var(--text-gray); margin-bottom: 28px; }
+
+    .spec-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px 40px;
+        margin-bottom: 32px;
+        font-size: 15px;
+    }
+
+    .feature-list { padding-left: 18px; line-height: 1.9; color: #444; margin-bottom: 38px; }
+
+    /* --- Button Styling --- */
+    .btn-quote {
+        display: inline-block;
+        padding: 16px 44px;
+        background: var(--brand-red);
+        color: var(--white);
+        border-radius: 999px;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 15px 35px rgba(199,0,0,0.3);
+        transition: 0.3s ease;
+    }
+
+    .btn-quote:hover { transform: translateY(-3px); box-shadow: 0 20px 45px rgba(199,0,0,0.4); }
+
+    /* --- Lightbox Modal --- */
+    .lightbox-modal {
+        display: none; /* Changed to flex in JS */
+        position: fixed;
+        z-index: 100000 !important;
+        inset: 0;
+        background: rgba(5, 10, 18, 0.98);
+        backdrop-filter: blur(12px);
+        align-items: center;
+        justify-content: center;
+		margin-top: 50px;
+    }
+
+    .lightbox-content {
+        max-width: 90%;
+        max-height: 85vh;
+        object-fit: contain;
+        animation: zoomIn 0.3s ease-out;
+    }
+
+    .close-lightbox {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        color: #fff;
+        font-size: 50px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+    /* --- Responsive --- */
+    @media (max-width: 900px) {
+        .cfg-container { grid-template-columns: 1fr; text-align: center; gap: 50px; }
+        .cfg-container.reverse > div:first-child { order: 2; }
+        .cfg-container.reverse > div:last-child { order: 1; }
+        .spec-grid { justify-items: center; }
+        .feature-list { display: inline-block; text-align: left; }
+        .slider-wrapper { height: 320px; }
+    }
+</style>
+
+
+    <script>
+        // --- LIGHTBOX LOGIC ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById("imageLightbox");
+            const modalImg = document.getElementById("fullImage");
+
+            document.addEventListener('click', (e) => {
+                if (e.target.closest('.slide img')) {
+                    modal.style.display = "flex";
+                    modalImg.src = e.target.src;
+                    document.querySelectorAll('.slider-track').forEach(t => t.style.animationPlayState = 'paused');
+                }
+            });
+
+            window.closeLightbox = function() {
+                modal.style.display = "none";
+                document.querySelectorAll('.slider-track').forEach(t => t.style.animationPlayState = 'running');
+            };
+
+            modal.onclick = (e) => { if (e.target === modal) closeLightbox(); };
+        });
+
+        // --- LEAD GENERATION SCRIPT ---
+        function sendQuoteRequest(productName) {
+            const whatsappNumber = "918380904311";
+            const emailAddress = "cfg.components@gmail.com";
+            const messageBody = `Hello CFG Components, I am interested in a professional quote for the ${productName}. Please share technical details and pricing.`;
+            
+            // 1. Open WhatsApp in a new tab
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messageBody)}`;
+            window.open(whatsappURL, '_blank');
+
+            // 2. Dual-channel verification
+            setTimeout(() => {
+                if(confirm("Inquiry initiated on WhatsApp! Would you also like to send a formal Email to CFG Components?")) {
+                    const mailtoURL = `mailto:${emailAddress}?subject=Quote Request: ${productName}&body=${messageBody}`;
+                    window.location.href = mailtoURL;
+                }
+            }, 1000);
+        }
+    </script>
+
+<!-- ================= CTA ================= -->
+
+<section class="product-cta">
+  <div class="cta-inner">
+    <h2 class="gsap-cta">Looking for Reliable Elevator Components?</h2>
+    <p class="gsap-cta">Our experts will guide you to the perfect solution.</p>
+    
+    <button class="cta-btn gsap-cta" onclick="sendQuoteRequest('Full Elevator Components Range')">
+      Request a Quote Now
+    </button>
   </div>
 </section>
 
-<section style="padding:90px 24px;background:#ffffff;font-family:'Poppins',sans-serif;">
-  <div class="cfg-zigzag-row reverse" style="max-width:1300px;margin:auto;display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center;">
+<style>
+.product-cta {
+  padding: 100px 24px;
+  background: linear-gradient(135deg, #050a12 0%, #1a1f26 100%);
+  text-align: center;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
 
-    <div class="cfg-img gsap-right">
-      <img src="img/rail-clip.png" style="width:100%;max-width:480px;margin:auto;display:block;">
-    </div>
+/* Subtle background pattern */
+.product-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(199, 0, 0, 0.15) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.3;
+}
 
-    <div class="cfg-content gsap-left">
-      <h2 style="font-size:40px;font-weight:800;">Rail Clip</h2>
-      <p style="font-size:18px;color:#666;margin-bottom:26px;">
-        Rail clips securely fasten guide rails to the shaft wall,
-        ensuring alignment and vibration control.
-      </p>
+.cta-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: auto;
+}
 
-      <ul style="padding-left:18px;line-height:1.9;">
-        <li>High tensile steel construction</li>
-        <li>Easy installation</li>
-        <li>Long-term holding strength</li>
-      </ul>
-    </div>
-  </div>
-</section>
+.product-cta h2 {
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 15px;
+  letter-spacing: -1px;
+}
 
-<section style="padding:90px 24px;background:#f6f1ea;">
-  <div class="cfg-zigzag-row" style="max-width:1300px;margin:auto;display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center;">
+.product-cta p {
+  font-size: 19px;
+  color: #ccc;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
 
-    <div class="cfg-img gsap-left">
-      <img src="img/rope-clip.png" style="width:100%;max-width:420px;margin:auto;">
-    </div>
+.cta-btn {
+  display: inline-block;
+  padding: 18px 50px;
+  background: #c70000;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 15px 35px rgba(199, 0, 0, 0.4);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
-    <div class="cfg-content gsap-right">
-      <h2 style="font-size:40px;font-weight:800;">Rope Clip</h2>
-      <p style="font-size:18px;color:#666;">
-        Used for secure termination and fastening of wire ropes in elevator systems.
-      </p>
-    </div>
-  </div>
-</section>
+.cta-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: #e60000;
+  box-shadow: 0 20px 45px rgba(199, 0, 0, 0.6);
+}
 
-<section style="padding:90px 24px;background:#ffffff;">
-  <div class="cfg-zigzag-row reverse" style="max-width:1300px;margin:auto;display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center;">
-
-    <div class="cfg-img gsap-right">
-      <img src="img/bracke-removebg-preview.png" style="width:100%;max-width:520px;margin:auto;">
-    </div>
-
-    <div class="cfg-content gsap-left">
-      <h2 style="font-size:40px;font-weight:800;">Elevator Brackets</h2>
-      <p style="font-size:18px;color:#666;">
-        Precision-engineered brackets designed to securely support elevator components.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section style="padding:90px 24px;background:#f6f1ea;">
-  <div class="cfg-zigzag-row" style="max-width:1300px;margin:auto;display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center;">
-    <div class="cfg-img gsap-left"><img src="img/wedge-anchor-fasteners-removebg-preview.png" style="width:100%;max-width:420px;"></div>
-    <div class="cfg-content gsap-right">
-      <h2 style="font-size:40px;font-weight:800;">Wedge Anchor Fasteners</h2>
-      <p style="font-size:18px;color:#666;">
-        Heavy-duty anchoring solution for secure installation in concrete structures.
-      </p>
-    </div>
-  </div>
-</section>
-
-
-<section style="padding:90px 24px;background:#ffffff;">
-  <div class="cfg-zigzag-row reverse" style="max-width:1300px;margin:auto;display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center;">
-    <div class="cfg-img gsap-right"><img src="img/limit-switch.png" style="width:100%;max-width:380px;"></div>
-    <div class="cfg-content gsap-left">
-      <h2 style="font-size:40px;font-weight:800;">Limit Switch</h2>
-      <p style="font-size:18px;color:#666;">
-        Ensures safe elevator operation by controlling travel limits.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section style="padding:90px 24px;background:#f6f1ea;">
-  <div class="cfg-zigzag-row" style="max-width:1300px;margin:auto;display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center;">
-    <div class="cfg-img gsap-left"><img src="img/pvc-truff.png" style="width:100%;max-width:420px;"></div>
-    <div class="cfg-content gsap-right">
-      <h2 style="font-size:40px;font-weight:800;">PVC Truff</h2>
-      <p style="font-size:18px;color:#666;">
-        Used for organized routing and protection of elevator wiring.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section style="padding:90px 24px;background:#ffffff;">
-  <div class="cfg-zigzag-row reverse" style="max-width:1300px;margin:auto;display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center;">
-    <div class="cfg-img gsap-right"><img src="img/wire-rope.png" style="width:100%;max-width:420px;"></div>
-    <div class="cfg-content gsap-left">
-      <h2 style="font-size:40px;font-weight:800;">Wire Rope</h2>
-      <p style="font-size:18px;color:#666;">
-        High-strength wire ropes designed for smooth and safe elevator travel.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section style="padding:90px 24px;background:#f6f1ea;">
-  <div class="cfg-zigzag-row" style="max-width:1300px;margin:auto;display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center;">
-    <div class="cfg-img gsap-left"><img src="img/elevator-hardware.png" style="width:100%;max-width:420px;"></div>
-    <div class="cfg-content gsap-right">
-      <h2 style="font-size:40px;font-weight:800;">Elevator Hardware</h2>
-      <p style="font-size:18px;color:#666;">
-        Complete range of essential fasteners and fittings for elevator installation and maintenance.
-      </p>
-    </div>
-  </div>
-</section>
-
+/* Tablet & Mobile Compatibility */
+@media (max-width: 768px) {
+  .product-cta { padding: 70px 20px; }
+  .product-cta h2 { font-size: 30px; }
+  .product-cta p { font-size: 16px; }
+  .cta-btn { padding: 15px 35px; width: 100%; max-width: 300px; }
+}
+</style>
 
 <style>
 .cfg-zigzag-row{
@@ -210,6 +1322,42 @@
 .cfg-zigzag-row.reverse .cfg-content{
   order:1;
 }
+
+.product-cta{
+  background:#1f1f1f;
+  color:#fff;
+  text-align:center;
+  padding:90px 24px;
+}
+
+.product-cta h2{
+  font-size:36px;
+  font-weight:800;
+}
+
+.product-cta p{
+  margin-top:14px;
+  font-size:18px;
+  opacity:.9;
+}
+
+.product-cta a{
+  display:inline-block;
+  margin-top:34px;
+  padding:16px 38px;
+  background:var(--red);
+  color:#fff;
+  font-weight:700;
+  text-decoration:none;
+  border-radius:999px;
+  transition:.3s ease;
+}
+
+.product-cta a:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 40px rgba(199,0,0,.45);
+}
+
 
 /* MOBILE */
 @media(max-width:900px){
@@ -263,6 +1411,15 @@ gsap.utils.toArray(".gsap-right").forEach(el=>{
 </script>
 
 
+<div id="footer-placeholder"></div>
+
+<script>
+fetch("footer.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("footer-placeholder").innerHTML = data;
+  });
+</script>
 
 
 </body>

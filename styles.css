@@ -223,12 +223,12 @@ nav{
 }
 
 /* Footer */
-footer{
+/* footer{
   padding:20px 0;
   text-align:center;
   background:white;
   margin-top:50px;
-}
+} */
 
 /* Responsive */
 @media(max-width:768px){

@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Elevator Doors | CFG Components</title>
+
+  <link rel="stylesheet" href="footer.css">
+
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -60,7 +64,7 @@ body{
 }
 
 /* ================= CATEGORY SELECT ================= */
-.door-category-select{
+/* .door-category-select{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:40px;
@@ -103,10 +107,10 @@ body{
 
 @media(max-width:900px){
   .door-category-select{grid-template-columns:1fr;}
-}
+} */
 
 /* ================= ZIGZAG ================= */
-.door-products{display:none;}
+/* .door-products{display:none;}
 .door-products.active{display:block;}
 
 .zigzag-row{
@@ -143,7 +147,7 @@ body{
 
 @media(max-width:900px){
   .zigzag-row{grid-template-columns:1fr;}
-}
+} */
 
 /* ================= CTA ================= */
 .product-cta{
@@ -185,8 +189,87 @@ body{
 
 <body>
 
-
 <section id="navbarSection">
+
+<!-- NAVBAR HTML -->
+<nav class="cfg-navbar">
+  <div class="site-container">
+
+    <!-- LOGO -->
+    <div class="logo-box">
+      <img src="img/logo.png" alt="CFG Logo">
+      <span>CFG Components</span>
+    </div>
+
+    <!-- DESKTOP MENU -->
+    <div class="cfg-menu">
+      <a href="index.html" >Home</a>
+      <a href="about.html">About</a>
+       <!-- PRODUCTS DROPDOWN -->
+  <div class="cfg-dropdown">
+    <a href="products.html" class="cfg-drop-btn">Products ▾</a>
+
+    <div class="cfg-dropdown-menu">
+     <a href="pdoor.html" class="active">Elevator Door</a>
+      <a href="ptack.html">Traction Machine</a>
+      <a href="phydra.html">Hydraulic Kits</a>
+      <a href="psensor.html">Door Sensor</a>
+      <a href="pguide.html">Elevator Guide Rails</a>
+      <a href="pcarcab.html">Cabins & Car Frames</a>
+      <a href="pelecomponents.html">Elevator Components</a>
+      
+    </div>
+  </div>
+      <a href="gallary.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- MOBILE ICON -->
+<div class="cfg-menu-icon" id="openMenu">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+  </div>
+</nav>
+
+
+<!-- SIDEBAR DRAWER -->
+<div class="cfg-sidebar" id="sidebar">
+<div class="cfg-sidebar-header">
+  <div class="cfg-sidebar-logo">
+    <img src="img/logo.png" alt="CFG Logo">
+    <span>CFG Components</span>
+  </div>
+
+  <!-- <div class="cfg-close-btn" id="closeMenu">&times;</div> -->
+</div>
+
+  <a href="index.html" >Home</a>
+  <a href="about.html">About</a>
+    <!-- MOBILE PRODUCTS -->
+<div class="cfg-mobile-products">
+  <div class="cfg-mobile-title" id="mobileProducts">
+    Products <span>+</span>
+  </div>
+
+  <div class="cfg-mobile-submenu">
+   <a href="pdoor.html" class="active">Elevator Door</a>
+      <a href="ptack.html">Traction Machine</a>
+      <a href="phydra.html">Hydraulic Kits</a>
+      <a href="psensor.html">Door Sensor</a>
+      <a href="pguide.html">Elevator Guide Rails</a>
+      <a href="pcarcab.html">Cabins & Car Frames</a>
+      <a href="pelecomponents.html">Elevator Components</a>
+    <a href="products.html" class="view-all">View All</a>
+  </div>
+</div>
+  <a href="gallary.html">Gallery</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+</section>
 
 <style>
 :root{
@@ -198,6 +281,12 @@ body{
 /* ----------------------------------------------
    PREMIUM NAVBAR WITH BRUSHED METAL TEXTURE
 ----------------------------------------------- */
+body{
+  margin:0;
+  padding-top: 85px;
+  padding-top:var(--nav-height);
+  overflow-x:hidden;
+}
 .cfg-navbar{
   width:100%;
 
@@ -206,8 +295,9 @@ body{
 
   background-size:cover;
 
-  position:sticky;
+  position:fixed;
   top:0;
+  left:0;
   z-index:999999;
 
   backdrop-filter:blur(6px);
@@ -290,28 +380,28 @@ body{
 
 /* ACTIVE button style */
 .cfg-menu a.active{
-  background:var(--red);
-  color:#fff !important;
+  
+  color:var(--red) !important;
   padding:8px 18px;
   border-radius:20px;
   font-weight:600;
-  box-shadow:0 4px 12px rgba(215,0,0,0.4);
+  /* box-shadow:0 4px 12px rgba(215,0,0,0.4); */
 }
 .cfg-menu a.active::after{ width:0 !important; }
 
 /* ----------------------------------------------
    MOBILE MENU ICON
 ----------------------------------------------- */
-.cfg-menu-icon{
+/* .cfg-menu-icon{
   display:none;
   font-size:36px;
   cursor:pointer;
   color:var(--red);
   transition:0.3s ease;
-}
-.cfg-menu-icon:hover{
+} */ 
+ /* .cfg-menu-icon:hover{
   transform:scale(1.15);
-}
+} */
 
 /* ----------------------------------------------
    SIDEBAR / MOBILE DRAWER
@@ -394,8 +484,8 @@ body{
 .cfg-dropdown-menu{
   position:absolute;
   top:150%;
-  left:8px;
-  min-width:210px;
+  left:1px;
+  min-width:220px;
   background:#fff;
   border-radius:1px;
   padding:12px 0;
@@ -481,7 +571,88 @@ body{
 }
 
 
+/* ----------------------------------------------
+   SIDEBAR HEADER (LOGO + CLOSE)
+----------------------------------------------- */
+.cfg-sidebar-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:30px;
+}
 
+/* logo inside sidebar */
+.cfg-sidebar-logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-left: -15px;
+}
+
+.cfg-sidebar-logo img{
+  height:59px;
+}
+
+.cfg-sidebar-logo span{
+  font-size:20px;
+  font-weight:700;
+  color:var(--red);
+  letter-spacing:0.4px;
+}
+
+/* close button refinement */
+.cfg-close-btn{
+  font-size:36px;
+  color:var(--red);
+  cursor:pointer;
+  line-height:1;
+  transition:0.3s ease;
+}
+
+.cfg-close-btn:hover{
+  transform:rotate(180deg) scale(1.1);
+}
+
+/* MOBILE MENU ICON (Animated) */
+.cfg-menu-icon{
+  display:none;
+  width:28px;
+   padding: 6px 0;
+  cursor:pointer;
+  /* display:flex; */
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.cfg-menu-icon span{
+  display: block;
+  height:3px;
+  width:100%;
+  background:var(--red);
+  border-radius: 999px;
+    margin-bottom: 8px;   /* ✅ REAL spacing (mobile-safe) */
+    transition:
+        transform 0.45s cubic-bezier(.68,-0.55,.27,1.55),
+        opacity 0.3s ease;
+}
+
+.cfg-menu span:last-child{
+margin-bottom: 0;
+}
+
+/* ACTIVE → CLOSE ICON */
+.cfg-menu-icon.active span:nth-child(1){
+    transform: translateY(11px) rotate(135deg);
+}
+
+.cfg-menu-icon.active span:nth-child(2){
+   opacity: 0;
+    transform: scale(0);
+}
+
+.cfg-menu-icon.active span:nth-child(3){
+   transform: translateY(-11px) rotate(-135deg);
+}
 
 
 
@@ -492,106 +663,70 @@ body{
 ----------------------------------------------- */
 @media(max-width:900px){
   .cfg-menu{display:none;}
-  .cfg-menu-icon{display:block;}
+
+  .cfg-menu-icon{
+    display:flex;        
+    align-items:center;
+    justify-content:center;
+  }
 }
+
 </style>
-
-
-
-<!-- NAVBAR HTML -->
-<nav class="cfg-navbar">
-  <div class="site-container">
-
-    <!-- LOGO -->
-    <div class="logo-box">
-      <img src="img/logo.png" alt="CFG Logo">
-      <span>CFG Components</span>
-    </div>
-
-    <!-- DESKTOP MENU -->
-    <div class="cfg-menu">
-      <a href="index.html" >Home</a>
-      <a href="about.html">About</a>
-       <!-- PRODUCTS DROPDOWN -->
-  <div class="cfg-dropdown">
-    <a href="products.html" class="cfg-drop-btn">Products ▾</a>
-
-    <div class="cfg-dropdown-menu">
-      <a href="elevator-door.html">Elevator Door</a>
-      <a href="traction-machine.html">Traction Machine</a>
-      <a href="hydraulic-kits.html">Hydraulic Kits</a>
-      <a href="door-sensor.html">Door Sensor</a>
-      <a href="elevator-guide">Elevator Guide Rails</a>
-      <a href="cabin.html">Cabins & Car Frames</a>
-      <a href="elevator-com.html">Elevator Components</a>
-      
-    </div>
-  </div>
-      <a href="gallary.html">Gallery</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <!-- MOBILE ICON -->
-    <div class="cfg-menu-icon" id="openMenu">&#9776;</div>
-
-  </div>
-</nav>
-
-
-<!-- SIDEBAR DRAWER -->
-<div class="cfg-sidebar" id="sidebar">
-  <div class="cfg-close-btn" id="closeMenu">&times;</div>
-
-  <a href="index.html" class="active">Home</a>
-  <a href="about.html">About</a>
-    <!-- MOBILE PRODUCTS -->
-<div class="cfg-mobile-products">
-  <div class="cfg-mobile-title" id="mobileProducts">
-    Products <span>+</span>
-  </div>
-
-  <div class="cfg-mobile-submenu">
-   <a href="pdoor.html">Elevator Door</a>
-      <a href="ptack.html">Traction Machine</a>
-      <a href="phydra.html">Hydraulic Kits</a>
-      <a href="psensor.html">Door Sensor</a>
-      <a href="pguide.html">Elevator Guide Rails</a>
-      <a href="pcarcab.html">Cabins & Car Frames</a>
-      <a href="pelecomponents.html">Elevator Components</a>
-    <a href="products.html" class="view-all">View All</a>
-  </div>
-</div>
-  <a href="gallary.html">Gallery</a>
-  <a href="contact.html">Contact</a>
-</div>
-
 
 <script>
 const sidebar = document.getElementById("sidebar");
 const openMenu = document.getElementById("openMenu");
 const closeMenu = document.getElementById("closeMenu");
 
-openMenu.addEventListener("click", ()=> sidebar.classList.add("active"));
-closeMenu.addEventListener("click", ()=> sidebar.classList.remove("active"));
+/* OPEN / CLOSE via HAMBURGER */
+openMenu.addEventListener("click", (e) => {
+  e.stopPropagation();               // 🔴 stop bubbling
+  sidebar.classList.toggle("active");
+  openMenu.classList.toggle("active");
+});
 
-document.addEventListener("click",(e)=>{
-  if(!sidebar.contains(e.target) && !openMenu.contains(e.target)){
+/* CLOSE via X */
+closeMenu.addEventListener("click", (e) => {
+  e.stopPropagation();
+  sidebar.classList.remove("active");
+  openMenu.classList.remove("active");
+});
+
+/* PREVENT CLOSE WHEN CLICKING INSIDE SIDEBAR */
+sidebar.addEventListener("click", (e) => {
+  e.stopPropagation();
+});
+
+/* CLOSE WHEN CLICKING ANYWHERE ELSE */
+document.addEventListener("click", () => {
+  if (sidebar.classList.contains("active")) {
     sidebar.classList.remove("active");
+    openMenu.classList.remove("active");
   }
 });
 </script>
 
+
+
 <script>
 const mobileProducts = document.getElementById("mobileProducts");
+const submenu = mobileProducts.nextElementSibling;
 
-if(mobileProducts){
-  mobileProducts.addEventListener("click",()=>{
-    mobileProducts.parentElement.classList.toggle("active");
-  });
-}
+mobileProducts.addEventListener("click", () => {
+  const parent = mobileProducts.parentElement;
+
+  parent.classList.toggle("active");
+
+  if (parent.classList.contains("active")) {
+    submenu.style.maxHeight = submenu.scrollHeight + "px";
+  } else {
+    submenu.style.maxHeight = null;
+  }
+});
 </script>
 
-</section>
+
+
 
 
 
@@ -609,168 +744,705 @@ if(mobileProducts){
   </div>
 </section>
 
+
+
 <!-- ================= CONTENT ================= -->
 <section class="product-section">
-
-  <!-- CATEGORY SELECT -->
-  <div class="door-category-select">
-
-    <div class="door-cat-card active" data-target="auto-doors">
-      <img src="img/Door.jpg">
-      <h3>Automatic Doors</h3>
-      <p>Smooth, sensor-based automatic door systems</p>
+    <div class="door-category-select">
+        <div class="door-cat-card active" data-target="auto-doors">
+            <img src="img/Door.jpg" alt="Auto Doors">
+            <h3>Automatic Doors</h3>
+            <p>Smooth, sensor-based automatic door systems</p>
+        </div>
+        <div class="door-cat-card" data-target="manual-doors">
+            <img src="img/glassele.jpg" alt="Manual Doors">
+            <h3>Manual Doors</h3>
+            <p>Robust manually operated elevator doors</p>
+        </div>
     </div>
 
-    <div class="door-cat-card" data-target="manual-doors">
-      <img src="img/glassele.jpg">
-      <h3>Manual Doors</h3>
-      <p>Robust manually operated elevator doors</p>
-    </div>
+    <section id="auto-doors" class="door-products active">
+        
+        <div class="zigzag-row reverse">
+            <div class="zig-img">
+                <div class="product-slider">
+                    <div class="slider-track anim-3">
+                        <div class="slide"><img src="door/stainless-steel.webp" alt="MS Door 1"></div>
+                        <div class="slide"><img src="door/ss1500x500.webp" alt="MS Door 2"></div>
+						<div class="slide"><img src="door/ss2500x500.webp" alt="MS Door 2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="zig-content">
+                <h2>SS Automatic Door</h2>
+                <p>Deliver a premium stainless steel finish with superior durability, hygiene, and modern aesthetics for high-end installations.</p>
+                <div class="spec-grid">
+                    <div><strong>Material:</strong> Stainless Steel (SS)</div>
+                    <div><strong>Finish:</strong> Hairline / Mirror</div>
+                    <div><strong>Corrosion Resistant:</strong> Yes</div>
+                    <div><strong>Application:</strong> Residential & Commercial</div>
+                </div>
+                <ul class="feature-list">
+                    <li><strong>Premium SS Build –</strong> Rust-resistant and long-lasting finish.</li>
+                    <li><strong>Smooth Automation –</strong> Silent, sensor-based door operation.</li>
+					<li><strong>Elegant Appearance –</strong> Ideal for modern architectural designs.</li>
+					<li><strong>Custom Finish Options –</strong> Size, grade, and surface finish available.</li>
+                </ul>
+                <a href="#" class="btn-quote" onclick="sendQuoteRequest('SS Auto Door')">Get Best Quote</a>
+            </div>
+        </div>
 
-  </div>
 
-  <!-- AUTOMATIC DOORS -->
-  <section id="auto-doors" class="door-products active">
+		<div class="zigzag-row">
+            <div class="zig-img">
+                <div class="product-slider">
+                    <div class="slider-track anim-3">
+                        <div class="slide"><img src="door/ms1.webp" alt="MS Door 1"></div>
+                        <div class="slide"><img src="door/ms.webp" alt="MS Door 2"></div>
+						<div class="slide"><img src="door/ms2.png" alt="MS Door 2"></div>
+						
+                    </div>
+                </div>
+            </div>
+            <div class="zig-content">
+                <h2>MS Automatic Elevator Door</h2>
+                <p>Engineered for reliable, smooth, and safe operation in residential and commercial environments.</p>
+                <div class="spec-grid">
+                    <div><strong>Material:</strong> Mild Steel (MS)</div>
+                    <div><strong>Thickness:</strong> 14 mm</div>
+                    <div><strong>Shape:</strong> Rectangular</div>
+                    <div><strong>Application:</strong> Elevator</div>
+                </div>
+                <ul class="feature-list">
+                    <li><strong>MS Construction –</strong> High-strength mild steel body.</li>
+                    <li><strong>Automatic Motion –</strong> Smooth, quiet sensor-based operation.</li>
+					<li><strong>Cost Optimized –</strong> Efficient design with reliable performance.</li>
+					<li><strong>Custom Build –</strong> Vision panels, finishes, and sizes available.</li>
+                </ul>
+                <a href="#" class="btn-quote" onclick="sendQuoteRequest('MS Auto Door')">Get Best Quote</a>
+            </div>
+        </div>
 
-    <div class="zigzag-row">
 
-  <!-- IMAGE -->
-  <div class="zig-img gsap-left">
-    <img src="img/first.png" alt="MS Elevator Automatic Door">
-  </div>
+        <div class="zigzag-row reverse">
+            <div class="zig-img">
+                <div class="product-slider">
+                    <div class="slider-track anim-3">
+                        <div class="slide"><img src="door/special.jpg" alt="Special 1"></div>
+                        <div class="slide"><img src="door/special1.jpg" alt="Special 2"></div>
+						 <div class="slide"><img src="door/special250x250.webp" alt="Special 2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="zig-content">
+                <h2>Special Finish Doors</h2>
+                <p>Enhance visual appeal with designer surfaces, combining durability with luxury aesthetics.</p>
+                <div class="spec-grid">
+                    <div><strong>Finish:</strong> Gold / Rose Gold / Patterned</div>
+                    <div><strong>Surface:</strong> Laminated / Textured</div>
+					<div><strong>Customization:</strong> High</div>
+					<div><strong>Application:</strong> Premium Projects</div>
+                </div>
+                <ul class="feature-list">
+                    <li><strong>Designer Finishes –</strong> Unique textures and luxury tones.</li>
+                    <li><strong>Durable Coating –</strong>  Scratch and wear resistant surfaces.</li>
+					<li><strong>Visual Enhancement –</strong> Elevates lift interiors instantly.</li>
+					<li><strong>Tailor-Made Designs –</strong> Custom patterns and finishes available.</li>
+                </ul>
+                <a href="#" class="btn-quote" onclick="sendQuoteRequest('Special Finish Door')">Get Best Quote</a>
+            </div>
+        </div>
 
-  <!-- CONTENT -->
-  <div class="zig-content gsap-right">
+        <div class="zigzag-row">
+            <div class="zig-img">
+                <div class="product-slider">
+                    <div class="slider-track anim-4">
+                        <div class="slide"><img src="door/smallvi.jpg" alt="Small Vision 1"></div>
+                        <div class="slide"><img src="door/smallvi1.jpg" alt="Small Vision 2"></div>
+                        <div class="slide"><img src="door/smallvi2.jpg" alt="Small Vision 3"></div>
+                        <div class="slide"><img src="door/smallvi3.jpg" alt="Small Vision 4"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="zig-content">
+                <h2>Small Vision Door</h2>
+                <p>Combines safety and subtle visibility with compact glass panels for aesthetic balance.</p>
+                <div class="spec-grid">
+                    <div><strong>Vision Panel:</strong> Small Glass Insert</div>
+                    <div><strong>Material:</strong> MS / SS</div>
+					<div><strong>Visibility:</strong> Controlled</div>
+					<div><strong>Application:</strong> Residential & Light Commercial</div>
+                </div>
+                <ul class="feature-list">
+                    <li><strong>Enhanced Safety –</strong> Limited visibility improves user awareness.</li>
+                    <li><strong>Clean Design –</strong> Minimal glass for a neat appearance.</li>
+					<li><strong>Durable Structure –</strong> Strong metal frame with secure glazing.</li>
+					<li><strong>Custom Sizing –</strong> Vision panel placement as required.</li>
+                </ul>
+                <a href="#" class="btn-quote" onclick="sendQuoteRequest('Small Vision Door')">Get Best Quote</a>
+            </div>
+        </div>
 
-    <h2>MS Automatic Door</h2>
+		<div class="zigzag-row reverse">
+            <div class="zig-img">
+                <div class="product-slider">
+                    <div class="slider-track anim-3">
+                        <div class="slide"><img src="door/halfv.jpg" alt="Small Vision 1"></div>
+                        <div class="slide"><img src="door/halfv1.jpg" alt="Small Vision 2"></div>
+                        <div class="slide"><img src="door/halfv2.jpg" alt="Small Vision 3"></div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="zig-content">
+                <h2>Half Vision Elevator Doors</h2>
+                <p>Balance visibility and privacy with a solid lower panel and an upper glass vision section.</p>
+                <div class="spec-grid">
+                    <div><strong>Vision Panel:</strong> Half Glass Insert</div>
+                    <div><strong>Material:</strong> MS / SS</div>
+					<div><strong>VSafety:</strong> High</div>
+					<div><strong>Application:</strong> Residential & Commercial</div>
+                </div>
+                <ul class="feature-list">
+                    <li><strong>Balanced Design –</strong> Visibility without compromising privacy.</li>
+                    <li><strong>Strong Construction –</strong> Solid metal lower section.</li>
+					<li><strong>Modern Look –</strong> Popular choice for mixed-use buildings.</li>
+					<li><strong>Custom Glass Options –</strong> Frosted or clear vision panels.</li>
+                </ul>
+                <a href="#" class="btn-quote" onclick="sendQuoteRequest('Half Vision Door')">Get Best Quote</a>
+            </div>
+        </div>
 
-    <p style="margin-bottom:22px;">
-     CFG Components’ <strong>MS Automatic Elevator Doors</strong> are designed for
-  smooth, safe, and reliable operation, offering durable performance with a
-  clean, professional finish for residential and commercial elevators.
-    </p>
+			<div class="zigzag-row">
+            <div class="zig-img">
+                <div class="product-slider">
+                    <div class="slider-track anim-3">
+                        <div class="slide"><img src="door/bigv.jpg" alt="Small Vision 1"></div>
+                        <div class="slide"><img src="door/bigv1.jpg" alt="Small Vision 2"></div>
+                        <div class="slide"><img src="door/bigv2.jpg" alt="Small Vision 3"></div>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="zig-content">
+                <h2>Big Vision Door</h2>
+                <p>Create an open, spacious feel with large glass panels, enhancing lift aesthetics and transparency.</p>
+                <div class="spec-grid">
+                    <div><strong>Vision Panel:</strong> Large Glass Area</div>
+                    <div><strong>Material:</strong> MS / SS</div>
+					<div><strong>Design:</strong> Contemporary</div>
+					<div><strong>Application:</strong> Commercial & Premium Residential</div>
+                </div>
+                <ul class="feature-list">
+                    <li><strong>Maximum Visibility –</strong> Enhances openness and user comfort.</li>
+                    <li><strong>Premium Appearance –</strong> Ideal for showpiece elevators.</li>
+					<li><strong>Durable Structure –</strong> Strong metal frame with secure glazing.</li>
+					<li><strong>Secure Glazing –</strong> Toughened safety glass integration.</li>
+                </ul>
+                <a href="#" class="btn-quote" onclick="sendQuoteRequest('Big Vision Door')">Get Best Quote</a>
+            </div>
+        </div>
+		
 
-    <!-- KEY SPECS -->
-    <div style="
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px 36px;
-      font-size:16px;
-      margin-bottom:28px;
-      color:#444;
-    ">
-      
-      <div><strong>Material:</strong> Mild Steel (MS)</div>
-      <div><strong>Thickness:</strong> 14 mm</div>
-      <div><strong>Shape:</strong> Rectangular</div>
-      <div><strong>Application:</strong> Elevator</div>
-      
-    </div>
+    </section>
 
-    <!-- FEATURES -->
-    <ul style="
-      padding-left:18px;
-      font-size:16px;
-      line-height:1.9;
-      color:#444;
-      margin-bottom:36px;
-    ">
-      <li>
-        <strong>Durable MS Construction</strong> – Built using high-quality mild
-        steel for superior strength, rigidity, and long service life.
-      </li>
-      <li>
-        <strong>Smooth Automatic Operation</strong> – Sensor-based mechanism
-        ensures safe, quiet, and seamless door movement.
-      </li>
-      <li>
-        <strong>Cost-Effective Design</strong> – Reliable performance with an
-        economical finish, ideal for residential and commercial elevators.
-      </li>
-      <li>
-        <strong>Custom Configurations Available</strong> – Door vision panels,
-        finishes, and opening sizes can be tailored as per project requirements.
-      </li>
-    </ul>
+    <section id="manual-doors" class="door-products">
+        <div class="zigzag-row reverse">
+            <div class="zig-img">
+                <div class="product-slider">
+                    <div class="slider-track anim-1">
+                        <div class="slide"><img src="door/swing.jpg" alt="Swing Door"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="zig-content">
+                <h2>Swing Door</h2>
+                <p>A Simple, Reliable and cost-effective solution with a hinged opening mechanism, ideal for residential and low-rise buildings.</p>
+				<div class="spec-grid">
+                    <div><strong>Operation:</strong> Manual Hinged</div>
+                    <div><strong>Material:</strong> Mild Steel (MS)</div>
+					<div><strong>Opening Style:</strong> Inward / Outward</div>
+					<div><strong>Application:</strong> Residential & Light Commercial</div>
+                </div>
+                <ul class="feature-list">
+                    <li><strong>Simple Mechanism –</strong> Easy manual operation with minimal components.</li>
+                    <li><strong>Clean Design –</strong> Ideal for budget-friendly installations.</li>
+					<li><strong>Robust Build –</strong> Strong MS construction for long-term use.</li>
+					<li><strong>Custom Fit –</strong> Sizes and finishes as per site requirements.</li>
+                </ul>
+                <a href="javascript:void(0)" class="btn-quote" onclick="sendQuoteRequest('Swing Door')">
+    Get Best Quote
+</a>
+            </div>
+        </div>
+    
 
-    <!-- CTA -->
-    <a href="contact.html" style="
-      display:inline-block;
-      padding:15px 42px;
-      background:#c70000;
-      color:#ffffff;
-      font-size:15px;
-      font-weight:700;
-      border-radius:999px;
-      text-decoration:none;
-      box-shadow:0 18px 40px rgba(199,0,0,0.35);
-      transition:all .3s ease;
-    "
-    onmouseover="this.style.transform='translateY(-3px)'"
-    onmouseout="this.style.transform='translateY(0)'"
-    >
-      Get Best Quote
-    </a>
+	
+        <div class="zigzag-row">
+            <div class="zig-img">
+                <div class="product-slider">
+                    <div class="slider-track anim-2">
+                        <div class="slide"><img src="door/IFD.jpg" alt="IFD Door"></div>
+						<div class="slide"><img src="door/ifd.webp" alt="IFD Door"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="zig-content">
+                <h2>IFD (Imperforated Frame Doors)</h2>
+                <p>A solid, non-perforated elevator doors designed for maximum privacy, strength, and dependable manual operation.</p>
+				<div class="spec-grid">
+                    <div><strong>Door Type:</strong>  Solid / Imperforated</div>
+                    <div><strong>Material:</strong> Mild Steel (MS)</div>
+					<div><strong>Visibility:</strong> No Vision Panel</div>
+					<div><strong>Application:</strong> Residential & Light Commercial</div>
+                </div>
+                <ul class="feature-list">
+                    <li><strong>Complete Privacy –</strong> Solid door without glass openings.</li>
+                    <li><strong>Clean Design –</strong> Ideal for budget-friendly installations.</li>
+					<li><strong>Low Maintenance –</strong> Simple design reduces wear and upkeep.</li>
+					<li><strong>Custom Configurations –</strong> Frame size and finish options available.</li>
+                </ul>
+                <a href="javascript:void(0)" class="btn-quote" onclick="sendQuoteRequest('IFD Door')">
+    Get Best Quote
+</a>
+            </div>
+        </div>
 
-  </div>
+
+	
+    </section>
+
+	<div id="imageLightbox" class="lightbox-modal">
+    <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+    <img class="lightbox-content" id="fullImage">
+    <div id="caption"></div>
 </div>
 
 
-    <div class="zigzag-row reverse">
-      <div class="zig-img gsap-right">
-        <img src="img/Door.jpg">
-      </div>
-      <div class="zig-content gsap-left">
-        <h2>SS Door</h2>
-        <p>Premium stainless steel finish for modern architectural designs.</p>
-      </div>
-    </div>
-
-    <div class="zigzag-row">
-      <div class="zig-img gsap-left">
-        <img src="img/ele.jpg">
-      </div>
-      <div class="zig-content gsap-right">
-        <h2>Vision Doors</h2>
-        <p>Small, half and big vision panels for visibility and safety.</p>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- MANUAL DOORS -->
-  <section id="manual-doors" class="door-products">
-
-    <div class="zigzag-row">
-      <div class="zig-img gsap-left">
-        <img src="img/glassele.jpg">
-      </div>
-      <div class="zig-content gsap-right">
-        <h2>Swing Door</h2>
-        <p>Heavy-duty swing doors for residential and industrial elevators.</p>
-      </div>
-    </div>
-
-    <div class="zigzag-row reverse">
-      <div class="zig-img gsap-right">
-        <img src="img/door-ifd.jpg">
-      </div>
-      <div class="zig-content gsap-left">
-        <h2>IFD</h2>
-        <p>Industrial folding doors designed for rugged applications.</p>
-      </div>
-    </div>
-
-  </section>
-
 </section>
+
+ <style>
+        :root {
+            --red: #c70000;
+            --navy: #050a12;
+            --bg-light: #f6f1ea;
+            --text-dark: #333;
+            --text-gray: #555;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff;
+            color: var(--text-dark);
+        }
+
+        .product-section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 80px 24px;
+        }
+
+        /* ================= CATEGORY SELECT ================= */
+        .door-category-select {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .door-cat-card {
+            background: var(--bg-light);
+            border-radius: 18px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 15px 35px rgba(0,0,0,.08);
+            transition: .4s ease;
+            text-align: left;
+            border-bottom: 6px solid transparent;
+        }
+
+        .door-cat-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+
+        .door-cat-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 18px 22px 6px;
+        }
+
+        .door-cat-card p {
+            font-size: 15px;
+            color: var(--text-gray);
+            margin: 0 22px 22px;
+        }
+
+        .door-cat-card.active, .door-cat-card:hover {
+            transform: translateY(-8px);
+            border-bottom: 6px solid var(--red);
+            box-shadow: 0 25px 50px rgba(0,0,0,.14);
+        }
+
+        /* ================= ZIGZAG ROWS ================= */
+        .door-products { display: none; }
+        .door-products.active { display: block !important;
+		opacity: 1 !important;
+    visibility: visible !important; }
+
+        .zigzag-row {
+            max-width: 1200px;
+            margin: 0 auto 100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .zigzag-row.reverse .zig-img { order: 2; }
+        .zigzag-row.reverse .zig-content { order: 1; }
+
+        /* IMAGE SLIDER FIXES */
+        .zig-img {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .product-slider {
+            width: 100%;
+            max-width: 500px;
+            height: 450px; /* Fixed height for all product images */
+            overflow: hidden;
+            border-radius: 15px;
+            position: relative;
+            background: #fff;
+            box-shadow: 0 25px 50px rgba(0,0,0,.15);
+        }
+
+        .slider-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Ensures doors aren't cut off or stretched */
+            display: block;
+        }
+
+        /* AUTO ANIMATION LOGIC */
+        /* For 4 slides */
+        .anim-4 { animation: slide4 16s infinite ease-in-out; }
+        /* For 3 slides */
+        .anim-3 { animation: slide3 12s infinite ease-in-out; }
+        /* For 2 slides */
+        .anim-2 { animation: slide2 8s infinite ease-in-out; }
+
+        .product-slider:hover .slider-track { animation-play-state: paused; }
+
+        @keyframes slide4 {
+            0%, 20% { transform: translateX(0); }
+            25%, 45% { transform: translateX(-100%); }
+            50%, 70% { transform: translateX(-200%); }
+            75%, 95% { transform: translateX(-300%); }
+            100% { transform: translateX(0); }
+        }
+        @keyframes slide3 {
+            0%, 25% { transform: translateX(0); }
+            33%, 58% { transform: translateX(-100%); }
+            66%, 92% { transform: translateX(-200%); }
+            100% { transform: translateX(0); }
+        }
+        @keyframes slide2 {
+            0%, 45% { transform: translateX(0); }
+            55%, 100% { transform: translateX(-100%); }
+        }
+
+        /* CONTENT STYLING */
+        .zig-content h2 { font-size: 36px; font-weight: 800; margin-bottom: 15px; color: var(--navy); }
+        .zig-content p { font-size: 17px; line-height: 1.7; color: var(--text-gray); margin-bottom: 20px; }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 30px;
+            font-size: 15px;
+            margin-bottom: 25px;
+            color: #444;
+        }
+
+        .feature-list {
+            padding-left: 18px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .btn-quote {
+            display: inline-block;
+            padding: 14px 40px;
+            background: var(--red);
+            color: #fff;
+            font-size: 15px;
+            font-weight: 700;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(199,0,0,0.3);
+            transition: .3s;
+            text-decoration: none;
+        }
+
+        .btn-quote:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(199,0,0,0.4); }
+
+		/* ================= LIGHTBOX STYLES ================= */
+.lightbox-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 99999 ; /* Above everything else */
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(5, 10, 18, 0.95); /* Deep navy matching brand */
+    backdrop-filter: blur(8px);
+    margin-top: 40px;
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 85vh;
+    object-fit: contain;
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+    animation: zoomIn 0.3s ease-out;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    
+}
+
+.close-lightbox:hover {
+    color: var(--red);
+    transform: rotate(90deg);
+}
+
+.product-slider {
+    pointer-events: auto;
+}
+
+/* Make slider images show a pointer on hover */
+.slide img {
+    cursor: zoom-in;
+	position: relative;
+    z-index: 10; /* Ensures image is above the slider container background */
+    pointer-events: auto;
+}
+
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .door-category-select { grid-template-columns: 1fr; }
+            .zigzag-row { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+            .zigzag-row.reverse .zig-img { order: 1; }
+            .zigzag-row.reverse .zig-content { order: 2; }
+            .spec-grid { justify-content: center; }
+            .feature-list { display: inline-block; text-align: left; }
+        }
+    </style>
+
+
+ <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.door-cat-card');
+    const sections = document.querySelectorAll('.door-products');
+
+    function switchCategory(targetId) {
+        // Hide all sections
+        sections.forEach(s => {
+            s.classList.remove('active');
+        });
+        
+        // Show target section
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+            targetSection.classList.add('active');
+        }
+    }
+
+    cards.forEach(card => {
+        card.addEventListener('click', function() {
+            cards.forEach(c => c.classList.remove('active'));
+            this.classList.add('active');
+            switchCategory(this.getAttribute('data-target'));
+        });
+    });
+
+    // LIGHTBOX LOGIC
+    const modal = document.getElementById("imageLightbox");
+    const modalImg = document.getElementById("fullImage");
+
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.slide img')) {
+            modal.style.display = "block";
+            modalImg.src = e.target.src;
+            document.querySelectorAll('.slider-track').forEach(t => t.style.animationPlayState = 'paused');
+        }
+    });
+
+    window.closeLightbox = () => {
+        modal.style.display = "none";
+        document.querySelectorAll('.slider-track').forEach(t => t.style.animationPlayState = 'running');
+    };
+
+    // --- FORCED INITIALIZATION ---
+    // This solves the "Invisible on load" issue
+    const activeCard = document.querySelector('.door-cat-card.active');
+    if (activeCard) {
+        switchCategory(activeCard.getAttribute('data-target'));
+    }
+});
+
+
+function sendQuoteRequest(productName) {
+    const whatsappNumber = "918380904311";
+    const emailAddress = "cfg.components@gmail.com";
+    
+    // Dynamic message based on the button clicked
+    const messageBody = `Hello, I am interested in a professional quote for the ${productName}. Please share technical details and pricing.`;
+    
+    // 1. Open WhatsApp in a new tab
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messageBody)}`;
+    window.open(whatsappURL, '_blank');
+
+    // 2. Dual-channel verification
+    // A small delay ensures the WhatsApp tab is successfully handled by the browser first
+    setTimeout(() => {
+        if(confirm("Inquiry initiated on WhatsApp! Would you also like to send a formal Email to Alliance Associates?")) {
+            const mailtoURL = `mailto:${emailAddress}?subject=Quote Request: ${productName}&body=${messageBody}`;
+            window.location.href = mailtoURL;
+        }
+    }, 1000);
+}
+
+</script>
+
 
 <!-- ================= CTA ================= -->
 <section class="product-cta">
-  <h2 class="gsap-cta">Need Help Choosing the Right Door?</h2>
-  <p class="gsap-cta">Our experts will guide you to the perfect solution.</p>
-  <a href="contact.html">Contact CFG Components</a>
+  <div class="cta-inner">
+    <h2 class="gsap-cta">Looking for Reliable Elevator Components?</h2>
+    <p class="gsap-cta">Our experts will guide you to the perfect solution.</p>
+    
+    <button class="cta-btn gsap-cta" onclick="sendQuoteRequest('Full Elevator Components Range')">
+      Request a Quote Now
+    </button>
+  </div>
 </section>
+
+<style>
+.product-cta {
+  padding: 100px 24px;
+  background: linear-gradient(135deg, #050a12 0%, #1a1f26 100%);
+  text-align: center;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background pattern */
+.product-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(199, 0, 0, 0.15) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.3;
+}
+
+.cta-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: auto;
+}
+
+.product-cta h2 {
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 15px;
+  letter-spacing: -1px;
+}
+
+.product-cta p {
+  font-size: 19px;
+  color: #ccc;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 18px 50px;
+  background: #c70000;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 15px 35px rgba(199, 0, 0, 0.4);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cta-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: #e60000;
+  box-shadow: 0 20px 45px rgba(199, 0, 0, 0.6);
+}
+
+/* Tablet & Mobile Compatibility */
+@media (max-width: 768px) {
+  .product-cta { padding: 70px 20px; }
+  .product-cta h2 { font-size: 30px; }
+  .product-cta p { font-size: 16px; }
+  .cta-btn { padding: 15px 35px; width: 100%; max-width: 300px; }
+}
+</style>
 
 <!-- ================= GSAP ================= -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
@@ -798,6 +1470,17 @@ cards.forEach(card=>{
     document.getElementById(card.dataset.target).classList.add("active");
   }
 });
+</script>
+
+
+<div id="footer-placeholder"></div>
+
+<script>
+fetch("footer.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("footer-placeholder").innerHTML = data;
+  });
 </script>
 
 </body>
