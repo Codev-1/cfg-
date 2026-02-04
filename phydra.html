@@ -47,6 +47,7 @@
       <a href="psensor.html">Door Sensor</a>
       <a href="pguide.html">Elevator Guide Rails</a>
       <a href="pcarcab.html">Cabins & Car Frames</a>
+      <a href="parking.html">Parking Solutions</a>
       <a href="pelecomponents.html">Elevator Components</a>
       
     </div>
@@ -92,6 +93,7 @@
       <a href="psensor.html">Door Sensor</a>
       <a href="pguide.html">Elevator Guide Rails</a>
       <a href="pcarcab.html">Cabins & Car Frames</a>
+      <a href="parking.html">Parking Solutions</a>
       <a href="pelecomponents.html">Elevator Components</a>
     <a href="products.html" class="view-all">View All</a>
   </div>
@@ -592,10 +594,13 @@ mobileProducts.addEventListener("click", () => {
 
         <div class="product-row">
             <div class="product-image">
-                <div class="img-wrapper">
-                    <img src="img/hycy.jpeg" alt="Hydraulic Cylinder">
-                </div>
-            </div>
+  <div class="img-wrapper slider">
+    <img src="img/hycy.jpeg" class="slide active" alt="">
+    <img src="img/car1.jpeg" class="slide" alt="">
+    <img src="img/car2.jpeg" class="slide" alt="">
+  </div>
+</div>
+
 
             <div class="product-content">
                 <h2>Hydraulic Cylinder</h2>
@@ -699,7 +704,7 @@ mobileProducts.addEventListener("click", () => {
     }
 
     .product-image img {
-        width: 100%;
+        width: 50%;
         height: 100%;
         object-fit: cover; /* Ensures image fills the area without distortion */
         transition: transform 0.5s ease;
@@ -756,6 +761,25 @@ mobileProducts.addEventListener("click", () => {
         box-shadow: 0 15px 30px rgba(199,0,0,0.4);
     }
 
+        /* ---------- IMAGE SLIDER ---------- */
+.slider{
+  position:relative;
+}
+
+.slider img{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:opacity .6s ease, transform .6s ease;
+}
+
+.slider img.active{
+  opacity:1;
+  position:relative;
+}
+
+
+
     /* Tablet & Mobile Compatibility */
     @media (max-width: 992px) {
         .product-row, .reverse-desktop {
@@ -770,9 +794,6 @@ mobileProducts.addEventListener("click", () => {
         .spec-grid { text-align: left; }
     }
 </style>
-
-
-
 
 
 <style>
@@ -872,6 +893,20 @@ body{
 }
 
 </style>
+
+<script>
+document.querySelectorAll('.slider').forEach(slider=>{
+  const slides = slider.querySelectorAll('.slide');
+  let index = 0;
+
+  setInterval(()=>{
+    slides[index].classList.remove('active');
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+  }, 3000); // change every 3 sec
+});
+</script>
+
 
 
 <!-- ================= FEATURES ================= -->

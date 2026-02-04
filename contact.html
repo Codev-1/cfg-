@@ -96,6 +96,7 @@ body{
       <a href="psensor.html">Door Sensor</a>
       <a href="pguide.html">Elevator Guide Rails</a>
       <a href="pcarcab.html">Cabins & Car Frames</a>
+      <a href="parking.html">Parking Solutions</a>
       <a href="pelecomponents.html">Elevator Components</a>
       
     </div>
@@ -141,6 +142,7 @@ body{
       <a href="psensor.html">Door Sensor</a>
       <a href="pguide.html">Elevator Guide Rails</a>
       <a href="pcarcab.html">Cabins & Car Frames</a>
+      <a href="parking.html">Parking Solutions</a>
       <a href="pelecomponents.html">Elevator Components</a>
     <a href="products.html" class="view-all">View All</a>
   </div>
@@ -814,7 +816,7 @@ mobileProducts.addEventListener("click", () => {
       <div class="contact-header-top">
             <h2>Contact Us</h2>
             <div class="header-line"></div>
-            <p>We are here to assist you with product inquiries, quotations, or support needs.</p>
+            <p>We are here to assist you with product inquiries, quotations or support needs.</p>
         </div>
         <div class="accent-circle circle-1"></div>
         <div class="accent-circle circle-2"></div>
@@ -844,7 +846,7 @@ mobileProducts.addEventListener("click", () => {
                 </div>
 
                 <div class="branding-visual">
-                    <img src="img/main.png" alt="Elevator Machine" />
+                    <img src="img/tractio.png" alt="Elevator Machine" />
                 </div>
             </div>
 
@@ -1010,8 +1012,8 @@ mobileProducts.addEventListener("click", () => {
     bottom: -20px;
     right: -440px;
     width: 250px;
-    opacity: 0.7;
-    transform: rotate(0deg);
+    opacity: 0.9;
+    transform: rotate(6deg);
 }
 
 /* FORM SIDE */
@@ -1138,10 +1140,29 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
             <div class="card-icon">
                 <i class="fa-solid fa-location-dot"></i>
             </div>
-            <h3>Location</h3>
+            <h3>Head Office</h3>
             <p>Opp. Tiny Industry, Pisoli Road, Kondhwa Budruk, Pune – 411048, Maharashtra, India</p>
             <a href="https://www.google.com/maps/place/CFG+COMPONENTS/@18.4508052,73.876338,15z/data=!3m1!4b1!4m6!3m5!1s0x3bc2eb06d53a86c9:0x69604d295f6346c5!8m2!3d18.4507857!4d73.8947921!16s%2Fg%2F11ychfqzr0?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="card-link">View Map</a>
         </div>
+
+         <div class="contact-card card-animate">
+  <div class="card-icon">
+    <i class="fa-solid fa-location-dot"></i>
+  </div>
+  <h3>Branch Office</h3>
+  <p>
+    #11, Ground Floor, <br>Chunchaghatta Cross,<br>
+    Yelachenahalli, Bangalore – 560062,<br>
+    Karnataka, India
+  </p>
+  <a href="https://www.google.com/maps/place/Chunchgatta+Main+Rd,+Yelachenahalli,+Bengaluru,+Karnataka/@12.8958158,77.5697208,15.4z/"
+     target="_blank"
+     class="card-link">
+     View Map
+  </a>
+</div>
+
+
     </div>
 </section>
 
@@ -1154,10 +1175,10 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 }
 
 .cards-container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
 }
 
@@ -1239,7 +1260,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
         gap: 20px;
     }
     .contact-card {
-        padding: 35px 25px;
+        padding: 30px 22px;
     }
 }
 </style>
@@ -1267,9 +1288,11 @@ gsap.from(".card-animate", {
 
     <!-- MAP -->
     <div class="map-wrap" style="max-width:1100px; margin:auto; border-radius:12px; overflow:hidden;">
-      <iframe width="100%" height="420" style="border:0; display:block; margin-bottom: 10px;" loading="lazy"
-        src="https://www.google.com/maps?q=Tal%20Haveli%20Flat%20No%20803%20Blue%20Berry%20Phursungi%20Pune&output=embed">
-      </iframe>
+      <!-- <iframe width="100%" height="420" style="border:0; display:block; margin-bottom: 10px;" loading="lazy"
+        src="https://www.google.com/maps/place/Kondhwa+Budruk,+Pune,+Maharashtra/@18.4454875,73.8662986,14z/data=!3m1!4b1!4m6!3m5!1s0x3bc2ebaca708a5c3:0xed532202c8e79413!8m2!3d18.450386!4d73.8793745!16s%2Fg%2F1tgkfr3p?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoASAFQAw%3D%3D">
+      </iframe> -->
+      <iframe width="100%" height="420" style="border:0; display:block; margin-bottom: 10px;" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7569.447497666115!2d73.89290640995037!3d18.450847896019912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2eb06d53a86c9%3A0x69604d295f6346c5!2sCFG%20COMPONENTS!5e0!3m2!1sen!2sin!4v1770014647897!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
     </div>
 
  
@@ -1305,7 +1328,7 @@ gsap.from(".card-animate", {
 
         <span class="cfg-gear">⚙</span>
 
-        <span class="cfg-text">Machines • Doors • Brackets</span>
+        <span class="cfg-text">Doors • Traction Machines • Hydraulics</span>
 
         <span class="cfg-gear">⚙</span>
 
@@ -1322,7 +1345,7 @@ gsap.from(".card-animate", {
 
         <span class="cfg-gear">⚙</span>
 
-        <span class="cfg-text">Machines • Doors • Brackets</span>
+        <span class="cfg-text">Doors • Traction Machines • Hydraulics</span>
 
         <span class="cfg-gear">⚙</span>
 
