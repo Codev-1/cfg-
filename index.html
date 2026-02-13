@@ -615,7 +615,7 @@ mobileProducts.addEventListener("click", () => {
     
 
     <p class="hero-desc">
-      We provide durable, high-performance industrial components trusted by manufacturers across India.
+      We provide durable, high-performance industrial components trusted by all elevator manufacturers across India
     </p>
 
    <div class="hero-buttons">
@@ -708,9 +708,9 @@ mobileProducts.addEventListener("click", () => {
 .hero-desc {
   font-size: 1.5rem;
   line-height: 1.5;
-  opacity: 0.85;
+  opacity: 0.95;
   margin: 0 auto 25px auto;
-  max-width: 550px;
+  max-width: 650px;
 }
 
 /* Centered buttons */
@@ -903,7 +903,7 @@ document.querySelectorAll('.hero-btn-primary, .hero-btn-secondary').forEach(btn 
         <img src="img/main.png" class="feature-icon">
         <h3 style="font-size:1.4rem; font-weight:700; margin-bottom:10px;">MS Elevator Geared Traction Machine</h3>
         <p style="opacity:0.8; font-size:0.95rem;">
-          High-accuracy machined components for industrial and engineering applications.
+          High-accuracy machines components for all industrial and commercial applications.
         </p>
       </div>
     </div>
@@ -932,7 +932,7 @@ document.querySelectorAll('.hero-btn-primary, .hero-btn-secondary').forEach(btn 
         <img src="img/gears-.png" class="feature-icon">
         <h3 style="font-size:1.4rem; font-weight:700; margin-bottom:10px;">Gearless Traction Machine</h3>
         <p style="opacity:0.8; font-size:0.95rem;">
-          Tailor-made industrial components built to meet exact specifications.
+          Advanced gearless traction machines built for energy efficiency, durability and seamless vertical mobility
         </p>
       </div>
     </div>
@@ -961,7 +961,7 @@ document.querySelectorAll('.hero-btn-primary, .hero-btn-secondary').forEach(btn 
         <img src="img/home_about_02-removebg-preview.png" class="feature-icon">
         <h3 style="font-size:1.4rem; font-weight:700; margin-bottom:10px;">Over Speed Governor</h3>
         <p style="opacity:0.8; font-size:0.95rem;">
-          Strict inspection & durability testing to ensure long-lasting industrial performance.
+          High-reliability over speed governors built for consistent safety and lasting performance.
         </p>
       </div>
     </div>
@@ -1632,7 +1632,7 @@ document.querySelectorAll("[data-count]").forEach(counter => {
       <img src="img/hycy.jpeg" alt="Hydraulic Kits">
       <div class="pc-overlay">
         <h3>Hydraulic Kits</h3>
-        <p>High-performance cylinders and powerpacks designed for smooth lifting, reliability, and long service life.</p>
+        <p>High-performance cylinders and powerpacks designed for smooth lifting, reliability and long service life.</p>
         <a class="pc-link" href="phydra.html"></a>
       </div>
     </div>
@@ -1652,7 +1652,7 @@ document.querySelectorAll("[data-count]").forEach(counter => {
   <img src="img/elevator-guide-rail.webp" alt="Machine Encoders">
   <div class="pc-overlay">
     <h3>Elevator Guide Rails</h3>
-    <p>High-precision encoders ensuring smooth leveling and accurate floor stopping.</p>
+    <p>Precision-built guide rails for reliable performance and long-lasting stability.</p>
     <a class="pc-link" href="pguide.html"></a>
   </div>
 </div>
@@ -2090,6 +2090,177 @@ gsap.to(".cfg-track",{
 
 
 
+<section id="cfg-brands">
+    <div class="brands-container">
+        <div class="brands-header">
+            <span class="meta-text">Our Strategic Partners</span>
+            <h2>Associated <span class="red-span">Brands</span></h2>
+            <p>CFG Components collaborates with industry-leading global brands to deliver high-precision elevator solutions.</p>
+        </div>
+
+        <div class="brands-grid">
+
+            <div class="brand-item">
+                <img src="logo/fermator.png" alt="Fermator">
+            </div>
+
+             <div class="brand-item">
+                <img src="logo/Logo-Montanari.png" alt="Montanari">
+            </div>
+
+            <div class="brand-item">
+                <img src="logo/Wittur.png" alt="Wittur">
+            </div>
+            
+            
+            <div class="brand-item">
+                <img src="logo/start-elevator.png" alt="Start Elevator">
+            </div>
+
+            <div class="brand-item">
+                <img src="logo/logo-marazzi.svg" alt="Marazzi">
+            </div>
+           
+           
+            <div class="brand-item">
+                <img src="logo/nbs.png" alt="NBSL">
+            </div>
+            <div class="brand-item">
+                <img src="logo/ucon.jpeg" alt="Ucon Precision Fasteners">
+            </div>
+            <div class="brand-item">
+                <img src="logo/weco-logo.png" alt="WECO">
+            </div>
+
+             <div class="brand-item">
+                <img src="logo/dina.png" alt="Dinacell">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+#cfg-brands {
+    padding: 100px 24px;
+    background: #fdfcf9;
+    font-family: 'Poppins', sans-serif;
+}
+
+.brands-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.brands-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.brands-header .meta-text {
+    font-size: 13px;
+    font-weight: 700;
+    color: #c70000;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.brands-header h2 {
+    font-size: 42px;
+    font-weight: 800;
+    color: #0d1117;
+}
+
+.brands-header .red-span { color: #c70000; }
+
+/* FIX: Strict Grid Alignment */
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    align-items: stretch; /* Forces all items in a row to have the same height and start point */
+}
+
+.brand-item {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #707070;
+    transition: all 0.4s ease;
+    height: 180px; /* Uniform height for all boxes */
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.brand-item img {
+    max-width: 100%;
+    max-height: 90px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(10%);
+    opacity: 0.9;
+    transition: all 0.4s ease;
+}
+
+.brand-item:hover {
+    border-color: #dc0202;
+    box-shadow: 0 15px 35px rgba(199, 0, 0, 0.15);
+    transform: translateY(-10px);
+}
+
+.brand-item:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.18);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .brands-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+    .brands-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+// Use window.onload to ensure all images are sized before GSAP calculates positions
+window.onload = function() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // KILL any existing triggers to prevent overlaps
+    ScrollTrigger.getAll().forEach(t => t.kill());
+
+    gsap.from(".brand-item", {
+        scrollTrigger: {
+            trigger: ".brands-grid",
+            start: "top 85%",
+            toggleActions: "play none none none"
+        },
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power2.out",
+        clearProps: "all" // Clears GSAP styles after animation to let CSS take back control
+    });
+};
+</script>
+
+
+
+
+
 <section id="cfg-testimonials-v2">
   <div class="testimonial-header">
     <div class="header-content">
@@ -2408,172 +2579,7 @@ gsap.to(".brand-box", {
 
 
 
-<section id="cfg-brands">
-    <div class="brands-container">
-        <div class="brands-header">
-            <span class="meta-text">Our Strategic Partners</span>
-            <h2>Associated <span class="red-span">Brands</span></h2>
-            <p>CFG Components collaborates with industry-leading global brands to deliver high-precision elevator solutions.</p>
-        </div>
 
-        <div class="brands-grid">
-
-            <div class="brand-item">
-                <img src="logo/fermator.png" alt="Fermator">
-            </div>
-
-             <div class="brand-item">
-                <img src="logo/logo_montanari.png" alt="Montanari">
-            </div>
-
-            <div class="brand-item">
-                <img src="logo/Wittur.png" alt="Wittur">
-            </div>
-            
-            
-            <div class="brand-item">
-                <img src="logo/start-elevator.png" alt="Start Elevator">
-            </div>
-
-            <div class="brand-item">
-                <img src="logo/logo-marazzi.svg" alt="Marazzi">
-            </div>
-           
-           
-            <div class="brand-item">
-                <img src="logo/nbs.png" alt="NBSL">
-            </div>
-            <div class="brand-item">
-                <img src="logo/ucon.jpeg" alt="Ucon Precision Fasteners">
-            </div>
-            <div class="brand-item">
-                <img src="logo/weco-logo.png" alt="WECO">
-            </div>
-
-             <div class="brand-item">
-                <img src="logo/dina.png" alt="Dinacell">
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<style>
-#cfg-brands {
-    padding: 100px 24px;
-    background: #fdfcf9;
-    font-family: 'Poppins', sans-serif;
-}
-
-.brands-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.brands-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.brands-header .meta-text {
-    font-size: 13px;
-    font-weight: 700;
-    color: #c70000;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.brands-header h2 {
-    font-size: 42px;
-    font-weight: 800;
-    color: #0d1117;
-}
-
-.brands-header .red-span { color: #c70000; }
-
-/* FIX: Strict Grid Alignment */
-.brands-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    align-items: stretch; /* Forces all items in a row to have the same height and start point */
-}
-
-.brand-item {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #707070;
-    transition: all 0.4s ease;
-    height: 180px; /* Uniform height for all boxes */
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
-.brand-item img {
-    max-width: 100%;
-    max-height: 90px;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    filter: grayscale(10%);
-    opacity: 0.9;
-    transition: all 0.4s ease;
-}
-
-.brand-item:hover {
-    border-color: #dc0202;
-    box-shadow: 0 15px 35px rgba(199, 0, 0, 0.15);
-    transform: translateY(-10px);
-}
-
-.brand-item:hover img {
-    filter: grayscale(0%);
-    opacity: 1;
-    transform: scale(1.18);
-}
-
-/* Responsive */
-@media (max-width: 991px) {
-    .brands-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 480px) {
-    .brands-grid { grid-template-columns: 1fr; }
-}
-</style>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-<script>
-// Use window.onload to ensure all images are sized before GSAP calculates positions
-window.onload = function() {
-    gsap.registerPlugin(ScrollTrigger);
-
-    // KILL any existing triggers to prevent overlaps
-    ScrollTrigger.getAll().forEach(t => t.kill());
-
-    gsap.from(".brand-item", {
-        scrollTrigger: {
-            trigger: ".brands-grid",
-            start: "top 85%",
-            toggleActions: "play none none none"
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power2.out",
-        clearProps: "all" // Clears GSAP styles after animation to let CSS take back control
-    });
-};
-</script>
 
 
 
