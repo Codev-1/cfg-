@@ -615,7 +615,7 @@ mobileProducts.addEventListener("click", () => {
     
 
     <p class="hero-desc">
-      We provide durable, high-performance industrial components trusted by all elevator manufacturers across India
+      We provide durable, high-performance elevator components trusted by all elevator manufacturers across India
     </p>
 
    <div class="hero-buttons">
@@ -710,7 +710,7 @@ mobileProducts.addEventListener("click", () => {
   line-height: 1.5;
   opacity: 0.95;
   margin: 0 auto 25px auto;
-  max-width: 650px;
+  max-width: 750px;
 }
 
 /* Centered buttons */
@@ -900,11 +900,13 @@ document.querySelectorAll('.hero-btn-primary, .hero-btn-secondary').forEach(btn 
       "></div>
 
       <div class="feature-card-inner">
-        <img src="img/main.png" class="feature-icon">
+        <a href="ptack.html" style="text-decoration: none;">
+        <img src="img/main.png" class="feature-icon" >
         <h3 style="font-size:1.4rem; font-weight:700; margin-bottom:10px;">MS Elevator Geared Traction Machine</h3>
-        <p style="opacity:0.8; font-size:0.95rem;">
+        <p style="opacity:0.9; font-size:0.95rem;">
           High-accuracy machines components for all industrial and commercial applications.
         </p>
+        </a>
       </div>
     </div>
 
@@ -929,11 +931,13 @@ document.querySelectorAll('.hero-btn-primary, .hero-btn-secondary').forEach(btn 
       "></div>
 
       <div class="feature-card-inner">
+        <a href="ptack.html" style="text-decoration: none;">
         <img src="img/gears-.png" class="feature-icon">
         <h3 style="font-size:1.4rem; font-weight:700; margin-bottom:10px;">Gearless Traction Machine</h3>
-        <p style="opacity:0.8; font-size:0.95rem;">
-          Advanced gearless traction machines built for energy efficiency, durability and seamless vertical mobility
+        <p style="opacity:0.9; font-size:0.95rem;">
+          Advanced gearless traction machines built for energy efficiency, durability and seamless vertical mobility.
         </p>
+        </a>
       </div>
     </div>
 
@@ -958,11 +962,13 @@ document.querySelectorAll('.hero-btn-primary, .hero-btn-secondary').forEach(btn 
       "></div>
 
       <div class="feature-card-inner">
+        <a href="pelecomponents.html" style="text-decoration: none;">
         <img src="img/home_about_02-removebg-preview.png" class="feature-icon">
         <h3 style="font-size:1.4rem; font-weight:700; margin-bottom:10px;">Over Speed Governor</h3>
-        <p style="opacity:0.8; font-size:0.95rem;">
+        <p style="opacity:0.9; font-size:0.95rem;">
           High-reliability over speed governors built for consistent safety and lasting performance.
         </p>
+      </a>
       </div>
     </div>
 
@@ -974,11 +980,12 @@ document.querySelectorAll('.hero-btn-primary, .hero-btn-secondary').forEach(btn 
 <style>
 /* Equal size icons */
 .feature-icon {
-  width: 400px;
-  height: 400px;
+  width: 380px;
+  height: 380px;
   object-fit: contain;
   margin: 0 auto 20px auto;
   display: block;
+  text-decoration: none;
 }
 
 /* Hover lift + shadow */
@@ -992,15 +999,20 @@ document.querySelectorAll('.hero-btn-primary, .hero-btn-secondary').forEach(btn 
 .feature-card:hover .shape-bg {
   background: #ffe03a !important;
   transition: background 1s ease;
+  
 }
 
 /* 3D hover tilt container */
 .feature-card {
   perspective: 300px;
+  
 }
 
 .feature-card-inner {
   transition: transform 0.3s ease;
+  h3, p{
+    color: #000000;
+  } 
 }
 </style>
 
