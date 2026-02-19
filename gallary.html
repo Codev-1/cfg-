@@ -592,14 +592,14 @@ mobileProducts.addEventListener("click", () => {
        </div> -->
 
          <div class="cfg-gallery-item">
-        <img src="img/g4.webp" alt="CFG Components">
+        <img src="img/g3.webp" alt="CFG Components">
         <div class="cfg-overlay">CFG Components</div>
       </div>
        
 
 
         <div class="cfg-gallery-item">
-        <img src="img/g1.webp" alt="CFG Components">
+        <img src="img/g11.jpeg" alt="CFG Components">
         <div class="cfg-overlay">CFG Components</div>
        </div>
       <!-- <div class="cfg-gallery-item">
@@ -618,12 +618,12 @@ mobileProducts.addEventListener("click", () => {
       
 
       <div class="cfg-gallery-item">
-        <img src="img/g5.webp" alt="CFG Components">
+        <img src="img/g12.jpeg" alt="CFG Components">
         <div class="cfg-overlay">CFG Components</div>
       </div>
 
       <div class="cfg-gallery-item">
-        <img src="img/g6.webp" alt="machine Work">
+        <img src="img/g13.jpeg" alt="machine Work">
         <div class="cfg-overlay">Professional machine Work</div>
       </div>
 
@@ -654,10 +654,7 @@ mobileProducts.addEventListener("click", () => {
         <div class="cfg-overlay">cfg components</div>
       </div>
 
-        <div class="cfg-gallery-item">
-        <img src="img/g3.webp" alt="CFG Components">
-        <div class="cfg-overlay">CFG Components</div>
-      </div>
+        
 
       <div class="cfg-gallery-item">
         <img src="img/g4.jpeg" alt="cfg">
@@ -713,14 +710,29 @@ mobileProducts.addEventListener("click", () => {
 
 /* Masonry Grid */
 .cfg-gallery-grid{
-  column-width:420px;       /* 👈 fills wide screens */
-  column-gap:18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
 }
 
-@media(max-width:1400px){ .cfg-gallery-grid{column-count:4;} }
-@media(max-width:1000px){ .cfg-gallery-grid{column-count:3;} }
-@media(max-width:700px){  .cfg-gallery-grid{column-count:2;} }
-@media(max-width:480px){  .cfg-gallery-grid{column-count:1;} }
+@media(max-width:1200px){
+  .cfg-gallery-grid{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media(max-width:800px){
+  .cfg-gallery-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width:480px){
+  .cfg-gallery-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
 
 .cfg-gallery-item{
   position:relative;
@@ -737,7 +749,7 @@ mobileProducts.addEventListener("click", () => {
 
 .cfg-gallery-item img{
   width:100%;
-  height: 600px;              /* 👈 IMPORTANT FIX */
+  height: 450px;              /* 👈 IMPORTANT FIX */
   display:block;
   object-fit:cover;
   transition:transform .6s ease;
